@@ -1,0 +1,4 @@
+enum font {
+  bold,
+  light,
+}
