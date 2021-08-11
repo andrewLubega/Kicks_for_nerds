@@ -97,7 +97,7 @@ class BiggerButton extends StatefulWidget {
   final String title;
   final buttonHeight;
   final buttonWidth;
-  final onPressed; 
+  final onPressed;
 
   @override
   _BiggerButtonState createState() => _BiggerButtonState();

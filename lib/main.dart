@@ -3,20 +3,24 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/shopping_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/tagged_page.dart';
 import 'package:kicks_for_nerds/screens/landing_page.dart';
 import 'package:kicks_for_nerds/screens/login_page.dart';
 import 'package:kicks_for_nerds/screens/first_register_page.dart';
 import 'package:kicks_for_nerds/screens/loading_page.dart';
-import 'package:kicks_for_nerds/screens/dms_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/dms_page.dart';
 import 'package:kicks_for_nerds/screens/home_page.dart';
 import 'package:kicks_for_nerds/screens/profile_page.dart';
-import 'package:kicks_for_nerds/screens/search_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/search_page.dart';
 import 'package:kicks_for_nerds/screens/second_register_page.dart';
 import 'package:kicks_for_nerds/screens/forgot_password.dart';
 import 'package:kicks_for_nerds/screens/settings_page.dart';
 import 'package:kicks_for_nerds/screens/upload_page.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
-import 'package:kicks_for_nerds/screens/search_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/search_page.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -170,6 +174,10 @@ class KicksForNerds extends StatelessWidget {
           '/upload': (context) => UploadPage(),
           '/srch': (context) => SearchPage(),
           '/set': (context) => SettingsPage(),
+          '/tag': (context) => TaggedPage(),
+          '/store': (context) => StorePage(),
+          '/cam': (context) => CamPage(),
+          '/shop': (context) => ShoppingPage(),
         },
         home: Scaffold(
           body: AuthWrapper(),

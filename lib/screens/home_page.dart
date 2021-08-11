@@ -37,14 +37,22 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      Navigator.pushNamed(context, '/cam');
+                    });
+                  },
                   child: Image.asset(
                     'images/cam_arrow.png',
                     height: kIconImageHeight,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    setState(() {
+                      Navigator.pushNamed(context, '/shop');
+                    });
+                  },
                   child: Image.asset(
                     'images/shop_arrow.png',
                     height: kIconImageHeight,

@@ -16,10 +16,12 @@ class SettingsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   CustomBackButton(),
                 ],
+              ),
+              SizedBox(
+                height: 300,
               ),
               BiggerButton(
                 title: 'Sign out',

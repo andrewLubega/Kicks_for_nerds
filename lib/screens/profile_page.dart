@@ -27,14 +27,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 203,
                 width: 375,
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    alignment: Alignment.topCenter,
-                    fit: BoxFit.fitWidth,
-                    image: AssetImage(
-                      'images/aot.png',
-                    ),
-                  ),
-                  // color: kBaseWidgetColor,
+                  // image: DecorationImage(
+                  //   alignment: Alignment.topCenter,
+                  //   fit: BoxFit.fitWidth,
+                  //   image: AssetImage(
+                  //     'images/aot.png',
+                  //   ),
+                  // ),
+                  color: kBaseWidgetColor,
                   borderRadius: BorderRadius.circular(kRadiusNumber),
                 ),
                 child: Column(
@@ -123,10 +123,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 top: 140,
                 left: 125,
                 child: CircleAvatar(
-                  radius: 62.5,
-                  backgroundImage: AssetImage(
-                    'images/ttc.png',
-                  ),
+                  radius: 62.5, backgroundColor: kBaseWidgetColor,
+                  // backgroundImage: AssetImage(
+                  //   'images/ttc.png',
+                  // ),
                 ),
               ),
               Padding(
@@ -135,11 +135,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     FollowerFollowingCount(
-                      titleCount: '0k',
+                      titleCount: '0',
                       title: 'Followers',
                     ),
                     FollowerFollowingCount(
-                      titleCount: '0k',
+                      titleCount: '0',
                       title: 'Following',
                     )
                   ],
@@ -182,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           direction: Axis.horizontal,
                           children: <Widget>[
                             Text(
-                              'An aspiring young black entrepenuer, turning my shoe game into reality.',
+                              'Cupidatat culpa nisi laboris nulla enim deserunt ex occaecat consectetur laborum mollit mollit exercitation.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Roboto',
@@ -210,10 +210,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           width: 24,
                         ),
                         StoryFrame(),
-                        StoryFrame(),
-                        StoryFrame(),
-                        StoryFrame(),
-                        StoryFrame(),
+                        // StoryFrame(),
+                        // StoryFrame(),
+                        // StoryFrame(),
+                        // StoryFrame(),
                       ],
                     ),
                   ),
@@ -226,7 +226,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Column(
                           children: <Widget>[
                             Text(
-                              '15',
+                              '1',
                               style: TextStyle(
                                 fontFamily: 'Roboto',
                                 fontSize: kFontSize14,
@@ -239,13 +239,33 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ],
                         ),
-                        Image.asset(
-                          'images/tagged_icon.png',
-                          height: kIconImageHeight,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(
+                                context,
+                                '/tag',
+                              );
+                            });
+                          },
+                          child: Image.asset(
+                            'images/tagged_icon.png',
+                            height: kIconImageHeight,
+                          ),
                         ),
-                        Image.asset(
-                          'images/bag_icon.png',
-                          height: kIconImageHeight,
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              Navigator.pushNamed(
+                                context,
+                                '/store',
+                              );
+                            });
+                          },
+                          child: Image.asset(
+                            'images/bag_icon.png',
+                            height: kIconImageHeight,
+                          ),
                         ),
                         SizedBox(
                           width: 149,
@@ -285,7 +305,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         shrinkWrap: true,
                         crossAxisCount: 3,
                         children: List.generate(
-                          12,
+                          1,
                           (index) {
                             return PostBlock();
                           },
