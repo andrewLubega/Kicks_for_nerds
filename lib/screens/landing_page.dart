@@ -5,6 +5,8 @@ import 'package:kicks_for_nerds/components/reusable_card.dart';
 import 'package:kicks_for_nerds/components/landing_page_nav.dart';
 import 'package:kicks_for_nerds/components/reusable_buttons.dart';
 import 'package:kicks_for_nerds/assets/variables.dart';
+import 'package:kicks_for_nerds/screens/login_page.dart';
+import 'package:kicks_for_nerds/screens/first_register_page.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -60,13 +62,13 @@ class _LandingPageState extends State<LandingPage> {
                       buttonHeight: vNormalButtonHeight,
                       buttonWidth: vSmallButtonWidth,
                       title: 'Login',
-                      routePage: '/log',
+                      routePage: LoginPage(),
                     ),
                     SmallButton(
                       buttonHeight: vNormalButtonHeight,
                       buttonWidth: vSmallButtonWidth,
                       title: 'Register',
-                      routePage: '/reg',
+                      routePage: FirstRegisterPage(),
                     ),
                   ],
                 ),

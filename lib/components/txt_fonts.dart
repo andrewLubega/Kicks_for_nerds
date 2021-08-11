@@ -28,8 +28,8 @@ class ReusbaleBoldTxtFont extends StatelessWidget {
 }
 
 // Light font classes
-class ReusableLightTxtFont extends StatelessWidget {
-  ReusableLightTxtFont({
+class ReusableRegularTxtFont extends StatelessWidget {
+  ReusableRegularTxtFont({
     @required this.text,
     @required this.fontW8t,
     @required this.fontsize,

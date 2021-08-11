@@ -19,7 +19,7 @@ class TxtForm extends StatelessWidget {
         hintText: txt,
         hintStyle: TextStyle(
           fontFamily: 'Roboto',
-          fontSize: kFontSize18,
+          fontSize: kFontSize12,
         ),
         border: OutlineInputBorder(
           borderSide: BorderSide.none,

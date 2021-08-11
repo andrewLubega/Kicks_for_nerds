@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "637160821531",
+    "firebase_url": "https://kicks-for-nerds-default-rtdb.firebaseio.com",
+    "project_id": "kicks-for-nerds",
+    "storage_bucket": "kicks-for-nerds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637160821531:android:9f91d6915544aad3e779be",
+        "android_client_info": {
+          "package_name": "com.example.kicks_for_nerds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637160821531-pn6uu07dqu43c89o4de83akm5sjp5bao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_XZrXGJOgehUagP-IcWiIW2Sr393Nado"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637160821531-pn6uu07dqu43c89o4de83akm5sjp5bao.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "637160821531-3852o8a7ng5mac3svppmhr41rt4uno35.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kicksForNerds"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

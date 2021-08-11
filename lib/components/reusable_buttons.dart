@@ -6,6 +6,7 @@ import 'txt_fonts.dart';
 import 'package:kicks_for_nerds/assets/enums.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
 import 'package:kicks_for_nerds/assets/variables.dart';
+import 'package:kicks_for_nerds/main.dart';
 
 //small button
 
@@ -18,7 +19,7 @@ class SmallButton extends StatefulWidget {
     this.buttonWidth,
   }) : super(key: key);
 
-  final String routePage;
+  final Widget routePage;
   final String title;
   final buttonHeight;
   final buttonWidth;
@@ -41,9 +42,9 @@ class _SmallButtonState extends State<SmallButton> {
             hasBeenPressed = !hasBeenPressed;
           },
         );
-        Navigator.pushNamed(
+        Navigator.push(
           context,
-          widget.routePage,
+          MaterialPageRoute(builder: (context) => widget.routePage),
         );
       },
       style: ElevatedButton.styleFrom(
@@ -62,12 +63,13 @@ class _SmallButtonState extends State<SmallButton> {
           cardChild: ToggleBold(
             fontType: hasBeenPressed ? font.bold : font.light,
             boldTxtFont: ReusbaleBoldTxtFont(
+              fontW8t: kBoldTxt,
               fontsize: kFontSize18,
               text: widget.title,
             ),
-            lightTxtFont: ReusableLightTxtFont(
+            regularTxtFont: ReusableRegularTxtFont(
               fontsize: kFontSize18,
-              fontW8t: kLightTxt,
+              fontW8t: kRegularTxt,
               text: widget.title,
             ),
           ),
@@ -87,6 +89,7 @@ class BiggerButton extends StatefulWidget {
     @required this.title,
     this.routePage,
     this.buttonHeight,
+    this.onPressed,
     this.buttonWidth,
   }) : super(key: key);
 
@@ -94,6 +97,7 @@ class BiggerButton extends StatefulWidget {
   final String title;
   final buttonHeight;
   final buttonWidth;
+  final onPressed; 
 
   @override
   _BiggerButtonState createState() => _BiggerButtonState();
@@ -107,17 +111,7 @@ class _BiggerButtonState extends State<BiggerButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        setState(
-          () {
-            hasBeenPressed = !hasBeenPressed;
-          },
-        );
-        Navigator.pushNamed(
-          context,
-          widget.routePage,
-        );
-      },
+      onPressed: widget.onPressed,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
@@ -137,11 +131,10 @@ class _BiggerButtonState extends State<BiggerButton> {
               fontsize: kFontSize12,
               text: widget.title,
             ),
-            lightTxtFont: ReusableLightTxtFont(
-              fontsize: kFontSize12,
-              fontW8t: kLightTxt,
-              text: widget.title,
-            ),
+            regularTxtFont: ReusableRegularTxtFont(
+                fontsize: kFontSize12,
+                fontW8t: kRegularTxt,
+                text: widget.title),
           ),
           height: vNormalButtonHeight.toDouble(),
           width: 327,
@@ -150,3 +143,14 @@ class _BiggerButtonState extends State<BiggerButton> {
     );
   }
 }
+
+
+//  setState(
+//           () {
+//             hasBeenPressed = !hasBeenPressed;
+//           },
+//         );
+// Navigator.pushNamed(
+//               context,
+//              widget.routePage,
+//         ); 

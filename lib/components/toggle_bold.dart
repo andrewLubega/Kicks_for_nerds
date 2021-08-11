@@ -5,15 +5,15 @@ class ToggleBold extends StatelessWidget {
   ToggleBold(
       {@required this.fontType,
       @required this.boldTxtFont,
-      @required this.lightTxtFont});
+      @required this.regularTxtFont});
 
   final font fontType;
 
   final boldTxtFont;
-  final lightTxtFont;
+  final regularTxtFont;
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: fontType == font.bold ? boldTxtFont : lightTxtFont);
+    return Center(child: fontType == font.bold ? boldTxtFont : regularTxtFont);
   }
 }

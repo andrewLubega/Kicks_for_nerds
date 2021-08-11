@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard(
-      {this.height,
-      this.width,
-      this.baseColour,
-      this.cardChild,
-      this.marginSize,
-      this.grad});
+  ReusableCard({
+    this.height,
+    this.width,
+    this.baseColour,
+    this.cardChild,
+    this.marginSize,
+    this.grad,
+  });
 
   final marginSize;
   final double height;
@@ -16,6 +17,8 @@ class ReusableCard extends StatelessWidget {
   final Widget cardChild;
   final double width;
   final grad;
+
+  // final <>imagepic;
 
   @override
   Widget build(BuildContext context) {
