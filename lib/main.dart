@@ -7,6 +7,7 @@ import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/shopping_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/tagged_page.dart';
+import 'package:kicks_for_nerds/screens/handle_page.dart';
 import 'package:kicks_for_nerds/screens/landing_page.dart';
 import 'package:kicks_for_nerds/screens/login_page.dart';
 import 'package:kicks_for_nerds/screens/first_register_page.dart';
@@ -19,6 +20,7 @@ import 'package:kicks_for_nerds/screens/second_register_page.dart';
 import 'package:kicks_for_nerds/screens/forgot_password.dart';
 import 'package:kicks_for_nerds/screens/settings_page.dart';
 import 'package:kicks_for_nerds/screens/upload_page.dart';
+import 'package:kicks_for_nerds/screens/username_page.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/search_page.dart';
 import 'package:provider/provider.dart';
@@ -178,6 +180,8 @@ class KicksForNerds extends StatelessWidget {
           '/store': (context) => StorePage(),
           '/cam': (context) => CamPage(),
           '/shop': (context) => ShoppingPage(),
+          '/user': (context) => UserNamePage(),
+          '/handle': (context) => HandlePage(),
         },
         home: Scaffold(
           body: AuthWrapper(),
@@ -194,6 +198,6 @@ class AuthWrapper extends StatelessWidget {
     if (user != null) {
       return ProfilePage();
     }
-    return LoginPage();
+    return LandingPage();
   }
 }

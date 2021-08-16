@@ -1,10 +1,15 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
 import 'package:kicks_for_nerds/components/Following_Followers.dart';
 import 'package:kicks_for_nerds/components/nav_bar.dart';
 import 'package:kicks_for_nerds/components/post_block.dart';
+import 'package:kicks_for_nerds/components/post_card.dart';
 import 'package:kicks_for_nerds/components/story_frame.dart';
+import 'package:kicks_for_nerds/services/database.dart';
+
+import 'loading_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key key}) : super(key: key);
@@ -14,6 +19,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  var posts;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                               child: Center(
                                 child: Text(
-                                  '@user',
+                                  '@Handle',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 10,
@@ -293,26 +300,62 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-
                   // Posts
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                      child: GridView.count(
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        crossAxisCount: 3,
-                        children: List.generate(
-                          1,
-                          (index) {
-                            return PostBlock();
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
+                  StreamBuilder(
+                      stream: FirebaseDatabase.instance
+                          .reference()
+                          .child('posts')
+                          .onValue,
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.data == null) {
+                          snapshot.connectionState == ConnectionState.waiting
+                              ? LoadingPage()
+                              : Container();
+                        }
+                        posts = DataBase().getPost(snapshot: snapshot);
+                        return Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                            child: GridView.count(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 12,
+                              mainAxisSpacing: 11,
+                              children: List.generate(
+                                posts.length,
+                                (index) {
+                                  print(
+                                    posts[index].imageUrl,
+                                  );
+                                  return PostCard(
+                                    width: 158,
+                                    height: 190,
+                                    baseColour: kBaseWidgetColor,
+                                    image: posts[index].imageUrl,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                  // Expanded(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                  //     child: GridView.count(
+                  //       crossAxisSpacing: 12,
+                  //       mainAxisSpacing: 12,
+                  //       physics: NeverScrollableScrollPhysics(),
+                  //       shrinkWrap: true,
+                  //       crossAxisCount: 3,
+                  //       children: List.generate(
+                  //         1,
+                  //         (index) {
+                  //           return PostBlock();
+                  //         },
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
