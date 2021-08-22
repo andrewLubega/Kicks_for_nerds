@@ -50,6 +50,13 @@ class DataBase {
     );
     return postList;
   }
+
+  Future<int> getPostLength() async {
+    final lengthReference = connection.child('posts');
+    int postLength =
+        await lengthReference.once().then((value) => value.value.length);
+    return postLength;
+  }
 }
 
 // class DataService {}

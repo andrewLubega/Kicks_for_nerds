@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
@@ -20,8 +21,25 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   var posts;
+  final connection = FirebaseDatabase.instance.reference();
+
+  var pL;
 
   @override
+  void initState() {
+    super.initState();
+    postLength();
+  }
+
+  postLength() async {
+    String pLength = await DataBase().getPostLength().then(
+          (value) => value.toString(),
+        );
+    setState(() { 
+      pL = pLength;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBGClr,
@@ -233,7 +251,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Column(
                           children: <Widget>[
                             Text(
-                              '1',
+                              pL,
                               style: TextStyle(
                                 fontFamily: 'Roboto',
                                 fontSize: kFontSize14,
