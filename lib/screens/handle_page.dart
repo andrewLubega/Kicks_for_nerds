@@ -3,9 +3,16 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
 import 'package:kicks_for_nerds/components/reusable_buttons.dart';
 import 'package:kicks_for_nerds/components/stroke_button.dart';
+import 'package:kicks_for_nerds/screens/profile_page.dart';
+import 'package:kicks_for_nerds/services/database.dart';
 
-class HandlePage extends StatelessWidget {
-  const HandlePage({Key key}) : super(key: key);
+class HandlePage extends StatefulWidget {
+  @override
+  _HandlePageState createState() => _HandlePageState();
+}
+
+class _HandlePageState extends State<HandlePage> {
+  String handleValue = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +28,7 @@ class HandlePage extends StatelessWidget {
           Column(
             children: <Widget>[
               StrokeButtonField(
+                onChangedProperty: (val) => handleValue = val,
                 hiddenPass: false,
                 txt: 'Handle',
               ),
@@ -29,6 +37,16 @@ class HandlePage extends StatelessWidget {
                   top: 12.0,
                 ),
                 child: BiggerButton(
+                  onPressed: () {
+                    DataBase().setHandle(handleValue);
+                    setState(() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfilePage(),
+                          ));
+                    });
+                  },
                   title: 'Set',
                 ),
               ),

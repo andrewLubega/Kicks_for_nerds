@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/models/posts.dart';
 import 'package:uuid/uuid.dart';
+import 'auth.dart';
 
 class DataBase {
   final connection = FirebaseDatabase.instance.reference();
@@ -57,6 +59,26 @@ class DataBase {
         await lengthReference.once().then((value) => value.value.length);
     return postLength;
   }
+
+  Future<void> setHandle(String handle) async {
+    String user = await AuthService(FirebaseAuth.instance).currentUser();
+    final handleRef = connection.child('handles').child(user);
+    handleRef.set({
+      'handle': "@$handle",
+      'uid': user,
+    });
+  }
+
+  Future<void> setUserName(String name) async {
+    String user = await AuthService(FirebaseAuth.instance).currentUser();
+    final handleRef = connection.child('usernames').child(user);
+    handleRef.set({
+      'username': name,
+      'uid': user,
+    });
+  }
 }
+
+
 
 // class DataService {}

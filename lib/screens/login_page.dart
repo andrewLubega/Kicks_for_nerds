@@ -85,12 +85,12 @@ class _LoginPageState extends State<LoginPage> {
                         print(
                           result,
                         );
-                        // setState(() {
-                        //   Navigator.pushNamed(
-                        //     context,
-                        //     '/profile',
-                        //   );
-                        // });
+                        setState(() {
+                          Navigator.pushNamed(
+                            context,
+                            '/profile',
+                          );
+                        });
                       }
                     } else {
                       setState(

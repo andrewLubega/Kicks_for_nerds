@@ -1,20 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
+import 'package:kicks_for_nerds/assets/my_stream_builder.dart';
 import 'package:kicks_for_nerds/components/Following_Followers.dart';
 import 'package:kicks_for_nerds/components/nav_bar.dart';
 import 'package:kicks_for_nerds/components/post_block.dart';
 import 'package:kicks_for_nerds/components/post_card.dart';
 import 'package:kicks_for_nerds/components/story_frame.dart';
+import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
 import 'loading_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key key}) : super(key: key);
-
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -24,18 +25,29 @@ class _ProfilePageState extends State<ProfilePage> {
   final connection = FirebaseDatabase.instance.reference();
 
   var pL;
+//here
+  String userUid = '';
 
   @override
   void initState() {
     super.initState();
     postLength();
+    userRetrieval();
+  }
+
+//here
+  userRetrieval() async {
+    String user = await AuthService(FirebaseAuth.instance).currentUser();
+    setState(() {
+      userUid = user;
+    });
   }
 
   postLength() async {
     String pLength = await DataBase().getPostLength().then(
           (value) => value.toString(),
         );
-    setState(() { 
+    setState(() {
       pL = pLength;
     });
   }
@@ -79,24 +91,25 @@ class _ProfilePageState extends State<ProfilePage> {
                             onDoubleTap: () {
                               Navigator.pushNamed(context, '/log');
                             },
-                            child: Container(
-                              height: 25,
-                              width: 86,
-                              decoration: BoxDecoration(
-                                color: Color(
-                                  0x75000000,
+                            child: Expanded(
+                              child: Container(
+                                height: 25,
+                                decoration: BoxDecoration(
+                                  color: Color(
+                                    0x75000000,
+                                  ),
+                                  borderRadius: BorderRadius.circular(
+                                    24,
+                                  ),
                                 ),
-                                borderRadius: BorderRadius.circular(
-                                  24,
-                                ),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '@Handle',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                    fontFamily: 'Roboto',
+                                child: Center(
+                                  //here
+                                  child: MyStreamBuilder(
+                                    fontSize: 10.0,
+                                    clrs: Colors.white,
+                                    userUid: userUid,
+                                    location: 'handles',
+                                    valueKey: 'handle',
                                   ),
                                 ),
                               ),
@@ -188,17 +201,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(105, 39, 104, 0),
-                        child: Wrap(
-                          children: <Widget>[
-                            Text(
-                              'User',
-                              style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontSize: kFontSize18,
-                                  fontWeight: kBoldTxt),
-                            ),
-                          ],
+                        padding: const EdgeInsets.fromLTRB(0, 39, 0, 0),
+                        child: MyStreamBuilder(
+                          fontWeight: kBoldTxt,
+                          fontSize: kFontSize18,
+                          valueKey: 'username',
+                          location: 'usernames',
+                          userUid: userUid,
                         ),
                       ),
                       Padding(
@@ -320,10 +329,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   // Posts
                   StreamBuilder(
-                      stream: FirebaseDatabase.instance
-                          .reference()
-                          .child('posts')
-                          .onValue,
+                      stream: connection.child('posts').onValue,
                       builder: (context, AsyncSnapshot snapshot) {
                         if (snapshot.data == null) {
                           snapshot.connectionState == ConnectionState.waiting
@@ -396,4 +402,3 @@ class _ProfilePageState extends State<ProfilePage> {
 //                   constraints:
 //                       BoxConstraints(minHeight: viewportConstraints.minHeight),
 //                   child: 
-

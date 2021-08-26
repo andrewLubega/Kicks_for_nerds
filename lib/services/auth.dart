@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:kicks_for_nerds/models/MyAppUser.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
@@ -49,6 +50,12 @@ class AuthService {
     //   print(e.toString());
     //   return null;
     // }
+  }
+
+  //TODO here 
+  Future<String> currentUser() async {
+    final User user = await FirebaseAuth.instance.currentUser;
+    return user.uid.toString();
   }
 
   Stream<MyAppUser> get user =>

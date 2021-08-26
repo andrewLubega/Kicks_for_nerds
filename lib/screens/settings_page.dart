@@ -160,7 +160,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       title: 'Sign out',
                       onPressed: () {
                         context.read<AuthService>().signOutFirebaseUser();
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/land');
                       },
                     ),
                   ),
