@@ -72,6 +72,8 @@ const kRegularTxt = FontWeight.w400;
 
 const kLightTxt = FontWeight.w100;
 
+
+const kFontSize10 = 10.0;
 const kFontSize12 = 12.0;
 const kFontSize14 = 14.0;
 const kFontSize18 = 18.0;

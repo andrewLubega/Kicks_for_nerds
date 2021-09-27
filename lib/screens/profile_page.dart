@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -24,7 +26,8 @@ class _ProfilePageState extends State<ProfilePage> {
   var posts;
   final connection = FirebaseDatabase.instance.reference();
 
-  var pL;
+//TODO change back to empty variable
+  var pL = '';
 //here
   String userUid = '';
 
@@ -84,33 +87,31 @@ class _ProfilePageState extends State<ProfilePage> {
                         24,
                         0,
                       ),
-                      child: Row(
+                      child: Row( 
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           GestureDetector(
                             onDoubleTap: () {
                               Navigator.pushNamed(context, '/log');
                             },
-                            child: Expanded(
-                              child: Container(
-                                height: 25,
-                                decoration: BoxDecoration(
-                                  color: Color(
-                                    0x75000000,
-                                  ),
-                                  borderRadius: BorderRadius.circular(
-                                    24,
-                                  ),
+                            child: Container(
+                              height: 25,
+                              decoration: BoxDecoration(
+                                color: Color(
+                                  0x75000000,
                                 ),
-                                child: Center(
-                                  //here
-                                  child: MyStreamBuilder(
-                                    fontSize: 10.0,
-                                    clrs: Colors.white,
-                                    userUid: userUid,
-                                    location: 'handles',
-                                    valueKey: 'handle',
-                                  ),
+                                borderRadius: BorderRadius.circular(
+                                  24,
+                                ),
+                              ),
+                              child: Center(
+                                //here
+                                child: MyStreamBuilder(
+                                  fontSize: 10.0,
+                                  clrs: Colors.white,
+                                  userUid: userUid,
+                                  location: 'handles',
+                                  valueKey: 'handle',
                                 ),
                               ),
                             ),
@@ -401,4 +402,4 @@ class _ProfilePageState extends State<ProfilePage> {
 //                     child: ConstrainedBox(
 //                   constraints:
 //                       BoxConstraints(minHeight: viewportConstraints.minHeight),
-//                   child: 
+//                   child:

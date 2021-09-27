@@ -1,6 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:kicks_for_nerds/assets/enums.dart';
 import 'package:kicks_for_nerds/screens/loading_page.dart';
 
 class MyStreamBuilder extends StatefulWidget {
@@ -29,34 +28,35 @@ class _MyStreamBuilderState extends State<MyStreamBuilder> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: connection.child(widget.location).child(widget.userUid).onValue,
-        builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.data == null) {
-            snapshot.connectionState == ConnectionState.waiting
-                ? LoadingPage()
-                : Container();
-          }
-          print(
-            "snapshot: ${snapshot.data.snapshot.value['${widget.valueKey}']}",
-          );
-          print("snapshot: ${snapshot.data.snapshot.value}");
-          return Padding(
-            padding: const EdgeInsets.only(
-              left: 5,
-              right: 5,
+      stream: connection.child(widget.location).child(widget.userUid).onValue,
+      builder: (context, AsyncSnapshot snapshot) {
+        if (snapshot.data == null) {
+          snapshot.connectionState == ConnectionState.waiting
+              ? LoadingPage()
+              : Container();
+        }
+        print(
+          "snapshot: ${snapshot.data.snapshot.value['${widget.valueKey}']}",
+        );
+        print("snapshot: ${snapshot.data.snapshot.value}");
+        return Padding(
+          padding: const EdgeInsets.only(
+            left: 5,
+            right: 5,
+          ),
+          child: Text(
+            (snapshot.hasData)
+                ? '${snapshot.data.snapshot.value[widget.valueKey]}'
+                : widget.valueKey,
+            style: TextStyle(
+              color: widget.clrs,
+              fontSize: widget.fontSize,
+              fontFamily: 'Roboto',
+              fontWeight: widget.fontWeight,
             ),
-            child: Text(
-              (snapshot.hasData)
-                  ? '${snapshot.data.snapshot.value[widget.valueKey]}'
-                  : widget.valueKey,
-              style: TextStyle(
-                color: widget.clrs,
-                fontSize: widget.fontSize,
-                fontFamily: 'Roboto',
-                fontWeight: widget.fontWeight,
-              ),
-            ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

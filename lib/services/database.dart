@@ -62,6 +62,7 @@ class DataBase {
 
   Future<void> setHandle(String handle) async {
     String user = await AuthService(FirebaseAuth.instance).currentUser();
+    //TODO changed handles to handle
     final handleRef = connection.child('handles').child(user);
     handleRef.set({
       'handle': "@$handle",

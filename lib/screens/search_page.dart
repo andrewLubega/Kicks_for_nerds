@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/nav_bar.dart';
+import 'package:kicks_for_nerds/components/profile_search_card.dart';
+import 'package:kicks_for_nerds/components/search_card.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key key}) : super(key: key);
@@ -18,14 +20,19 @@ class _SearchPageState extends State<SearchPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Center(
-            child: Text(
-              'Search not done yet',
-              style: TextStyle(
-                fontFamily: 'Comfortaa',
-                fontSize: kFontSize18,
+          Column(
+            children: <Widget>[
+              SearchCard(
+                txt: "Search",
+                hiddenPass: false,
               ),
-            ),
+              ProfileSearchCard(
+                handle: '',
+                onPressed: null,
+                routePage: '',
+                username: '',
+              ),
+            ],
           ),
         ],
       ),
