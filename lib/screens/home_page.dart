@@ -71,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                       : Container();
                 }
                 posts = DataBase().getPost(snapshot: snapshot);
+                // print(posts);
                 return Expanded(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),

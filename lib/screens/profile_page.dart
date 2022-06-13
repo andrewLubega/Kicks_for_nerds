@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -12,6 +10,7 @@ import 'package:kicks_for_nerds/components/nav_bar.dart';
 import 'package:kicks_for_nerds/components/post_block.dart';
 import 'package:kicks_for_nerds/components/post_card.dart';
 import 'package:kicks_for_nerds/components/story_frame.dart';
+import 'package:kicks_for_nerds/models/posts.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
@@ -27,9 +26,24 @@ class _ProfilePageState extends State<ProfilePage> {
   final connection = FirebaseDatabase.instance.reference();
 
 //TODO change back to empty variable
-  var pL = '';
+  int pL;
 //here
   String userUid = '';
+  userRetrieval() async {
+    String user = await AuthService(FirebaseAuth.instance).currentUser();
+    setState(() {
+      userUid = user;
+    });
+  }
+
+  postLength() async {
+    int pLength = await DataBase().getPostLength().then(
+          (value) => value,
+        );
+    setState(() {
+      pL = pLength;
+    });
+  }
 
   @override
   void initState() {
@@ -39,21 +53,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
 //here
-  userRetrieval() async {
-    String user = await AuthService(FirebaseAuth.instance).currentUser();
-    setState(() {
-      userUid = user;
-    });
-  }
-
-  postLength() async {
-    String pLength = await DataBase().getPostLength().then(
-          (value) => value.toString(),
-        );
-    setState(() {
-      pL = pLength;
-    });
-  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,13 +66,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 height: 203,
                 width: 375,
                 decoration: BoxDecoration(
-                  // image: DecorationImage(
-                  //   alignment: Alignment.topCenter,
-                  //   fit: BoxFit.fitWidth,
-                  //   image: AssetImage(
-                  //     'images/aot.png',
-                  //   ),
-                  // ),
+                  image: DecorationImage(
+                    alignment: Alignment.topCenter,
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage(
+                      'images/aot.png',
+                    ),
+                  ),
                   color: kBaseWidgetColor,
                   borderRadius: BorderRadius.circular(kRadiusNumber),
                 ),
@@ -87,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         24,
                         0,
                       ),
-                      child: Row( 
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           GestureDetector(
@@ -105,15 +104,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               child: Center(
-                                //here
-                                child: MyStreamBuilder(
-                                  fontSize: 10.0,
-                                  clrs: Colors.white,
-                                  userUid: userUid,
-                                  location: 'handles',
-                                  valueKey: 'handle',
-                                ),
-                              ),
+                                  // child: MyStreamBuilder(
+                                  //   fontSize: 10.0,
+                                  //   clrs: Colors.white,
+                                  //   userUid: userUid,
+                                  //   location: 'users',
+                                  //   valueKey: 'handle',
+                                  // ),
+                                  ),
                             ),
                           ),
                           // Image.asset(
@@ -203,13 +201,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 39, 0, 0),
-                        child: MyStreamBuilder(
-                          fontWeight: kBoldTxt,
-                          fontSize: kFontSize18,
-                          valueKey: 'username',
-                          location: 'usernames',
-                          userUid: userUid,
-                        ),
+                        // child: MyStreamBuilder(
+                        //   fontWeight: kBoldTxt,
+                        //   fontSize: kFontSize18,
+                        //   valueKey: 'fullName',
+                        //   location: 'users',
+                        //   userUid: userUid,
+                        // ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(60, 12, 60, 0),
@@ -261,7 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Column(
                           children: <Widget>[
                             Text(
-                              pL,
+                              "stripphy",
                               style: TextStyle(
                                 fontFamily: 'Roboto',
                                 fontSize: kFontSize14,
@@ -329,40 +327,69 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                   // Posts
-                  StreamBuilder(
-                      stream: connection.child('posts').onValue,
-                      builder: (context, AsyncSnapshot snapshot) {
-                        if (snapshot.data == null) {
-                          snapshot.connectionState == ConnectionState.waiting
-                              ? LoadingPage()
-                              : Container();
-                        }
-                        posts = DataBase().getPost(snapshot: snapshot);
-                        return Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                            child: GridView.count(
-                              crossAxisCount: 3,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 11,
-                              children: List.generate(
-                                posts.length,
-                                (index) {
-                                  print(
-                                    posts[index].imageUrl,
-                                  );
-                                  return PostCard(
-                                    width: 158,
-                                    height: 190,
-                                    baseColour: kBaseWidgetColor,
-                                    image: posts[index].imageUrl,
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        );
-                      }),
+                  // StreamBuilder(
+                  //   stream: connection
+                  //       // .child('users')
+                  //       // .child(userUid)
+                  //       .child('posts')
+                  //       .child(userUid)
+                  //       .onValue,
+                  //   builder: (context, AsyncSnapshot snapshot) {
+                  //     if (snapshot.data == null) {
+                  //       snapshot.connectionState == ConnectionState.waiting
+                  //           ? LoadingPage()
+                  //           : Container();
+                  //     }
+                  //     final List<Post> postList = [];
+                  //     final Map<dynamic, dynamic> postMap =
+                  //         snapshot.data.snapshot.value;
+                  //     //print(postMap);
+                  //     // postMap.forEach(
+                  //     //   (key, value) {
+                  //     //     print(key);
+                  //     //     print(value);
+
+                  //     //     Post post = Post(
+                  //     //       imageUrl: value['imageUrl'],
+                  //     //       title: value['title'],
+                  //     //       text: value['text'],
+                  //     //     );
+
+                  //     //     postList.add(post);
+                  //     //     print(postList.length);
+                  //     //     print(post);
+                  //     //   },
+                  //     // );
+                  //     print("result before calc");
+                  //     print("result below");
+                  //     print(postList);
+                  //     print("result above");
+                  //     return Expanded(
+                  //       child: Padding(
+                  //         padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                  //         child: GridView.count(
+                  //           crossAxisCount: 3,
+                  //           crossAxisSpacing: 12,
+                  //           mainAxisSpacing: 11,
+                  //           children: List.generate(
+                  //             postList.length,
+                  //             (index) {
+                  //               print(
+                  //                 postList[index].imageUrl,
+                  //               );
+                  //               return PostCard(
+                  //                 width: 158,
+                  //                 height: 190,
+                  //                 baseColour: kBaseWidgetColor,
+                  //                 image: postList[index].imageUrl,
+                  //               );
+                  //             },
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  // ),
                   // Expanded(
                   //   child: Padding(
                   //     padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),

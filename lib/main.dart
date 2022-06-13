@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
+import 'package:kicks_for_nerds/models/myAppUser.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/shopping_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
@@ -22,6 +23,7 @@ import 'package:kicks_for_nerds/screens/upload_page.dart';
 import 'package:kicks_for_nerds/screens/username_page.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:kicks_for_nerds/screens/search_page.dart';
+import 'package:kicks_for_nerds/services/database.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -198,5 +200,6 @@ class AuthWrapper extends StatelessWidget {
       return ProfilePage();
     }
     return LandingPage();
+  
   }
 }

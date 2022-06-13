@@ -70,7 +70,7 @@ class _NavBarState extends State<NavBar> {
                     context,
                     '/upload',
                   );
-                  // print('success');
+                  print('success');
                   // getImageGallery();
                 },
                 child: Image.asset(

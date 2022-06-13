@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:kicks_for_nerds/models/myAppUser.dart';
 import 'package:kicks_for_nerds/screens/loading_page.dart';
 
 class MyStreamBuilder extends StatefulWidget {
@@ -25,37 +26,64 @@ class MyStreamBuilder extends StatefulWidget {
 
 class _MyStreamBuilderState extends State<MyStreamBuilder> {
   final connection = FirebaseDatabase.instance.reference();
+
+  getText(currentUser) {
+    String textResult = "";
+    if (widget.location == "fullName") {
+      textResult = currentUser.fullName;
+    } else {
+      textResult = currentUser.handle;
+    }
+    return textResult;
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: connection.child(widget.location).child(widget.userUid).onValue,
-      builder: (context, AsyncSnapshot snapshot) {
-        if (snapshot.data == null) {
-          snapshot.connectionState == ConnectionState.waiting
-              ? LoadingPage()
-              : Container();
+      stream: connection.child('users').child(widget.userUid).onValue,
+      // ignore: missing_return
+      builder: (context, AsyncSnapshot<Event> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return LoadingPage();
         }
-        print(
-          "snapshot: ${snapshot.data.snapshot.value['${widget.valueKey}']}",
-        );
-        print("snapshot: ${snapshot.data.snapshot.value}");
-        return Padding(
-          padding: const EdgeInsets.only(
-            left: 5,
-            right: 5,
-          ),
-          child: Text(
-            (snapshot.hasData)
-                ? '${snapshot.data.snapshot.value[widget.valueKey]}'
-                : widget.valueKey,
-            style: TextStyle(
-              color: widget.clrs,
-              fontSize: widget.fontSize,
-              fontFamily: 'Roboto',
-              fontWeight: widget.fontWeight,
-            ),
-          ),
-        );
+        if (snapshot.hasData) {
+          // print(snapshot.data.snapshot.value);
+          if (snapshot.data != null) {
+            print(snapshot.data.snapshot.value);
+            Map<dynamic, dynamic> map = snapshot.data.snapshot.value;
+            // print(snapshot.data.snapshot.value);
+            // print(widget.location);
+            print(widget.userUid);
+            // print(map);
+            // print(snapshot.data);
+
+            MyAppUser currentUser = MyAppUser(
+              uid: map['uid'],
+              email: map['email'],
+              handle: map['handle'],
+              fullName: map['fullName'],
+            );
+            // print(map['uid']);
+
+            return Padding(
+              padding: const EdgeInsets.only(
+                left: 5,
+                right: 5,
+              ),
+              child: Text(
+                "${getText("currentUser")}",
+                style: TextStyle(
+                  color: widget.clrs,
+                  fontSize: widget.fontSize,
+                  fontFamily: 'Roboto',
+                  fontWeight: widget.fontWeight,
+                ),
+              ),
+            );
+          }
+        } else {
+          return Container();
+        }
       },
     );
   }

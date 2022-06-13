@@ -17,8 +17,10 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  String fullName = '';
+  String handle = '';
   String error = '';
-  String username = '';
+  // String username = '';
   String phone = '';
   // final AuthService _auth = AuthService();
   bool loading = false;
@@ -40,7 +42,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Register',
+                      'Register', 
                       style: TextStyle(
                         fontFamily: 'Comfortaa',
                         fontSize: 36,
@@ -76,6 +78,24 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 },
                 txt: kPasswordTxt,
               ),
+              StrokeButtonField(
+                hiddenPass: false,
+                onChangedProperty: (val) {
+                  setState(
+                    () => fullName = val.trim(),
+                  );
+                },
+                txt: kfNameTxt,
+              ),
+              StrokeButtonField(
+                hiddenPass: false,
+                onChangedProperty: (val) {
+                  setState(
+                    () => handle = val.trim(),
+                  );
+                },
+                txt: khandleTxt,
+              ),
 
               // StrokeButtonField(
               //   onChangedProperty: (val) {
@@ -97,7 +117,8 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
 
                       dynamic result = await context
                           .read<AuthService>()
-                          .registerFirebaseUser(email, password);
+                          .registerFirebaseUser(
+                              email, password, fullName, handle);
                       if (result == null) {
                         setState(() => error = 'error, could not sign in user');
                       } else {
@@ -119,6 +140,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                   },
                   title: 'Next',
                   buttonHeight: vNormalButtonHeight,
+                  
                 ),
               ),
               UnderButtonTxt(
