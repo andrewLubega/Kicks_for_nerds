@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   String email = '';
   String password = '';
   String error = '';
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final AuthService _auth = AuthService();
   bool loading = false;
 
   @override
@@ -76,9 +76,8 @@ class _LoginPageState extends State<LoginPage> {
                     if (_formKey.currentState.validate()) {
                       // dynamic result = await _auth.signInWithEmailAndPassword(
                       //     email: email, password: password);
-                      dynamic result = await context
-                          .read<AuthService>()
-                          .loginFirebaseUser(email, password);
+                      dynamic result =
+                          await _auth.loginFirebaseUser(email, password);
                       if (result == null) {
                         setState(() => error = 'error, could not sign in user');
                       } else {

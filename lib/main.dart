@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
@@ -146,19 +148,7 @@ class KicksForNerds extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        new Provider<AuthService>(
-          create: (_) => AuthService(
-            FirebaseAuth.instance,
-          ),
-        ),
-        StreamProvider(
-          create: (context) => context.read<AuthService>().authStateChanges,
-          initialData: null,
-        ),
-      ],
-      child: MaterialApp(
+    return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -184,22 +174,22 @@ class KicksForNerds extends StatelessWidget {
           '/user': (context) => UserNamePage(),
           '/handle': (context) => HandlePage(),
         },
-        home: Scaffold(
-          body: AuthWrapper(),
-        ),
-      ),
-    );
+        home: AuthWrapper());
   }
 }
 
 class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = context.watch<User>();
-    if (user != null) {
-      return ProfilePage();
-    }
-    return LandingPage();
-  
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, dataSnapshot) {
+          if (dataSnapshot.hasData) {
+            return HomePage();
+          } else if (dataSnapshot.connectionState == ConnectionState.waiting) {
+            return LoadingPage();
+          }
+          return LandingPage();
+        });
   }
 }

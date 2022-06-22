@@ -4,8 +4,7 @@ import 'package:kicks_for_nerds/models/MyAppUser.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
 class AuthService {
-  final FirebaseAuth _auth;
-  AuthService(this._auth);
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Stream<User> get authStateChanges => _auth.authStateChanges();
   //create MyAppUser from a Firebase User

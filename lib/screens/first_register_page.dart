@@ -42,7 +42,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Register', 
+                      'Register',
                       style: TextStyle(
                         fontFamily: 'Comfortaa',
                         fontSize: 36,
@@ -115,10 +115,8 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                       print(password);
                       print(email);
 
-                      dynamic result = await context
-                          .read<AuthService>()
-                          .registerFirebaseUser(
-                              email, password, fullName, handle);
+                      dynamic result = await AuthService().registerFirebaseUser(
+                          email, password, fullName, handle);
                       if (result == null) {
                         setState(() => error = 'error, could not sign in user');
                       } else {
@@ -140,7 +138,6 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                   },
                   title: 'Next',
                   buttonHeight: vNormalButtonHeight,
-                  
                 ),
               ),
               UnderButtonTxt(

@@ -71,7 +71,8 @@ class _MyStreamBuilderState extends State<MyStreamBuilder> {
                 right: 5,
               ),
               child: Text(
-                "${getText("currentUser")}",
+                // TODO uncommented currentUser
+                "${getText(currentUser)}",
                 style: TextStyle(
                   color: widget.clrs,
                   fontSize: widget.fontSize,
