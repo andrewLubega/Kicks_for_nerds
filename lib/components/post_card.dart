@@ -30,6 +30,7 @@ class PostCard extends StatelessWidget {
       margin: marginSize,
       decoration: BoxDecoration(
         image: DecorationImage(
+          fit: BoxFit.fill,
           image: NetworkImage(image),
         ),
         borderRadius: BorderRadius.circular(

@@ -104,14 +104,36 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                               ),
                               child: Center(
-                                  // child: MyStreamBuilder(
-                                  //   fontSize: 10.0,
-                                  //   clrs: Colors.white,
-                                  //   userUid: userUid,
-                                  //   location: 'users',
-                                  //   valueKey: 'handle',
-                                  // ),
-                                  ),
+                                // child: MyStreamBuilder(
+                                //   fontSize: 10.0,
+                                //   clrs: Colors.white,
+                                //   userUid: userUid,
+                                //   location: 'users',
+                                //   valueKey: 'handle',
+                                // ),
+
+                                child: StreamBuilder(
+                                  stream: connection
+                                      .child('users')
+                                      .child(userUid)
+                                      .onValue,
+                                  builder: (context, AsyncSnapshot snapshot) {
+                                    if (snapshot.hasData) {
+                                      snapshot.connectionState ==
+                                              ConnectionState.waiting
+                                          ? LoadingPage()
+                                          : Text("data not here");
+                                    }
+                                    final Map<dynamic, dynamic> userMap =
+                                        snapshot.data.snapshot.value;
+
+                                    return Text(
+                                      userMap['fullname'],
+                                      style: TextStyle(color: Colors.white),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                           ),
                           // Image.asset(
