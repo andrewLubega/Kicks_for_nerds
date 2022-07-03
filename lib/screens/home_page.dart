@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
           //             ? LoadingPage()
           //             : Container();
           //       }
-          //       posts = DataBase().getPost(snapshot: snapshot);
+          //       posts = DataBase().getPostList(snapshot: snapshot);
           //       // print(posts);
           //       return Expanded(
           //         child: Padding(

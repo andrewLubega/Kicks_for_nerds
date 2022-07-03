@@ -18,9 +18,9 @@ class DataBase {
       {
         'uid': user.uid,
         'email': user.email,
-        //TODO added user. to handle and fullName
-        'handle': user.handle,
-        'fullName': user.fullName,
+        //TODO removed user. from handle and fullName
+        'handle': handle,
+        'fullName': fullName,
         // 'password': user.password,
 
         // 'username': username,
@@ -55,9 +55,10 @@ class DataBase {
     print(user);
 
     String storyId = Uuid().v1();
-    final storyReference = connection.child('stories').child(storyId);
-    storyReference.update({
-      'userId': user,
+
+    final storyReference =
+        connection.child('users').child(user).child('stories').child(storyId);
+    storyReference.set({
       'imageUrl': imageUrl,
     });
   }
@@ -87,9 +88,9 @@ class DataBase {
     print(user);
 
     String postId = Uuid().v1();
-    final postReference = connection.child('posts').child(postId);
-    postReference.update({
-      'userId': user,
+    final postReference =
+        connection.child('users').child(user).child('posts').child(postId);
+    postReference.set({
       'title': title,
       'text': text,
       'imageUrl': imageUrl,
@@ -102,7 +103,7 @@ class DataBase {
     print("GOT POST");
     print(user);
 
-    final postReference = connection.child('posts');
+    // final postReference = connection.child('users').child(user).child('posts');
     final List postList = [];
     final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
 
@@ -136,7 +137,8 @@ class DataBase {
   Future<int> getPostLength() async {
     String user = await AuthService().currentUser();
     //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
-    final lengthReference = connection.child('posts').child(user);
+    final lengthReference =
+        connection.child('users').child(user).child('posts');
     int postLength =
         await lengthReference.once().then((value) => value.value.length);
     return postLength;
@@ -147,16 +149,18 @@ class DataBase {
     //TODO changed handles to handle
     final handleRef = connection.child('users').child(user);
     handleRef.update({
-      'handle': "$handle",
+      'handle': "@$handle",
     });
   }
 
   Future<void> setUserName(String name) async {
     String user = await AuthService().currentUser();
     final handleRef = connection.child('users').child(user);
-    handleRef.update({
-      'fullName': name,
-    });
+    handleRef.update(
+      {
+        'fullName': name,
+      },
+    );
   }
 }
 

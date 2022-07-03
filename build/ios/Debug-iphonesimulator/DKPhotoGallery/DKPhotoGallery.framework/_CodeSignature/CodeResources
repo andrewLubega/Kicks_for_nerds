@@ -117,7 +117,7 @@
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		d7HDAqb9/42kOU9RAG7dlAtrY1o=
+		08s0YVooR9uXFSpeE0GnsEeKaIY=
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -125,7 +125,7 @@
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/i386.swiftmodule</key>
 		<data>
-		d7HDAqb9/42kOU9RAG7dlAtrY1o=
+		08s0YVooR9uXFSpeE0GnsEeKaIY=
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -133,7 +133,7 @@
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DZLuopS/wv+Pymlq645KAcELnw8=
+		doXmTx6C4CUWdRfboh2tlQS4H5M=
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -141,7 +141,7 @@
 		</data>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		DZLuopS/wv+Pymlq645KAcELnw8=
+		doXmTx6C4CUWdRfboh2tlQS4H5M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -413,11 +413,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d7HDAqb9/42kOU9RAG7dlAtrY1o=
+			08s0YVooR9uXFSpeE0GnsEeKaIY=
 			</data>
 			<key>hash2</key>
 			<data>
-			jJB2UhGCjM+C6sKeDN1u586etF05ZH0Ya4S5beIdIjU=
+			uv6dgI/dcDcXsaeQ7rJ4CMcmAcKoQ37fTjfq6WxqQDw=
 			</data>
 		</dict>
 		<key>Modules/DKPhotoGallery.swiftmodule/i386.swiftdoc</key>
@@ -435,11 +435,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			d7HDAqb9/42kOU9RAG7dlAtrY1o=
+			08s0YVooR9uXFSpeE0GnsEeKaIY=
 			</data>
 			<key>hash2</key>
 			<data>
-			jJB2UhGCjM+C6sKeDN1u586etF05ZH0Ya4S5beIdIjU=
+			uv6dgI/dcDcXsaeQ7rJ4CMcmAcKoQ37fTjfq6WxqQDw=
 			</data>
 		</dict>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -457,11 +457,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DZLuopS/wv+Pymlq645KAcELnw8=
+			doXmTx6C4CUWdRfboh2tlQS4H5M=
 			</data>
 			<key>hash2</key>
 			<data>
-			DT0auxjnnihA0uvigHYKt8gOwDGgubRHVI1HjSYHquw=
+			BYm05xhTxkmxQzbDUJtLfBfMUACy6fiIhE8RNdbmy9Q=
 			</data>
 		</dict>
 		<key>Modules/DKPhotoGallery.swiftmodule/x86_64.swiftdoc</key>
@@ -479,11 +479,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DZLuopS/wv+Pymlq645KAcELnw8=
+			doXmTx6C4CUWdRfboh2tlQS4H5M=
 			</data>
 			<key>hash2</key>
 			<data>
-			DT0auxjnnihA0uvigHYKt8gOwDGgubRHVI1HjSYHquw=
+			BYm05xhTxkmxQzbDUJtLfBfMUACy6fiIhE8RNdbmy9Q=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
