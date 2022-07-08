@@ -42,6 +42,7 @@ class _NavBarState extends State<NavBar> {
           width: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               GestureDetector(
                 onTap: () {

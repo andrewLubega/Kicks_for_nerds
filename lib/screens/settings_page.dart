@@ -35,7 +35,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   File sampleImage;
 
-  String _myValue;
+  // String _myValue;
 
   String url;
 
@@ -126,6 +126,22 @@ class _SettingsPageState extends State<SettingsPage> {
                           Navigator.pushNamed(
                             context,
                             '/user',
+                          );
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 12.0,
+                    ),
+                    child: BiggerButton(
+                      title: 'Bio',
+                      onPressed: () {
+                        setState(() {
+                          Navigator.pushNamed(
+                            context,
+                            '/bio',
                           );
                         });
                       },

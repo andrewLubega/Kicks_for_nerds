@@ -12,15 +12,10 @@ class Post {
       @required this.title,
       @required this.text,
       String userId});
-  // Post.fromSnapShot(
-  //   {
-  //     DataSnapshot snapshot
-  //   }
-  // );
 }
 
-class Stories {
+class Story {
   final String imageUrl;
 
-  Stories({@required this.imageUrl, @required String userId});
+  Story({@required this.imageUrl, String userId});
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
-class PostCard extends StatelessWidget {
+class PostCard extends StatefulWidget {
   PostCard(
       {this.height,
       this.width,
@@ -19,31 +19,32 @@ class PostCard extends StatelessWidget {
   final grad;
   final image;
 
-  // final <>imagepic;
+  @override
+  _PostCardState createState() => _PostCardState();
+}
 
+class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: cardChild,
-      width: width,
-      height: height,
-      margin: marginSize,
+      child: widget.cardChild,
+      width: widget.width,
+      height: widget.height,
+      margin: widget.marginSize,
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: NetworkImage(image),
+          image: NetworkImage(widget.image),
         ),
         borderRadius: BorderRadius.circular(
           kRadiusNumber,
         ),
-        color: baseColour,
-        gradient: grad,
+        color: widget.baseColour,
+        gradient: widget.grad,
       ),
     );
   }
 }
-
-
 
 // Container(
 //       decoration: BoxDecoration(

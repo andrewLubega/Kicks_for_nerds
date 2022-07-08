@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
+import 'package:kicks_for_nerds/screens/bio_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/shopping_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
@@ -21,7 +22,9 @@ import 'package:kicks_for_nerds/screens/search_page.dart';
 import 'package:kicks_for_nerds/screens/second_register_page.dart';
 import 'package:kicks_for_nerds/screens/forgot_password.dart';
 import 'package:kicks_for_nerds/screens/settings_page.dart';
-import 'package:kicks_for_nerds/screens/upload_page.dart';
+import 'package:kicks_for_nerds/screens/stories_upload.dart';
+import 'package:kicks_for_nerds/screens/upload_options.dart';
+import 'package:kicks_for_nerds/screens/posts_upload_page.dart';
 import 'package:kicks_for_nerds/screens/username_page.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:kicks_for_nerds/screens/search_page.dart';
@@ -154,6 +157,9 @@ class KicksForNerds extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         routes: {
+          '/stories': (context) => StoriesUploadPage(),
+          '/upload': (context) => UploadOptions(),
+          '/bio': (context) => BioPage(),
           '/land': (context) => LandingPage(),
           '/reg': (context) => FirstRegisterPage(),
           '/regtwo': (context) => SecondRegisterPage(),
@@ -164,7 +170,7 @@ class KicksForNerds extends StatelessWidget {
           '/dms': (context) => Dmspage(),
           '/profile': (context) => ProfilePage(),
           '/forgot': (context) => ForgotPasswordPage(),
-          '/upload': (context) => UploadPage(),
+          '/posts': (context) => PostsUploadPage(),
           '/srch': (context) => SearchPage(),
           '/set': (context) => SettingsPage(),
           '/tag': (context) => TaggedPage(),

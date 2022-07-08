@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'story_frame.dart';
 
-class Stories extends StatelessWidget {
-  const Stories({
+class StoriesComponent extends StatelessWidget {
+  const StoriesComponent({
     Key key,
   }) : super(key: key);
 
@@ -26,11 +26,11 @@ class Stories extends StatelessWidget {
             SizedBox(
               width: 24,
             ),
-            StoryFrame(),
-            StoryFrame(),
-            StoryFrame(),
-            StoryFrame(),
-            StoryFrame(),
+            // StoryFrame(),
+            // StoryFrame(),
+            // StoryFrame(),
+            // StoryFrame(),
+            // StoryFrame(),
           ],
         ),
       ),

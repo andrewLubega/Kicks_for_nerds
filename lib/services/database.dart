@@ -48,7 +48,7 @@ class DataBase {
   }
 
   // story saving function
-  Future<void> saveStory(imageUrl) async {
+  Future<void> saveStory({String imageUrl}) async {
     String user = await AuthService().currentUser();
 
     print("SAVINGGG STORY");
@@ -74,7 +74,7 @@ class DataBase {
     print(user);
 
     storyMap.forEach((key, value) {
-      storyList.add(Stories(
+      storyList.add(Story(
         imageUrl: value['imageUrl'],
         userId: value['userId'],
       ));
@@ -144,6 +144,15 @@ class DataBase {
     return postLength;
   }
 
+  Future<void> setBio(String bio) async {
+    String user = await AuthService().currentUser();
+    //TODO changed bio
+    final bioRef = connection.child('users').child(user);
+    bioRef.update({
+      'bio': "$bio",
+    });
+  }
+
   Future<void> setHandle(String handle) async {
     String user = await AuthService().currentUser();
     //TODO changed handles to handle
@@ -155,10 +164,10 @@ class DataBase {
 
   Future<void> setUserName(String name) async {
     String user = await AuthService().currentUser();
-    final handleRef = connection.child('users').child(user);
-    handleRef.update(
+    final nameRef = connection.child('users').child(user);
+    nameRef.update(
       {
-        'fullName': name,
+        'fullName': "$name",
       },
     );
   }
