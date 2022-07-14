@@ -24,8 +24,10 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   var posts;
   final connection = FirebaseDatabase.instance.reference();
-  PageController _pageController =
-      PageController(viewportFraction: 0.8, initialPage: 1);
+  PageController _pageController = PageController(
+    viewportFraction: 0.8,
+    initialPage: 1,
+  );
 
 //TODO change back to empty variable
   int pL;
@@ -65,13 +67,14 @@ class _ProfilePageState extends State<ProfilePage> {
         child: SizedBox(
           height: 1200,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Stack(
                 children: <Widget>[
                   Container(
                     height: 203,
-                    width: 375,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         alignment: Alignment.topCenter,
@@ -132,7 +135,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                         snapshot.connectionState ==
                                                 ConnectionState.waiting
                                             ? LoadingPage()
-                                            : Text("data not here");
+                                            : Text(
+                                                "data not here",
+                                              );
                                       },
                                     ),
                                   ),
@@ -164,33 +169,61 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-                  Positioned(
-                    top: 136,
-                    left: 121,
-                    child: CircleAvatar(
-                      radius: 66.5,
-                      backgroundColor: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 130),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: [
+                            CircleAvatar(
+                              radius: 66.5,
+                              backgroundColor: Colors.black,
+                            ),
+                            CircleAvatar(
+                              radius: 64.5,
+                              backgroundColor: Colors.white,
+                            ),
+                            CircleAvatar(
+                              radius: 62.5,
+                              backgroundColor: kBaseWidgetColor,
+                              backgroundImage: AssetImage(
+                                'images/ttc.png',
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  Positioned(
-                    top: 138,
-                    left: 123,
-                    child: CircleAvatar(
-                      radius: 64.5,
-                      backgroundColor: Colors.white,
-                    ),
-                  ),
-                  Positioned(
-                    top: 140,
-                    left: 125,
-                    child: CircleAvatar(
-                      radius: 62.5,
-                      backgroundColor: kBaseWidgetColor,
-                      backgroundImage: AssetImage(
-                        'images/ttc.png',
-                      ),
-                    ),
-                  ),
+                  // Positioned(
+                  //   // top: 136,
+                  //   // left: 121,
+                  //   child: CircleAvatar(
+                  //     radius: 66.5,
+                  //     backgroundColor: Colors.black,
+                  //   ),
+                  // ),
+                  // Positioned(
+                  //   // top: 138,
+                  //   // left: 123,
+                  //   child: CircleAvatar(
+                  //     radius: 64.5,
+                  //     backgroundColor: Colors.white,
+                  //   ),
+                  // ),
+                  // Positioned(
+                  //   // top: 140,
+                  //   // left: 125,
+                  //   child: CircleAvatar(
+                  //     radius: 62.5,
+                  //     backgroundColor: kBaseWidgetColor,
+                  //     backgroundImage: AssetImage(
+                  //       'images/ttc.png',
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(48, 215, 48, 0),
                     child: Row(

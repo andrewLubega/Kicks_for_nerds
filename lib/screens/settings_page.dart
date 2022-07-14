@@ -8,6 +8,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
 import 'package:kicks_for_nerds/components/reusable_buttons.dart';
 import 'package:kicks_for_nerds/services/auth.dart';
+import 'package:kicks_for_nerds/services/database.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -153,8 +154,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     child: BiggerButton(
                       title: 'Profile Pic',
-                      onPressed: () {
+                      onPressed: () async {
                         getImageGallery();
+                        // await uploadStatusImage();
+                        // await DataBase().saveProfilePic(
+                        //   imageUrl: url,
+                        // );
                       },
                     ),
                   ),
@@ -164,7 +169,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     child: BiggerButton(
                       title: 'Banner',
-                      onPressed: () {
+                      onPressed: () async {
                         getImageGallery();
                       },
                     ),

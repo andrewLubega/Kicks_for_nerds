@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -170,7 +172,37 @@ class DataBase {
         'fullName': "$name",
       },
     );
+
+    Future<void> setProfilePic({String imageUrl}) async {
+      String user = await AuthService().currentUser();
+
+      print("SAVINGGG Profile");
+      print(user);
+
+      final profileRef = connection.child('users').child(user);
+      profileRef.update({
+        'Profile': imageUrl,
+      });
+    }
+  }
+
+  Future<void> saveProfilePic({imageUrl}) async {
+    String user = await AuthService().currentUser();
+
+    print("SAVINGGG PROFILE");
+    print(user);
+
+    // String postId = Uuid().v1();
+
+    final profileRef = connection.child('users').child(user);
+    profileRef.set(
+      {
+        'Profile': imageUrl,
+      },
+    );
   }
 }
+
+
 
 // class DataService {}
