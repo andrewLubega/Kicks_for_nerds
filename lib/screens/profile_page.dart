@@ -437,6 +437,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               ConnectionState.waiting
                                           ? LoadingPage()
                                           : Text(
+                                            
                                               "0",
                                               style: TextStyle(
                                                 fontFamily: 'Roboto',

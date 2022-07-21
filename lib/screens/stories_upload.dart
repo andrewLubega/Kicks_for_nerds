@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,13 +8,7 @@ import 'package:kicks_for_nerds/assets/variables.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
 import 'package:kicks_for_nerds/components/nav_bar.dart';
 import 'package:kicks_for_nerds/components/reusable_buttons.dart';
-import 'package:kicks_for_nerds/components/reusable_card.dart';
-import 'package:kicks_for_nerds/components/stroke_button.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
-import 'package:intl/intl.dart';
-import 'package:kicks_for_nerds/screens/home_page.dart';
+
 import 'package:kicks_for_nerds/services/database.dart';
 
 class StoriesUploadPage extends StatefulWidget {
@@ -119,31 +112,38 @@ class _StoriesUploadState extends State<StoriesUploadPage> {
             ),
             Column(
               children: <Widget>[
-                CircleAvatar(
-                  radius: 100,
-                  backgroundColor: kBaseWidgetColor,
-
+                Container(
+                  height: 200,
                   child: _profileImage == null
                       ? Center(
                           child: Text(
                             "Image not loaded",
                           ),
                         )
-                      : NetworkImage(
+                      : Image.file(
                           _profileImage,
                         ),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: kBaseWidgetColor,
 
-                  // ClipContext()()(
-                  //     child: Container(
-                  //       height: 100,
-                  //       width: 100,
-                  //       child: Image.file(
-                  //         _profileImage,
-                  //         fit: BoxFit.contain,
-                  //       ),
-                  //     ),
-                  //   ),
+                    // borderRadius: BorderRadius.circular(
+                    //   100,
+                    // ),
+                  ),
                 ),
+
+                // ClipContext()()(
+                //     child: Container(
+                //       height: 100,
+                //       width: 100,
+                //       child: Image.file(
+                //         _profileImage,
+                //         fit: BoxFit.contain,
+                //       ),
+                //     ),
+                //   ),
+
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 12,

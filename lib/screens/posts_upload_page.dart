@@ -161,7 +161,7 @@ class _PostsUploadPageState extends State<PostsUploadPage> {
                         )
                       : Image.file(
                           _profileImage,
-                          fit: BoxFit.fill,
+                    
                         ),
                 ),
                 StrokeButtonField(

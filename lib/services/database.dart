@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +10,7 @@ class DataBase {
   final connection = FirebaseDatabase.instance.reference();
   DataBase({uid});
 
-  String uid = '';
+  // String uid = '';
 
   Future<void> updateFlutterArticlesUser(user, fullName, handle) async {
     final usersReference = connection.child('users').child(user.uid);
@@ -76,10 +74,12 @@ class DataBase {
     print(user);
 
     storyMap.forEach((key, value) {
-      storyList.add(Story(
-        imageUrl: value['imageUrl'],
-        userId: value['userId'],
-      ));
+      storyList.add(
+        Story(
+          imageUrl: value['imageUrl'],
+          userId: value['userId'],
+        ),
+      );
     });
   }
 
@@ -181,7 +181,7 @@ class DataBase {
 
       final profileRef = connection.child('users').child(user);
       profileRef.update({
-        'Profile': imageUrl,
+        'profile_pic': imageUrl,
       });
     }
   }
@@ -197,12 +197,27 @@ class DataBase {
     final profileRef = connection.child('users').child(user);
     profileRef.set(
       {
-        'Profile': imageUrl,
+        'profile_pic': imageUrl,
       },
     );
   }
+
+  Future<void> updateStoryDisplay({imageUrl}) async {
+    print("UPDATING DISPLAY");
+
+    final displayRef = connection.child('display').child('stories');
+    displayRef.update({
+      'imageUrl': imageUrl,
+    });
+  }
+
+  Future<void> updatePostDisplay({imageUrl}) async {
+    print("UPDATING DISPLAY");
+
+    final displayRef = connection.child('display').child('post');
+    displayRef.update({
+      'imageUrl': imageUrl,
+    });
+  }
 }
-
-
-
 // class DataService {}

@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: kBGClr,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(
@@ -59,6 +60,91 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Center(
+            child: Container(
+              height: 500,
+              width: double.infinity,
+              color: Colors.orange,
+              child: DefaultTabController(
+                initialIndex: 1,
+                length: 2,
+                child: Scaffold(
+                  appBar: AppBar(
+                    elevation: 0,
+                    toolbarHeight: 20,
+                    backgroundColor: kBGClr,
+                    title: TabBar(
+                      labelColor: Colors.black,
+                      tabs: [
+                        Tab(
+                          text: "Info",
+                        ),
+                        Tab(
+                          text: "Critics",
+                        )
+                      ],
+                    ),
+                  ),
+                  body: TabBarView(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text("this is a great movie"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Container(
+                          width: 40,
+                          height: 20,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 30,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text(
+                                  "everybody hates a critic",
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
           // StreamBuilder(
