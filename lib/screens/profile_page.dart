@@ -132,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           );
                                         }
 
-                                        snapshot.connectionState ==
+                                        return snapshot.connectionState ==
                                                 ConnectionState.waiting
                                             ? LoadingPage()
                                             : Text(
@@ -345,7 +345,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                   .child('stories')
                                   .onValue,
                               builder: (context, AsyncSnapshot snapshot) {
-                                if (snapshot.hasData) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                } else if (snapshot.hasData) {
                                   final Map<dynamic, dynamic> storyMap =
                                       snapshot.data.snapshot.value;
                                   List<Story> storyList = [];
@@ -378,7 +383,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                       ),
                                     ),
                                   );
-                                }
+                                } else
+                                  print(snapshot.error);
                               },
                             ),
                             // StoryFrame(image:""),
@@ -396,7 +402,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Column(
-                              children: <Widget>[
+                              children: <Widget>[ 
                                 SizedBox(
                                   height: 24,
                                   child: StreamBuilder(
@@ -437,7 +443,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                               ConnectionState.waiting
                                           ? LoadingPage()
                                           : Text(
-                                            
                                               "0",
                                               style: TextStyle(
                                                 fontFamily: 'Roboto',
