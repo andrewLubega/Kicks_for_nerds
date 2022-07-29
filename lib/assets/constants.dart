@@ -54,7 +54,9 @@ const kTopBoxCurves = BorderRadius.vertical(
   top: Radius.circular(kRadiusNumber),
 );
 
-const kFontColour = Colors.white;
+const kLightModeFont = Colors.black;
+
+const Color kDarkModefont = Colors.white;
 
 // const kActiveButtonClr = kGradClr;
 
@@ -91,6 +93,9 @@ const String khandleTxt = '@Handle';
 const String kUserTxt = 'Username';
 
 const double kIconImageHeight = 20.0;
+
 const double kNavIconImageHeight = 15.0;
 
 const double kCircleRadNumber = 36.0;
+
+const double kContainerCircRad = 125;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kicks_for_nerds/components/post_frames_comp/post_block.dart';
 import 'constants.dart';
 
 List<Color> lGradClr = [
@@ -32,4 +33,18 @@ List<String> lStoryImages = [
   'images/tvs.jpg',
   'images/psm.png',
   'images/mkm.jpg',
+];
+
+List<PostBlock> lPostBlockList = [
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
+  PostBlock(),
 ];

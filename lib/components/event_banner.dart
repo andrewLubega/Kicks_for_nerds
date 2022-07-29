@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
-import 'reusable_card.dart';
+import 'my_comp/my_card.dart';
 
 class EventBanner extends StatelessWidget {
   const EventBanner({
@@ -27,7 +27,7 @@ class EventBanner extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: ReusableCard(
+            child: MyCard(
               height: 120,
               width: 327,
               baseColour: kBaseWidgetColor,
@@ -35,7 +35,7 @@ class EventBanner extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: ReusableCard(
+            child: MyCard(
               height: 120,
               width: 327,
               baseColour: kBaseWidgetColor,
@@ -43,7 +43,7 @@ class EventBanner extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: ReusableCard(
+            child: MyCard(
               height: 120,
               width: 327,
               baseColour: kBaseWidgetColor,

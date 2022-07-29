@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/enums.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
 
-import 'package:kicks_for_nerds/components/reusable_card.dart';
+import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 class ProfileSearchCard extends StatefulWidget {
   const ProfileSearchCard({
@@ -45,7 +45,7 @@ class _ProfileSearchCardState extends State<ProfileSearchCard> {
                 LinearGradient(colors: hasBeenPressed ? lGradClr : lSolidGrad),
             borderRadius: BorderRadius.circular(kRadiusNumber),
           ),
-          child: ReusableCard(
+          child: MyCard(
             height: 50,
             width: 327,
             cardChild: Padding(
@@ -67,7 +67,7 @@ class _ProfileSearchCardState extends State<ProfileSearchCard> {
                             fontFamily: "comfortaa",
                             fontSize: kFontSize10,
                             fontWeight: kBoldTxt,
-                            color: kFontColour,
+                            color: kLightModeFont,
                           ),
                         ),
                       ),
@@ -76,7 +76,7 @@ class _ProfileSearchCardState extends State<ProfileSearchCard> {
                           "handle",
                           style: TextStyle(
                             fontFamily: "comfortaa",
-                            color: kFontColour,
+                            color: kLightModeFont,
                             fontSize: kFontSize10,
                           ),
                           maxLines: 1,

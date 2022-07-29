@@ -17,5 +17,5 @@ class Post {
 class Story {
   final String imageUrl;
 
-  Story({@required this.imageUrl, String userId});
+  Story({@required this.imageUrl, String userId, String});
 }

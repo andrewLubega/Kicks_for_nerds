@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
-import 'package:kicks_for_nerds/components/nav_bar.dart';
+import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 
 class ShoppingPage extends StatefulWidget {
   const ShoppingPage({Key key}) : super(key: key);

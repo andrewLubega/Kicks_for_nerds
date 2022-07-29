@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
-import 'package:kicks_for_nerds/screens/loading_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
 
 class MyStreamBuilder extends StatefulWidget {
   MyStreamBuilder({
@@ -29,10 +29,10 @@ class _MyStreamBuilderState extends State<MyStreamBuilder> {
 
   getText(currentUser) {
     String textResult = "";
-    if (widget.location == "fullName") {
-      textResult = currentUser.fullName;
+    if (widget.location == "name") {
+      textResult = currentUser.name;
     } else {
-      textResult = currentUser.handle;
+      textResult = currentUser.userName;
     }
     return textResult;
   }
@@ -60,8 +60,8 @@ class _MyStreamBuilderState extends State<MyStreamBuilder> {
             MyAppUser currentUser = MyAppUser(
               uid: map['uid'],
               email: map['email'],
-              handle: map['handle'],
-              fullName: map['fullName'],
+              userName: map['userName'],
+              name: map['name'],
             );
             // print(map['uid']);
 

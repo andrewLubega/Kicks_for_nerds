@@ -1,35 +1,27 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flutter/material.dart';
-import 'package:kicks_for_nerds/assets/constants.dart';
-import 'package:kicks_for_nerds/models/myAppUser.dart';
-import 'package:kicks_for_nerds/screens/bio_page.dart';
+
 import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
-import 'package:kicks_for_nerds/screens/empty%20pages/shopping_page.dart';
+import 'package:kicks_for_nerds/screens/empty%20pages/message_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/tagged_page.dart';
-import 'package:kicks_for_nerds/screens/handle_page.dart';
-import 'package:kicks_for_nerds/screens/landing_page.dart';
-import 'package:kicks_for_nerds/screens/login_page.dart';
-import 'package:kicks_for_nerds/screens/first_register_page.dart';
-import 'package:kicks_for_nerds/screens/loading_page.dart';
-import 'package:kicks_for_nerds/screens/empty%20pages/dms_page.dart';
-import 'package:kicks_for_nerds/screens/home_page.dart';
-import 'package:kicks_for_nerds/screens/profile_page.dart';
-import 'package:kicks_for_nerds/screens/search_page.dart';
-import 'package:kicks_for_nerds/screens/second_register_page.dart';
-import 'package:kicks_for_nerds/screens/forgot_password.dart';
-import 'package:kicks_for_nerds/screens/settings_page.dart';
-import 'package:kicks_for_nerds/screens/stories_upload.dart';
-import 'package:kicks_for_nerds/screens/upload_options.dart';
-import 'package:kicks_for_nerds/screens/posts_upload_page.dart';
-import 'package:kicks_for_nerds/screens/username_page.dart';
-import 'package:kicks_for_nerds/services/auth.dart';
-import 'package:kicks_for_nerds/screens/search_page.dart';
-import 'package:kicks_for_nerds/services/database.dart';
-import 'package:provider/provider.dart';
+
+import 'package:kicks_for_nerds/screens/finished%20pages/landing_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/login_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/first_register_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
+
+import 'package:kicks_for_nerds/screens/finished%20pages/second_register_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/forgot_password.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/settings_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/Content_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/Home_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/Search_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/dms_page.dart';
+
+import 'screens/users/current user/profile_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -153,32 +145,32 @@ class KicksForNerds extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        // theme: ThemeData.dark(),
         routes: {
-          '/stories': (context) => StoriesUploadPage(),
-          '/upload': (context) => UploadOptions(),
-          '/bio': (context) => BioPage(),
+          // '/stories': (context) => StoriesUploadPage(),
+          // '/upload': (context) => UploadOptions(),
+          // '/bio': (context) => BioPage(),
+          '/msg': (context) => MessagePage(),
           '/land': (context) => LandingPage(),
           '/reg': (context) => FirstRegisterPage(),
           '/regtwo': (context) => SecondRegisterPage(),
           '/log': (context) => LoginPage(),
           '/load': (context) => LoadingPage(),
           '/home': (context) => HomePage(),
-          '/search': (context) => SearchPage(),
+          // '/search': (context) => SearchPage(),
           '/dms': (context) => Dmspage(),
           '/profile': (context) => ProfilePage(),
           '/forgot': (context) => ForgotPasswordPage(),
-          '/posts': (context) => PostsUploadPage(),
+          // '/posts': (context) => PostsUploadPage(),
           '/srch': (context) => SearchPage(),
           '/set': (context) => SettingsPage(),
           '/tag': (context) => TaggedPage(),
           '/store': (context) => StorePage(),
           '/cam': (context) => CamPage(),
-          '/shop': (context) => ShoppingPage(),
-          '/user': (context) => UserNamePage(),
-          '/handle': (context) => HandlePage(),
+          'content': (context) => PostContentPage(),
+          // '/shop': (context) => ShoppingPage(),
+          // '/user': (context) => UserNamePage(),
+          // '/handle': (context) => HandlePage(),
         },
         home: AuthWrapper());
   }
@@ -188,14 +180,15 @@ class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, dataSnapshot) {
-          if (dataSnapshot.hasData) {
-            return HomePage();
-          } else if (dataSnapshot.connectionState == ConnectionState.waiting) {
-            return LoadingPage();
-          }
-          return LandingPage();
-        });
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, dataSnapshot) {
+        if (dataSnapshot.hasData) {
+          return PostContentPage();
+        } else if (dataSnapshot.connectionState == ConnectionState.waiting) {
+          return LoadingPage();
+        }
+        return LandingPage();
+      },
+    );
   }
 }

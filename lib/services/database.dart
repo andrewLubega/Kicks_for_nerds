@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:kicks_for_nerds/models/MyAppUser.dart';
+import 'package:kicks_for_nerds/models/myAppUser.dart';
 import 'package:kicks_for_nerds/models/posts.dart';
 import 'package:uuid/uuid.dart';
 import 'auth.dart';
@@ -12,15 +12,15 @@ class DataBase {
 
   // String uid = '';
 
-  Future<void> updateFlutterArticlesUser(user, fullName, handle) async {
+  Future<void> updateFlutterArticlesUser(user, name, userName) async {
     final usersReference = connection.child('users').child(user.uid);
     await usersReference.set(
       {
         'uid': user.uid,
         'email': user.email,
-        //TODO removed user. from handle and fullName
-        'handle': handle,
-        'fullName': fullName,
+        //TODO removed user. from userName and name
+        'userName': userName,
+        'name': name,
         // 'password': user.password,
 
         // 'username': username,
@@ -39,8 +39,8 @@ class DataBase {
         myAppUser = MyAppUser(
           uid: data.value['uid'],
           email: data.value['email'],
-          handle: data.value['handle'],
-          fullName: data.value['fullName'],
+          userName: data.value['userName'],
+          name: data.value['name'],
         );
       },
     );
@@ -56,9 +56,16 @@ class DataBase {
 
     String storyId = Uuid().v1();
 
-    final storyReference =
+    final gloablStoryRef =
+        connection.child('global').child('stories').child(storyId);
+    gloablStoryRef.set({
+      'userUid': user,
+      'imageUrl': imageUrl,
+    });
+
+    final storyRef =
         connection.child('users').child(user).child('stories').child(storyId);
-    storyReference.set({
+    storyRef.set({
       'imageUrl': imageUrl,
     });
   }
@@ -66,7 +73,27 @@ class DataBase {
   // firebase story retrieval function
   Future<List> getStory({AsyncSnapshot snapshot}) async {
     String user = await AuthService().currentUser();
-    final storyReference = connection.child('stories');
+    final storyReference =
+        connection.child('users').child(user).child('stories');
+    final List storyList = [];
+    final Map<dynamic, dynamic> storyMap = snapshot.data.snapshot.value;
+
+    print("GOT STORY");
+    print(user);
+
+    storyMap.forEach((key, value) {
+      storyList.add(
+        Story(
+          imageUrl: value['imageUrl'],
+          userId: value['userId'],
+        ),
+      );
+    });
+  }
+
+  Future<List> getGlobalStory({AsyncSnapshot snapshot}) async {
+    String user = await AuthService().currentUser();
+    final storyReference = connection.child('global').child('stories');
     final List storyList = [];
     final Map<dynamic, dynamic> storyMap = snapshot.data.snapshot.value;
 
@@ -90,6 +117,16 @@ class DataBase {
     print(user);
 
     String postId = Uuid().v1();
+
+    final gloablPostRef =
+        connection.child('global').child('posts').child(postId);
+    gloablPostRef.set({
+      'userUid': user,
+      'title': title,
+      'text': text,
+      'imageUrl': imageUrl,
+    });
+
     final postReference =
         connection.child('users').child(user).child('posts').child(postId);
     postReference.set({
@@ -150,17 +187,19 @@ class DataBase {
     String user = await AuthService().currentUser();
     //TODO changed bio
     final bioRef = connection.child('users').child(user);
-    bioRef.update({
-      'bio': "$bio",
-    });
+    bioRef.update(
+      {
+        'bio': "$bio",
+      },
+    );
   }
 
-  Future<void> setHandle(String handle) async {
+  Future<void> setuserName(String userName) async {
     String user = await AuthService().currentUser();
-    //TODO changed handles to handle
-    final handleRef = connection.child('users').child(user);
-    handleRef.update({
-      'handle': "@$handle",
+    //TODO changed userNames to userName
+    final userNameRef = connection.child('users').child(user);
+    userNameRef.update({
+      'userName': "@$userName",
     });
   }
 
@@ -169,7 +208,7 @@ class DataBase {
     final nameRef = connection.child('users').child(user);
     nameRef.update(
       {
-        'fullName': "$name",
+        'name': "$name",
       },
     );
 
