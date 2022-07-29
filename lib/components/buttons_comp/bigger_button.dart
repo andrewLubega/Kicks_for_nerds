@@ -52,13 +52,16 @@ class _BiggerButtonState extends State<BiggerButton> {
           cardChild: ToggleBold(
             fontType: hasBeenPressed ? font.bold : font.light,
             boldTxtFont: MyBoldTxtFont(
+              clr: kDarkModefont,
               fontsize: kFontSize12,
               text: widget.title,
             ),
             regularTxtFont: MyBoldTxtFont(
-                fontsize: kFontSize12,
-                fontW8t: kRegularTxt,
-                text: widget.title),
+              clr: kDarkModefont,
+              fontsize: kFontSize12,
+              fontW8t: kRegularTxt,
+              text: widget.title,
+            ),
           ),
           height: vNormalButtonHeight.toDouble(),
           width: 327,

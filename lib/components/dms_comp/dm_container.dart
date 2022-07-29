@@ -43,7 +43,7 @@ class DmContainers extends StatelessWidget {
                               Text(
                                 "name",
                                 style: TextStyle(
-                                  fontFamily: 'comfortaa',
+                                  fontFamily: kComfortaa,
                                   fontSize: kFontSize14,
                                   fontWeight: kBoldTxt,
                                   color: Colors.white,
@@ -54,7 +54,7 @@ class DmContainers extends StatelessWidget {
                                 child: Text(
                                   "last message",
                                   style: TextStyle(
-                                    fontFamily: 'comfortaa',
+                                    fontFamily: kComfortaa,
                                     fontSize: kFontSize14,
                                     fontWeight: kLightTxt,
                                     color: Colors.grey,
@@ -78,7 +78,7 @@ class DmContainers extends StatelessWidget {
                                   child: Text(
                                     'time stamp,',
                                     style: TextStyle(
-                                      fontFamily: 'comfortaa',
+                                      fontFamily: kComfortaa,
                                       fontSize: kFontSize14,
                                       fontWeight: kLightTxt,
                                       color: Colors.grey,

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
@@ -18,7 +16,7 @@ class _MidHomeSecState extends State<MidHomeSec> {
   int num = 0;
 
   @override
-  Void initState() {
+  void initState() {
     super.initState();
     _pageController = PageController(
       viewportFraction: 0.8,

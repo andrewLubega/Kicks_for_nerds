@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
+import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
+import 'package:kicks_for_nerds/components/content_components.dart/description.dart';
+import 'package:kicks_for_nerds/components/content_components.dart/mid_content_sec.dart';
+import 'package:kicks_for_nerds/components/content_components.dart/upper_content_sec.dart';
+import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 class PostContentPage extends StatefulWidget {
   const PostContentPage({Key key}) : super(key: key);
@@ -20,34 +25,19 @@ class _PostContentPageState extends State<PostContentPage> {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 500,
-                  decoration: BoxDecoration(
-                    color: kBaseWidgetColor,
-                    borderRadius: BorderRadius.circular(
-                      kRadiusNumber,
-                    ),
-                  ),
-                ),
+                UpperContentSec(),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
-                  child: Row(
+                  child: Column(
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "User",
-                            style: TextStyle(
-                              fontFamily: 'comfortaa',
-                              fontSize: kFontSize18,
-                              fontWeight: kBoldTxt,
-                            ),
-                          ),
-                          Divider(),
-                          Text("Description"),
-                        ],
+                      MidContentSec(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: MyCard(
+                          width: double.infinity,
+                          height: 200,
+                          baseColour: kBaseWidgetColor,
+                        ),
                       ),
                     ],
                   ),
@@ -61,16 +51,16 @@ class _PostContentPageState extends State<PostContentPage> {
     );
   }
 
-  void showOverlay() {
-    entry = OverlayEntry(
-      builder: (context) => Positioned(
-        bottom: 50,
-        right: 20,
-        child: NavBar(),
-      ),
-    );
+  // void showOverlay() {
+  //   entry = OverlayEntry(
+  //     builder: (context) => Positioned(
+  //       bottom: 50,
+  //       right: 20,
+  //       child: NavBar(),
+  //     ),
+  //   );
 
-    final overlay = Overlay.of(context);
-    overlay.insert(entry);
-  }
+  //   final overlay = Overlay.of(context);
+  //   overlay.insert(entry);
+  // }
 }

@@ -27,7 +27,7 @@ class UnderButtonTxt extends StatelessWidget {
             child: Text(
               txt,
               style: TextStyle(
-                fontFamily: 'Comfortaa',
+                fontFamily: 'comfortaa',
                 fontSize: kFontSize12,
               ),
             ),

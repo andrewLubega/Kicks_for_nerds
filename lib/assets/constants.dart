@@ -92,6 +92,10 @@ const String khandleTxt = '@Handle';
 
 const String kUserTxt = 'Username';
 
+const String kRoboto = 'roboto';
+
+const String kComfortaa = 'comfortaa';
+
 const double kIconImageHeight = 20.0;
 
 const double kNavIconImageHeight = 15.0;

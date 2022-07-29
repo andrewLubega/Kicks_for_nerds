@@ -6,8 +6,9 @@ import 'package:kicks_for_nerds/models/posts.dart';
 import 'package:uuid/uuid.dart';
 import 'auth.dart';
 
+
 class DataBase {
-  final connection = FirebaseDatabase.instance.reference();
+  final connection = FirebaseDatabase.instance.ref();
   DataBase({uid});
 
   // String uid = '';
@@ -21,7 +22,7 @@ class DataBase {
         //TODO removed user. from userName and name
         'userName': userName,
         'name': name,
-        // 'password': user.password,
+        'password': user.password,
 
         // 'username': username,
         //add as many attributes as you want
@@ -56,9 +57,9 @@ class DataBase {
 
     String storyId = Uuid().v1();
 
-    final gloablStoryRef =
+    final globalStoryRef =
         connection.child('global').child('stories').child(storyId);
-    gloablStoryRef.set({
+    globalStoryRef.set({
       'userUid': user,
       'imageUrl': imageUrl,
     });
@@ -110,7 +111,14 @@ class DataBase {
     });
   }
 
-  Future<void> savePost({title, text, imageUrl}) async {
+  Future<void> savePost({
+    releaseDate,
+    productName,
+    description,
+    colorway,
+    shoeSize,
+    imageUrl,
+  }) async {
     String user = await AuthService().currentUser();
 
     print("SAVINGGG POST");
@@ -122,55 +130,61 @@ class DataBase {
         connection.child('global').child('posts').child(postId);
     gloablPostRef.set({
       'userUid': user,
-      'title': title,
-      'text': text,
+      'release_date': releaseDate,
+      'description': description,
+      'product_name': productName,
+      'colorway': colorway,
+      'shoeSize': shoeSize,
       'imageUrl': imageUrl,
     });
 
     final postReference =
         connection.child('users').child(user).child('posts').child(postId);
     postReference.set({
-      'title': title,
-      'text': text,
+      'userUid': user,
+      'release_date': releaseDate,
+      'description': description,
+      'product_name': productName,
+      'colorway': colorway,
+      'shoeSize': shoeSize,
       'imageUrl': imageUrl,
     });
   }
 
-  Future<List> getPost({AsyncSnapshot snapshot}) async {
+  Future<List> getPost() async {
+    List<Post> postList = [];
     String user = await AuthService().currentUser();
 
-    print("GOT POST");
-    print(user);
+    final DatabaseReference postReference = connection.child('users').child(user).child('posts');
 
-    // final postReference = connection.child('users').child(user).child('posts');
-    final List postList = [];
-    final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
+    final event = await postReference.once(DatabaseEventType.value);
+    final Map postMap = event.snapshot.value as Map;
 
-    postMap.forEach(
-      (key, value) {
-        // value.forEach((postKey, postValue) {
-        //   print(postValue);
-        //   postList.add(
-        //     Post(
-        //       userId: postValue['userId'],
-        //       imageUrl: postValue['imageUrl'],
-        //       title: postValue['title'],
-        //       text: postValue['text'],
-        //     ),
-        //   );
-        // });
-        // print(key.imageUrl);
-        postList.add(
-          Post(
-            userId: value['userId'],
-            imageUrl: value['imageUrl'],
-            title: value['title'],
-            text: value['text'],
-          ),
-        );
-      },
-    );
-    return postList;
+    postMap.forEach((key, post) {
+      print("added");
+      postList.add(
+        Post.fromJson(post),
+      );
+    });
+
+    // final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
+
+    // postMap.forEach(
+    //   (key, value) {
+    //     postList.add(
+    //       Post(
+    //         userId: value['userId'],
+    //         imageUrl: value['imageUrl'],
+    //         description: value['description'],
+    //         releaseDate: value['release_date'],
+    //         shoeSize: value['shoeSize'],
+    //         colorWay: value['colorway'],
+    //         productName: value['productName'],
+    //       ),
+    //     );
+    //   },
+    // );
+    // return postList;
   }
 
   Future<int> getPostLength() async {
@@ -244,6 +258,14 @@ class DataBase {
   Future<void> updateStoryDisplay({imageUrl}) async {
     print("UPDATING DISPLAY");
 
+    String storyId = Uuid().v1();
+
+    final globalDisplayRef =
+        connection.child('global').child('stories').child(storyId);
+    globalDisplayRef.update({
+      'imageUrl': imageUrl,
+    });
+
     final displayRef = connection.child('display').child('stories');
     displayRef.update({
       'imageUrl': imageUrl,
@@ -253,7 +275,15 @@ class DataBase {
   Future<void> updatePostDisplay({imageUrl}) async {
     print("UPDATING DISPLAY");
 
-    final displayRef = connection.child('display').child('post');
+    String postId = Uuid().v1();
+
+    final globalDisplayRef =
+        connection.child('global').child('posts').child(postId);
+    globalDisplayRef.update({
+      'imageUrl': imageUrl,
+    });
+
+    final displayRef = connection.child('display').child('posts').child(postId);
     displayRef.update({
       'imageUrl': imageUrl,
     });

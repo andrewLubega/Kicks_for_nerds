@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:kicks_for_nerds/components/post_frames_comp/stories/active_stories.dart';
 
 import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/message_page.dart';
@@ -16,12 +17,14 @@ import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/second_register_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/forgot_password.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/settings_page.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/Content_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/content_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Home_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Search_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/dms_page.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/posts_upload.dart';
 
 import 'screens/users/current user/profile_page.dart';
+import 'screens/working pages/upload_options_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -148,7 +151,7 @@ class KicksForNerds extends StatelessWidget {
         // theme: ThemeData.dark(),
         routes: {
           // '/stories': (context) => StoriesUploadPage(),
-          // '/upload': (context) => UploadOptions(),
+          '/upload': (context) => UploadOptions(),
           // '/bio': (context) => BioPage(),
           '/msg': (context) => MessagePage(),
           '/land': (context) => LandingPage(),
@@ -159,15 +162,16 @@ class KicksForNerds extends StatelessWidget {
           '/home': (context) => HomePage(),
           // '/search': (context) => SearchPage(),
           '/dms': (context) => Dmspage(),
+          '/active_story': (context) => ActiveStoryPage(),
           '/profile': (context) => ProfilePage(),
           '/forgot': (context) => ForgotPasswordPage(),
-          // '/posts': (context) => PostsUploadPage(),
+          '/posts': (context) => PostsUploadPage(),
           '/srch': (context) => SearchPage(),
           '/set': (context) => SettingsPage(),
           '/tag': (context) => TaggedPage(),
           '/store': (context) => StorePage(),
           '/cam': (context) => CamPage(),
-          'content': (context) => PostContentPage(),
+          '/content': (context) => PostContentPage(),
           // '/shop': (context) => ShoppingPage(),
           // '/user': (context) => UserNamePage(),
           // '/handle': (context) => HandlePage(),
@@ -183,7 +187,7 @@ class AuthWrapper extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, dataSnapshot) {
         if (dataSnapshot.hasData) {
-          return PostContentPage();
+          return HomePage();
         } else if (dataSnapshot.connectionState == ConnectionState.waiting) {
           return LoadingPage();
         }

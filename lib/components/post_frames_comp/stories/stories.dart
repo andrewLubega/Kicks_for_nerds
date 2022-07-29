@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'story_frame.dart';
+import '../story_frame.dart';
 
 class StoriesComponent extends StatelessWidget {
   const StoriesComponent({

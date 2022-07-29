@@ -13,13 +13,18 @@ class PostBlock extends StatefulWidget {
 class _PostBlockState extends State<PostBlock> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 101,
-      height: 101,
-      decoration: BoxDecoration(
-        color: kBaseWidgetColor,
-        borderRadius: BorderRadius.circular(
-          kCircleRadNumber,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/content');
+      },
+      child: Container(
+        width: 101,
+        height: 101,
+        decoration: BoxDecoration(
+          color: kBaseWidgetColor,
+          borderRadius: BorderRadius.circular(
+            kCircleRadNumber,
+          ),
         ),
       ),
     );

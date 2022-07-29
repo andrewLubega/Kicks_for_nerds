@@ -8,28 +8,30 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  # sdk: ">=2.16.0 <3.0.0" // new sdk
+  sdk: ">=2.7.0 <3.0.0" 
 
 dependencies:
   flutter:
     sdk: flutter
-  image_picker:
+
   file_picker: ^3.0.1
   uuid: ^3.0.4
-
 
   cupertino_icons: ^1.0.2
   firebase_core: ^1.4.0
   firebase_auth: ^3.0.1
   firebase_database: ^7.1.2
+  # firebase_database: ^9.0.20
   firebase_storage: ^8.0.3
   provider: ^5.0.0
   floating_navbar: ^2.0.2
   smooth_page_indicator: ^1.0.0+2
   carousel_slider: ^4.1.1
+  permission_handler: ^8.1.6
+  image_picker: ^0.8.4+1
+  percent_indicator: ^4.0.1
  
-  
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

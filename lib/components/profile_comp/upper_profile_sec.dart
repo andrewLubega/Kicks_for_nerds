@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
+import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
 import 'package:kicks_for_nerds/components/profile_comp/Following_Followers.dart';
 
 class UpperProfileSec extends StatefulWidget {
@@ -36,34 +37,7 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                    height: 25,
-                    decoration: BoxDecoration(
-                      color: Color(
-                        0x75000000,
-                      ),
-                      borderRadius: BorderRadius.circular(
-                        24,
-                      ),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(
-                          20,
-                          7,
-                          20,
-                          7,
-                        ),
-                        child: Text(
-                          "@UserName",
-                          style: TextStyle(
-                            color: kDarkModefont,
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  ProfileTag(),
                   GestureDetector(
                     onTap: () => Navigator.pushNamed(
                       context,
@@ -154,7 +128,7 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: kLightModeFont,
-                    fontFamily: 'roboto',
+                    fontFamily: kRoboto,
                     fontSize: kFontSize18,
                     fontWeight: kBoldTxt,
                   ),
@@ -168,7 +142,7 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: kLightModeFont,
-                      fontFamily: 'roboto',
+                      fontFamily: kRoboto,
                       fontSize: kFontSize12,
                       fontWeight: kLightTxt,
                     ),

@@ -45,7 +45,7 @@
     },
     {
       "name": "cross_file",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.1+4",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -93,7 +93,7 @@
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.4.0",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.9.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -111,7 +111,13 @@
     },
     {
       "name": "firebase_database",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-7.1.2",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-7.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "firebase_database_platform_interface",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_platform_interface-0.0.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -177,19 +183,19 @@
     },
     {
       "name": "image_picker",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.3+1",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.4+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "image_picker_for_web",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.2",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "image_picker_platform_interface",
-      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.2.0",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -232,6 +238,24 @@
     {
       "name": "pedantic",
       "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "percent_indicator",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/percent_indicator-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "permission_handler",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-8.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "permission_handler_platform_interface",
+      "rootUri": "file:///Users/andrewlubega/development/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler_platform_interface-3.6.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -320,7 +344,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-07-28T07:34:12.123753Z",
+  "generated": "2022-07-29T22:11:54.139418Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

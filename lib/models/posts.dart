@@ -4,13 +4,24 @@ import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
 
 class Post {
   final String imageUrl;
-  final String title;
-  final String text;
+
+  final String releaseDate;
+
+  final String productName;
+
+  final String description;
+
+  final String colorWay;
+
+  final String shoeSize;
 
   Post(
       {@required this.imageUrl,
-      @required this.title,
-      @required this.text,
+      @required this.releaseDate,
+      @required this.productName,
+      @required this.description,
+      @required this.colorWay,
+      @required this.shoeSize,
       String userId});
 }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
+import 'package:kicks_for_nerds/services/cam.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/story_frame.dart';
 
 class UpperHomeSec extends StatefulWidget {
@@ -26,9 +28,7 @@ class _UpperHomeSecState extends State<UpperHomeSec> {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    Navigator.pushNamed(context, '/cam');
-                  });
+                  CamAndGallery().pickImage(ImageSource.camera);
                 },
                 child: Image.asset(
                   'images/cam_arrow.png',

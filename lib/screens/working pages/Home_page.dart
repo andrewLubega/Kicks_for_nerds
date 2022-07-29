@@ -9,7 +9,7 @@ import 'package:kicks_for_nerds/components/home_comp/upper_home_sec.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/post_block.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/post_card.dart';
 import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
-import 'package:kicks_for_nerds/components/post_frames_comp/stories.dart';
+import 'package:kicks_for_nerds/components/post_frames_comp/stories/stories.dart';
 
 import 'package:kicks_for_nerds/services/database.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
