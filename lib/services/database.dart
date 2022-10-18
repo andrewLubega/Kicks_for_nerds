@@ -1,19 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
 import 'package:kicks_for_nerds/models/posts.dart';
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'auth.dart';
-
+import 'dart:core';
 
 class DataBase {
   final connection = FirebaseDatabase.instance.ref();
+  
   DataBase({uid});
+
 
   // String uid = '';
 
-  Future<void> updateFlutterArticlesUser(user, name, userName) async {
+  Future<void> updateFlutterArticlesUser(User user, name, userName) async {
     final usersReference = connection.child('users').child(user.uid);
     await usersReference.set(
       {
@@ -31,7 +33,7 @@ class DataBase {
   }
 
   // ignore: missing_return
-  Future<MyAppUser> getUserData(user) async {
+  Future<MyAppUser> getUserData( User user) async {
     MyAppUser myAppUser;
     // ignore: unused_local_variable
     final usersReference = connection.child('users').child(user.uid);
@@ -155,17 +157,20 @@ class DataBase {
     List<Post> postList = [];
     String user = await AuthService().currentUser();
 
-    final DatabaseReference postReference = connection.child('users').child(user).child('posts');
+    final DatabaseReference postReference =
+        connection.child('users').child(user).child('posts');
 
     final event = await postReference.once(DatabaseEventType.value);
     final Map postMap = event.snapshot.value as Map;
 
-    postMap.forEach((key, post) {
-      print("added");
-      postList.add(
-        Post.fromJson(post),
-      );
-    });
+    postMap.forEach(
+      (key, post) {
+        print("added");
+        postList.add(
+          Post.fromJson(post),
+        );
+      },
+    );
 
     // final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
 
@@ -187,15 +192,15 @@ class DataBase {
     // return postList;
   }
 
-  Future<int> getPostLength() async {
-    String user = await AuthService().currentUser();
-    //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
-    final lengthReference =
-        connection.child('users').child(user).child('posts');
-    int postLength =
-        await lengthReference.once().then((value) => value.value.length);
-    return postLength;
-  }
+  // Future<int> getPostLength() async {
+  //   String user = await AuthService().currentUser();
+  //   //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
+  //   final lengthReference =
+  //       connection.child('users').child(user).child('posts');
+  //   int postLength =
+  //       await lengthReference.once().then((value) => value.value.length);
+  //   return postLength;
+  // }
 
   Future<void> setBio(String bio) async {
     String user = await AuthService().currentUser();
@@ -289,4 +294,3 @@ class DataBase {
     });
   }
 }
-// class DataService {}

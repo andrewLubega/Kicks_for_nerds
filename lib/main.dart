@@ -32,114 +32,114 @@ Future<void> main() async {
   runApp(KicksForNerds());
 }
 
-class MyApp extends StatefulWidget {
-  // This widget is the root of your application.
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool _intialized = false;
-  bool _error = false;
-
-//connecting to firebase
-  // void intializeFlutterFire() async {
-  //   try {
-  //     await Firebase.initializeApp();
-  //     setState(() {
-  //       _intialized = true;
-  //     });
-  //   } catch (e) {
-  //     print(
-  //       e.toString(),
-  //     );
-  //     _error = true;
-  //   }
-  // }
-
-  @override
-  // void initState() {
-  //   intializeFlutterFire();
-  //   super.initState();
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    //   if (_error) {
-    //     return Container();
-    //   }
-
-    //   if (!_intialized) {
-    //     //return container or loading screen
-    //     return LoadingPage();
-    //   }
-    //   return Streamer();
-    //   // return MaterialApp(
-
-    //   // );
-    // }
-  }
-
-//   initialRoute: '/land',
-
-// class Streamer extends StatefulWidget {
-//   const Streamer({Key key}) : super(key: key);
-
+// class MyApp extends StatefulWidget {
+//   // This widget is the root of your application.
 //   @override
-//   _StreamerState createState() => _StreamerState();
+//   _MyAppState createState() => _MyAppState();
 // }
 
-// class _StreamerState extends State<Streamer> {
-//   final _streamProvider = AuthService().user;
+// class _MyAppState extends State<MyApp> {
+//   bool _intialized = false;
+//   bool _error = false;
+
+// //connecting to firebase
+//   // void intializeFlutterFire() async {
+//   //   try {
+//   //     await Firebase.initializeApp();
+//   //     setState(() {
+//   //       _intialized = true;
+//   //     });
+//   //   } catch (e) {
+//   //     print(
+//   //       e.toString(),
+//   //     );
+//   //     _error = true;
+//   //   }
+//   // }
+
+//   @override
+//   // void initState() {
+//   //   intializeFlutterFire();
+//   //   super.initState();
+//   // }
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       routes: {
-//         '/land': (context) => LandingPage(),
-//         '/reg': (context) => FirstRegisterPage(),
-//         '/regtwo': (context) => SecondRegisterPage(),
-//         '/log': (context) => LoginPage(),
-//         '/load': (context) => LoadingPage(),
-//         '/home': (context) => HomePage(),
-//         '/search': (context) => SearchPage(),
-//         '/dms': (context) => Dmspage(),
-//         '/profile': (context) => ProfilePage(),
-//         '/forgot': (context) => ForgotPasswordPage(),
-//         '/upload': (context) => UploadPage(),
-//         '/srch': (context) => SearchPage(),
-//       },
-//       home: StreamBuilder(
-//         stream: _streamProvider,
-//         builder: (BuildContext context, AsyncSnapshot snapshot) {
-//           if (snapshot.data == null) {
-//             return snapshot.connectionState == ConnectionState.waiting
-//                 ? LoadingPage()
-//                 // using to edit pages
-//                 : LoginPage();
-//           } else {
-//             // switch this to profile when done
-//             return LandingPage();
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
+//     //   if (_error) {
+//     //     return Container();
+//     //   }
 
-// service firebase.storage {
-//   match /b/{bucket}/o {
-//     match /{allPaths=**} {
-//       allow read, write: if request.auth != null;
-//     }
-//   }
-// }
+//     //   if (!_intialized) {
+//     //     //return container or loading screen
+//     //     return LoadingPage();
+//     //   }
+//     //   return Streamer();
+//     //   // return MaterialApp(
 
-}
+//     //   // );
+//     // }
+//   }
+
+// //   initialRoute: '/land',
+
+// // class Streamer extends StatefulWidget {
+// //   const Streamer({Key key}) : super(key: key);
+
+// //   @override
+// //   _StreamerState createState() => _StreamerState();
+// // }
+
+// // class _StreamerState extends State<Streamer> {
+// //   final _streamProvider = AuthService().user;
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return MaterialApp(
+// //       title: 'Flutter Demo',
+// //       theme: ThemeData(
+// //         primarySwatch: Colors.blue,
+// //       ),
+// //       routes: {
+// //         '/land': (context) => LandingPage(),
+// //         '/reg': (context) => FirstRegisterPage(),
+// //         '/regtwo': (context) => SecondRegisterPage(),
+// //         '/log': (context) => LoginPage(),
+// //         '/load': (context) => LoadingPage(),
+// //         '/home': (context) => HomePage(),
+// //         '/search': (context) => SearchPage(),
+// //         '/dms': (context) => Dmspage(),
+// //         '/profile': (context) => ProfilePage(),
+// //         '/forgot': (context) => ForgotPasswordPage(),
+// //         '/upload': (context) => UploadPage(),
+// //         '/srch': (context) => SearchPage(),
+// //       },
+// //       home: StreamBuilder(
+// //         stream: _streamProvider,
+// //         builder: (BuildContext context, AsyncSnapshot snapshot) {
+// //           if (snapshot.data == null) {
+// //             return snapshot.connectionState == ConnectionState.waiting
+// //                 ? LoadingPage()
+// //                 // using to edit pages
+// //                 : LoginPage();
+// //           } else {
+// //             // switch this to profile when done
+// //             return LandingPage();
+// //           }
+// //         },
+// //       ),
+// //     );
+// //   }
+// // }
+
+// // service firebase.storage {
+// //   match /b/{bucket}/o {
+// //     match /{allPaths=**} {
+// //       allow read, write: if request.auth != null;
+// //     }
+// //   }
+// // }
+
+// }
 
 class KicksForNerds extends StatelessWidget {
   const KicksForNerds({Key key}) : super(key: key);

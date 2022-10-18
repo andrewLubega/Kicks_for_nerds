@@ -13,7 +13,7 @@ class MidProfileSec extends StatefulWidget {
 class _MidProfileSecState extends State<MidProfileSec> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Padding( 
       padding: const EdgeInsets.only(
         top: 8,
       ),

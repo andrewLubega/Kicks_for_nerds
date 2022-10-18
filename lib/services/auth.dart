@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:kicks_for_nerds/models/MyAppUser.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 

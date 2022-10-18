@@ -48,7 +48,7 @@ class _ActiveStoryPageState extends State<ActiveStoryPage> {
         children: [
           // myStories[currrentStoryIndex],
           MyStoryBars(
-            percentWatched: percentWatched,
+            percentWatched: percentWatched, storyNum: null,
           ),
         ],
       ),

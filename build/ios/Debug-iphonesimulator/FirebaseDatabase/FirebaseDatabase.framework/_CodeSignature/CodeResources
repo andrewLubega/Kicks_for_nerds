@@ -10,23 +10,23 @@
 		</data>
 		<key>Headers/FIRDataSnapshot.h</key>
 		<data>
-		vLrs/ZQlQR6cytGL5JiPMz/UuMY=
+		5mWwjAbv9DUQuvg7r3GweYj/zZo=
 		</data>
 		<key>Headers/FIRDatabase.h</key>
 		<data>
-		8wGg4g160h5GIgxN9VU+DjZgpBU=
+		nAcNmNkm3LWItl4CxGCZbsp8YfM=
 		</data>
 		<key>Headers/FIRDatabaseQuery.h</key>
 		<data>
-		rzkpm0gO0QyJjLtQjfMuRzlVpxE=
+		vCHyGsC5ljojn+DyqHSvIxIZkcc=
 		</data>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<data>
-		E92680g4lOukZb8iW10yO7QwvIs=
+		nP+oezLCdEorir5T7kO4t/JutF8=
 		</data>
 		<key>Headers/FIRMutableData.h</key>
 		<data>
-		B6D5W2VzE5zrf7n+B0qxiYdLJBk=
+		v3uaU9E0EU5/1JdJQ29EQc/4Ris=
 		</data>
 		<key>Headers/FIRServerValue.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/FIRTransactionResult.h</key>
 		<data>
-		TZgjD42O6AzRmdrBCkq/EBHXQ5A=
+		DEFnfGx5Wx6mKBcSX1ml93hENBk=
 		</data>
 		<key>Headers/FirebaseDatabase-umbrella.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Lc+cDbOy8gE9REpg0UwJ79PPoYU=
+		f4ZOydmGLkO9k0fi43jr1AZ6Jgg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -70,55 +70,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vLrs/ZQlQR6cytGL5JiPMz/UuMY=
+			5mWwjAbv9DUQuvg7r3GweYj/zZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			wponKvYiDSaAXvIRFr+iBul8Pq7sWzQV+WYTJE3d+6M=
+			RVCaoGTIs5yUIuY7ZImB/pY6qfCoQkriGm9IIjhpTHU=
 			</data>
 		</dict>
 		<key>Headers/FIRDatabase.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8wGg4g160h5GIgxN9VU+DjZgpBU=
+			nAcNmNkm3LWItl4CxGCZbsp8YfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZzS1k8/v3zImSVUNsNB1UkBGTCoCAekjzN2rxgWssok=
+			C4QZvOl3nhTFZzD0/H3vkvC+SLADpkzHLGUEb7V8x2g=
 			</data>
 		</dict>
 		<key>Headers/FIRDatabaseQuery.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rzkpm0gO0QyJjLtQjfMuRzlVpxE=
+			vCHyGsC5ljojn+DyqHSvIxIZkcc=
 			</data>
 			<key>hash2</key>
 			<data>
-			tH0AW7dDc/M5SIQ5HH73t8d/U8087eHsfF5MpTXMltg=
+			+dCKJONIln324pm1jrMUtGeNnHIw2NOb55OrvuJLNOs=
 			</data>
 		</dict>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E92680g4lOukZb8iW10yO7QwvIs=
+			nP+oezLCdEorir5T7kO4t/JutF8=
 			</data>
 			<key>hash2</key>
 			<data>
-			XETIxNej8yKN/Pry80gp2hQ4LYyew7bJ2Cxn00uyN10=
+			MiUPR3c2ynFqMck+eUMKGPv5kYQwPT5Ni+OGXanBee0=
 			</data>
 		</dict>
 		<key>Headers/FIRMutableData.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			B6D5W2VzE5zrf7n+B0qxiYdLJBk=
+			v3uaU9E0EU5/1JdJQ29EQc/4Ris=
 			</data>
 			<key>hash2</key>
 			<data>
-			iL15J1FHGNiU2hLAfRayGjDHv9BVv2RiUE/9UHNUIaw=
+			jIzK8g+wl5Um7hlvKgbB6MiKUESsSXJ5IAe0ZkSHUhM=
 			</data>
 		</dict>
 		<key>Headers/FIRServerValue.h</key>
@@ -136,11 +136,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TZgjD42O6AzRmdrBCkq/EBHXQ5A=
+			DEFnfGx5Wx6mKBcSX1ml93hENBk=
 			</data>
 			<key>hash2</key>
 			<data>
-			0BVPs6rtvnk0lug6QTqJgVw9XO7HZiH7wtChwGffPsQ=
+			6/2Gj5isR0CS3Cz9cN7fnbyyPeb1+OfwyoORYiYd8Ig=
 			</data>
 		</dict>
 		<key>Headers/FirebaseDatabase-umbrella.h</key>
