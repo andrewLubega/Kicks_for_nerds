@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
 class FollowCount extends StatefulWidget {
-  const FollowCount({Key key, @required this.titleCount, @required this.title})
+  const FollowCount({Key? key, required this.titleCount, required this.title})
       : super(key: key);
 
   final int titleCount;

@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class ProfileTag extends StatefulWidget {
   const ProfileTag({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -112,7 +112,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 ),
                 child: BiggerButton(
                   onPressed: () async {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       print(password);
                       print(email);
 

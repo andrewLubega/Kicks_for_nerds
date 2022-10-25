@@ -5,7 +5,7 @@ import 'package:kicks_for_nerds/services/cam.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/story_frame.dart';
 
 class UpperHomeSec extends StatefulWidget {
-  const UpperHomeSec({Key key}) : super(key: key);
+  const UpperHomeSec({Key? key}) : super(key: key);
 
   @override
   State<UpperHomeSec> createState() => _UpperHomeSecState();
@@ -28,7 +28,8 @@ class _UpperHomeSecState extends State<UpperHomeSec> {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                  CamAndGallery().pickImage(ImageSource.camera);
+                  // CamAndGallery().;
+                  // CamAndGallery().pickImage(ImageSource.camera);
                 },
                 child: Image.asset(
                   'images/cam_arrow.png',

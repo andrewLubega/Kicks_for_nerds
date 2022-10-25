@@ -9,13 +9,13 @@ import 'dart:core';
 
 class DataBase {
   final connection = FirebaseDatabase.instance.ref();
-  
-  DataBase({uid});
 
+  DataBase({uid});
 
   // String uid = '';
 
-  Future<void> updateFlutterArticlesUser(User user, name, userName) async {
+  Future<void> updateFlutterArticlesUser(
+      User user, name, userName, newPassword) async {
     final usersReference = connection.child('users').child(user.uid);
     await usersReference.set(
       {
@@ -24,7 +24,7 @@ class DataBase {
         //TODO removed user. from userName and name
         'userName': userName,
         'name': name,
-        'password': user.password,
+        'password': user.updatePassword(newPassword),
 
         // 'username': username,
         //add as many attributes as you want
@@ -33,17 +33,17 @@ class DataBase {
   }
 
   // ignore: missing_return
-  Future<MyAppUser> getUserData( User user) async {
-    MyAppUser myAppUser;
-    // ignore: unused_local_variable
+  Future<MyAppUser?> getUserData(User user) async {
+    MyAppUser? myAppUser;
+
     final usersReference = connection.child('users').child(user.uid);
     await usersReference.get().then(
       (data) {
         myAppUser = MyAppUser(
-          uid: data.value['uid'],
-          email: data.value['email'],
-          userName: data.value['userName'],
-          name: data.value['name'],
+          uid: (data.value as Map<String, String>)['uid'],
+          email: (data.value as Map<String, String>)['uid'],
+          userName: (data.value as Map<String, String>)['uid'],
+          name: (data.value as Map<String, String>)['uid'],
         );
       },
     );
@@ -51,7 +51,7 @@ class DataBase {
   }
 
   // story saving function
-  Future<void> saveStory({String imageUrl}) async {
+  Future<void> saveStory({required String imageUrl}) async {
     String user = await AuthService().currentUser();
 
     print("SAVINGGG STORY");
@@ -74,7 +74,7 @@ class DataBase {
   }
 
   // firebase story retrieval function
-  Future<List> getStory({AsyncSnapshot snapshot}) async {
+  Future<List?> getStory({required AsyncSnapshot snapshot}) async {
     String user = await AuthService().currentUser();
     final storyReference =
         connection.child('users').child(user).child('stories');
@@ -94,7 +94,7 @@ class DataBase {
     });
   }
 
-  Future<List> getGlobalStory({AsyncSnapshot snapshot}) async {
+  Future<List?> getGlobalStory({required AsyncSnapshot snapshot}) async {
     String user = await AuthService().currentUser();
     final storyReference = connection.child('global').child('stories');
     final List storyList = [];
@@ -153,7 +153,7 @@ class DataBase {
     });
   }
 
-  Future<List> getPost() async {
+  Future<List?> getPost() async {
     List<Post> postList = [];
     String user = await AuthService().currentUser();
 
@@ -167,7 +167,7 @@ class DataBase {
       (key, post) {
         print("added");
         postList.add(
-          Post.fromJson(post),
+          Post.fromjson(post),
         );
       },
     );
@@ -231,7 +231,7 @@ class DataBase {
       },
     );
 
-    Future<void> setProfilePic({String imageUrl}) async {
+    Future<void> setProfilePic({String? imageUrl}) async {
       String user = await AuthService().currentUser();
 
       print("SAVINGGG Profile");

@@ -7,7 +7,7 @@ import 'package:kicks_for_nerds/services/database.dart';
 import 'package:provider/provider.dart';
 
 class BottomProfileSec extends StatefulWidget {
-  const BottomProfileSec({Key key}) : super(key: key);
+  const BottomProfileSec({Key? key}) : super(key: key);
 
   @override
   State<BottomProfileSec> createState() => _BottomProfileSecState();
@@ -16,7 +16,8 @@ class BottomProfileSec extends StatefulWidget {
 class _BottomProfileSecState extends State<BottomProfileSec> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Object>(
+    // TODO added null check on object streamer
+    return FutureBuilder<Object?>(
         future: DataBase().getPost(),
         builder: (context, AsyncSnapshot snapshot) {
           return SliverPadding(

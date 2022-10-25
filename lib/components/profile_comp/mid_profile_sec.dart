@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/post_frames_comp/story_frame.dart';
 import 'package:kicks_for_nerds/components/profile_comp/mid_profile_icon_nav.dart';
 
 class MidProfileSec extends StatefulWidget {
-  const MidProfileSec({Key key}) : super(key: key);
+  const MidProfileSec({Key? key}) : super(key: key);
 
   @override
   State<MidProfileSec> createState() => _MidProfileSecState();

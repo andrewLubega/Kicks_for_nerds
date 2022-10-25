@@ -35,11 +35,11 @@ class _SettingsPageState extends State<SettingsPage> {
     });
   }
 
-  File sampleImage;
+  File? sampleImage;
 
   // String _myValue;
 
-  String url;
+  String? url;
 
   final formKey = new GlobalKey<FormState>();
 
@@ -54,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
   bool validateAndSave() {
     final form = formKey.currentState;
 
-    if (form.validate() != null) {
+    if (form!.validate() != null) {
       form.save();
       return true;
     } else {
@@ -77,7 +77,7 @@ class _SettingsPageState extends State<SettingsPage> {
       var imageUrl = await imageRef.getDownloadURL();
       url = imageUrl.toString();
 
-      print("ImageUrl = " + url);
+      print("ImageUrl = " + url!);
 
       // goToHomePage();
 

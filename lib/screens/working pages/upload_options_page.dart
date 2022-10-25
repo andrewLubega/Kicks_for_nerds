@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 import 'package:kicks_for_nerds/components/buttons_comp/bigger_button.dart';
 
 class UploadOptions extends StatefulWidget {
-  const UploadOptions({Key key}) : super(key: key);
+  const UploadOptions({Key? key}) : super(key: key);
 
   @override
   State<UploadOptions> createState() => _UploadOptionsState();

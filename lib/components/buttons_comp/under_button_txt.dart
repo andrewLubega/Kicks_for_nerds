@@ -3,8 +3,8 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class UnderButtonTxt extends StatelessWidget {
   UnderButtonTxt({
-    @required this.txt,
-    @required this.routeName,
+    required this.txt,
+    required this.routeName,
   });
 
   final String txt;

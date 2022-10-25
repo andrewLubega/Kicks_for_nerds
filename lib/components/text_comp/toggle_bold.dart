@@ -3,9 +3,9 @@ import 'package:kicks_for_nerds/assets/enums.dart';
 
 class ToggleBold extends StatelessWidget {
   ToggleBold(
-      {@required this.fontType,
-      @required this.boldTxtFont,
-      @required this.regularTxtFont});
+      {required this.fontType,
+      required this.boldTxtFont,
+      required this.regularTxtFont});
 
   final font fontType;
 

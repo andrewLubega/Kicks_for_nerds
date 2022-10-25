@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 
 class TaggedPage extends StatefulWidget {
-  const TaggedPage({Key key}) : super(key: key);
+  const TaggedPage({Key? key}) : super(key: key);
 
   @override
   _TaggedPageState createState() => _TaggedPageState();

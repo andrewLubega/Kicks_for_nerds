@@ -9,15 +9,15 @@ import 'package:kicks_for_nerds/components/text_comp/txt_fonts.dart';
 
 class BiggerButton extends StatefulWidget {
   const BiggerButton({
-    Key key,
-    @required this.title,
-    this.routePage,
+    Key? key,
+    required this.title,
+     this.routePage,
     this.buttonHeight,
     this.onPressed,
     this.buttonWidth,
   }) : super(key: key);
 
-  final String routePage;
+  final String? routePage;
   final String title;
   final buttonHeight;
   final buttonWidth;
@@ -28,7 +28,7 @@ class BiggerButton extends StatefulWidget {
 }
 
 class _BiggerButtonState extends State<BiggerButton> {
-  font fontType;
+  late font fontType;
 
   bool hasBeenPressed = false;
 

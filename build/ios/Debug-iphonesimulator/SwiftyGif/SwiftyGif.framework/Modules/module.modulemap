@@ -6,6 +6,6 @@ framework module SwiftyGif {
 }
 
 module SwiftyGif.Swift {
-    header "SwiftyGif-Swift.h"
-    requires objc
+  header "SwiftyGif-Swift.h"
+  requires objc
 }

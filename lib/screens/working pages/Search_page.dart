@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/search_bar.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key key}) : super(key: key);
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
   State<SearchPage> createState() => _SearchPageState();

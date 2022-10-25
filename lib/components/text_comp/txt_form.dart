@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
 class TxtForm extends StatelessWidget {
-  const TxtForm({Key key, this.txt}) : super(key: key);
+  const TxtForm({Key? key, required this.txt}) : super(key: key);
 
   final String txt;
 

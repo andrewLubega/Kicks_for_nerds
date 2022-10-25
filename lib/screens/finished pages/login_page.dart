@@ -11,7 +11,7 @@ import 'package:kicks_for_nerds/services/auth.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 child: BiggerButton(
                   onPressed: () async {
-                    if (_formKey.currentState.validate()) {
+                    if (_formKey.currentState!.validate()) {
                       // dynamic result = await _auth.signInWithEmailAndPassword(
                       //     email: email, password: password);
                       dynamic result =

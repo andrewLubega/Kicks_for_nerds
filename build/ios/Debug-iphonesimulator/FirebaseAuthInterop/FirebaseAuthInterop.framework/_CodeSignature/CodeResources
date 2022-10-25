@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		x1kXoKtpjuhz9H7I9ERAwzmahFE=
+		ZSduFcD66shHjtXDzN5iPCE6whM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -25,10 +25,6 @@
 	<dict>
 		<key>Headers/FIRAuthInterop.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5BHM7qbUU3JTemX1+mWXe3Jx/3k=
-			</data>
 			<key>hash2</key>
 			<data>
 			N08OxNn/UNC5qX7ICyLfi0WB1dRknvnFBamMFuWuDjQ=
@@ -36,10 +32,6 @@
 		</dict>
 		<key>Headers/FirebaseAuthInterop-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PeS9/WrvqlzGaOu/mgCU7pvFhOs=
-			</data>
 			<key>hash2</key>
 			<data>
 			66hmX41QMZxxGlua0H4ItLzvZs3+KfN+cgbGrRZUJh0=
@@ -47,10 +39,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zz5/o7iuc2W7la0FBtDUug4iCcU=
-			</data>
 			<key>hash2</key>
 			<data>
 			EWIkhD7SKMdXety6bYPC2aYwWTcL4v9v6jd3CdQ7wgs=

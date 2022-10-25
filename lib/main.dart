@@ -142,7 +142,7 @@ Future<void> main() async {
 // }
 
 class KicksForNerds extends StatelessWidget {
-  const KicksForNerds({Key key}) : super(key: key);
+  const KicksForNerds({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

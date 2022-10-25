@@ -19,7 +19,7 @@ import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
 class PostsUploadPage extends StatefulWidget {
-  const PostsUploadPage({Key key}) : super(key: key);
+  const PostsUploadPage({Key? key}) : super(key: key);
 
   @override
   _PostsUploadPageState createState() => _PostsUploadPageState();
@@ -43,9 +43,9 @@ class _PostsUploadPageState extends State<PostsUploadPage> {
     });
   }
 
-  File sampleImage;
+  File? sampleImage;
   // String _myValue;
-  String url;
+  String? url;
   final formKey = new GlobalKey<FormState>();
 
   Future getImage() async {
@@ -59,7 +59,7 @@ class _PostsUploadPageState extends State<PostsUploadPage> {
   bool validateAndSave() {
     final form = formKey.currentState;
 
-    if (form.validate() != null) {
+    if (form!.validate() != null) {
       form.save();
       return true;
     } else {
@@ -82,7 +82,7 @@ class _PostsUploadPageState extends State<PostsUploadPage> {
       var imageUrl = await imageRef.getDownloadURL();
       url = imageUrl.toString();
 
-      print("ImageUrl = " + url);
+      print("ImageUrl = " + url!);
 
       // goToHomePage();
 

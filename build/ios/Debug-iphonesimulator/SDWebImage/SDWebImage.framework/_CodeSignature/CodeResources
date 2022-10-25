@@ -178,7 +178,7 @@
 		</data>
 		<key>Headers/SDWebImageManager.h</key>
 		<data>
-		7VUgzpglGpDAPMje3grlVWTkn5E=
+		xiHH/HCr0tx9VoY3F1eceSzc0rA=
 		</data>
 		<key>Headers/SDWebImageOperation.h</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		N2UZx/HzZMFGqo4oL7U7iWUz7L4=
+		7jvNgxUkLNTwE+69Le7DjYaYk+s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -286,7 +286,7 @@
 		</data>
 		<key>PrivateHeaders/SDImageIOAnimatedCoderInternal.h</key>
 		<data>
-		E4+18zbMoBV+nCoCbF7haRvWYmA=
+		8FzsvINQIWZArxRrWD2sCHPcFpk=
 		</data>
 		<key>PrivateHeaders/SDInternalMacros.h</key>
 		<data>
@@ -788,11 +788,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7VUgzpglGpDAPMje3grlVWTkn5E=
+			xiHH/HCr0tx9VoY3F1eceSzc0rA=
 			</data>
 			<key>hash2</key>
 			<data>
-			uuf3iWw3MdTN9iZw0h/tuELB4wujmm2mnWV0GxaGlAw=
+			R6U+hFzGejL1cDxtTSrd1ap+R9YOQGp6sDSSA5Dk0B8=
 			</data>
 		</dict>
 		<key>Headers/SDWebImageOperation.h</key>
@@ -1074,11 +1074,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			E4+18zbMoBV+nCoCbF7haRvWYmA=
+			8FzsvINQIWZArxRrWD2sCHPcFpk=
 			</data>
 			<key>hash2</key>
 			<data>
-			tXCafWati7eFsnFCv9heqcANGvgEq7Bn1AujevC65zw=
+			YwuIHuvb59cCJrRkV5Gj1GT/KhNzxbZlE/esbnZStiQ=
 			</data>
 		</dict>
 		<key>PrivateHeaders/SDInternalMacros.h</key>

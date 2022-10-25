@@ -5,7 +5,7 @@ import 'package:kicks_for_nerds/components/content_components.dart/upper_content
 
 class MidContentSec extends StatelessWidget {
   const MidContentSec({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

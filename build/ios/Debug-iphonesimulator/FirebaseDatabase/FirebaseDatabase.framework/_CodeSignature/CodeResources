@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/FIRDatabase.h</key>
 		<data>
-		nAcNmNkm3LWItl4CxGCZbsp8YfM=
+		j1wnFc+GjNIbjjt2JFbToQgo50w=
 		</data>
 		<key>Headers/FIRDatabaseQuery.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<data>
-		nP+oezLCdEorir5T7kO4t/JutF8=
+		rHlqU4uXAGd1lEv6/vMBFwweAnI=
 		</data>
 		<key>Headers/FIRMutableData.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		f4ZOydmGLkO9k0fi43jr1AZ6Jgg=
+		JYU5+p1cGo4hoQgLKLTRX9h//Ks=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -57,10 +57,6 @@
 	<dict>
 		<key>Headers/FIRDataEventType.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/3c6ET6KKsCBgXQWEQLoa+3Vhb8=
-			</data>
 			<key>hash2</key>
 			<data>
 			yNrMniakWiKcpk0xotAz5vGzTOvHcCaLf+fGhinV+94=
@@ -68,10 +64,6 @@
 		</dict>
 		<key>Headers/FIRDataSnapshot.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5mWwjAbv9DUQuvg7r3GweYj/zZo=
-			</data>
 			<key>hash2</key>
 			<data>
 			RVCaoGTIs5yUIuY7ZImB/pY6qfCoQkriGm9IIjhpTHU=
@@ -79,21 +71,13 @@
 		</dict>
 		<key>Headers/FIRDatabase.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nAcNmNkm3LWItl4CxGCZbsp8YfM=
-			</data>
 			<key>hash2</key>
 			<data>
-			C4QZvOl3nhTFZzD0/H3vkvC+SLADpkzHLGUEb7V8x2g=
+			Thl4A74hAK/rshqbFCXGT/dqUPXIAoHuggxrxJvcRxg=
 			</data>
 		</dict>
 		<key>Headers/FIRDatabaseQuery.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			vCHyGsC5ljojn+DyqHSvIxIZkcc=
-			</data>
 			<key>hash2</key>
 			<data>
 			+dCKJONIln324pm1jrMUtGeNnHIw2NOb55OrvuJLNOs=
@@ -101,21 +85,13 @@
 		</dict>
 		<key>Headers/FIRDatabaseReference.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nP+oezLCdEorir5T7kO4t/JutF8=
-			</data>
 			<key>hash2</key>
 			<data>
-			MiUPR3c2ynFqMck+eUMKGPv5kYQwPT5Ni+OGXanBee0=
+			mV0hJkRL9i344sJ5UAocfI6NGUYH3oQriLFhj8PrB9Q=
 			</data>
 		</dict>
 		<key>Headers/FIRMutableData.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			v3uaU9E0EU5/1JdJQ29EQc/4Ris=
-			</data>
 			<key>hash2</key>
 			<data>
 			jIzK8g+wl5Um7hlvKgbB6MiKUESsSXJ5IAe0ZkSHUhM=
@@ -123,10 +99,6 @@
 		</dict>
 		<key>Headers/FIRServerValue.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ll5/jv1Qnoac3wJevfIQcc2DjB8=
-			</data>
 			<key>hash2</key>
 			<data>
 			Kvpc995t0GSsab01VQutD3JecBYdA2v0kt//wubWlkk=
@@ -134,10 +106,6 @@
 		</dict>
 		<key>Headers/FIRTransactionResult.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			DEFnfGx5Wx6mKBcSX1ml93hENBk=
-			</data>
 			<key>hash2</key>
 			<data>
 			6/2Gj5isR0CS3Cz9cN7fnbyyPeb1+OfwyoORYiYd8Ig=
@@ -145,10 +113,6 @@
 		</dict>
 		<key>Headers/FirebaseDatabase-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			OICExEVJbprsmhn/0huYqZUp5Q4=
-			</data>
 			<key>hash2</key>
 			<data>
 			qDEZOxqX7jj+JZTL+oof7wG5GnJ2IkVkis0GViigg1A=
@@ -156,10 +120,6 @@
 		</dict>
 		<key>Headers/FirebaseDatabase.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q/QTCKI5XnDAn8cjapnIMA/H4vo=
-			</data>
 			<key>hash2</key>
 			<data>
 			MBxoik1XJzGb2vZcn0VK8Aqsi/8+h0SCiEEh8f5CNyQ=
@@ -167,10 +127,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			R2sBlzI+rJIOpy9k4oYhXm+tk1c=
-			</data>
 			<key>hash2</key>
 			<data>
 			FlxfF9zjSwGs2Ew9Jew3MeMfdTVkuMd+6Yk+PezLMAg=

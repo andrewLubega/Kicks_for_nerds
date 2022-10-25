@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/PermissionHandlerEnums.h</key>
 		<data>
-		0L8WhN11iVmFSKvJdlwE1CkdNQI=
+		CCwVYhMpwBFyXnNs6DcuAd3bc1E=
 		</data>
 		<key>Headers/PermissionHandlerPlugin.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		+hgaxll23y2Lcmf8ODma2Tf6hVE=
+		uX2usYYowi6LwUZKdsw4j1Akebc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -213,11 +213,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0L8WhN11iVmFSKvJdlwE1CkdNQI=
+			CCwVYhMpwBFyXnNs6DcuAd3bc1E=
 			</data>
 			<key>hash2</key>
 			<data>
-			upSHRk7dgspO+PrPopiJvgTNnvB1PxKVLz9TZ6qyd44=
+			M4VoUqe23jCgfHaXE6SurOBbpLPgCXV90gG6TL0XfX0=
 			</data>
 		</dict>
 		<key>Headers/PermissionHandlerPlugin.h</key>

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
 class SearchCard extends StatelessWidget {
-  const SearchCard({Key key, this.txt, this.onChangedProperty, this.hiddenPass})
+  const SearchCard({Key? key, required this.txt, this.onChangedProperty, this.hiddenPass})
       : super(key: key);
 
   final String txt;

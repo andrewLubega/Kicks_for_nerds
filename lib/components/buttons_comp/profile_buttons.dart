@@ -11,15 +11,15 @@ import 'package:kicks_for_nerds/assets/variables.dart';
 
 class FollowButton extends StatefulWidget {
   const FollowButton({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.routePage,
     this.buttonHeight,
     this.onPressed,
     this.buttonWidth,
   }) : super(key: key);
 
-  final Widget routePage;
+  final Widget? routePage;
   final String title;
   final buttonHeight;
   final buttonWidth;
@@ -30,7 +30,7 @@ class FollowButton extends StatefulWidget {
 }
 
 class _FollowButtonState extends State<FollowButton> {
-  font fontType;
+  late font fontType;
 
   bool hasBeenPressed = false;
 
@@ -85,16 +85,16 @@ class _FollowButtonState extends State<FollowButton> {
 
 class MessageButton extends StatefulWidget {
   const MessageButton({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.routePage,
     this.buttonHeight,
     this.onPressed,
     this.buttonWidth,
-    this.routeName,
+    required this.routeName,
   }) : super(key: key);
 
-  final Widget routePage;
+  final Widget? routePage;
   final String title;
   final buttonHeight;
   final buttonWidth;
@@ -106,7 +106,7 @@ class MessageButton extends StatefulWidget {
 }
 
 class _MessageButtonState extends State<MessageButton> {
-  font fontType;
+  late font fontType;
 
   bool hasBeenPressed = false;
 

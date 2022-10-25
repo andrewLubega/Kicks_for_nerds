@@ -4,7 +4,7 @@ import '../story_frame.dart';
 
 class StoriesComponent extends StatelessWidget {
   const StoriesComponent({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class StrokeButtonField extends StatelessWidget {
   const StrokeButtonField(
-      {Key key, this.txt, this.onChangedProperty, this.hiddenPass})
+      {Key? key, required this.txt, this.onChangedProperty, this.hiddenPass})
       : super(key: key);
 
   final String txt;

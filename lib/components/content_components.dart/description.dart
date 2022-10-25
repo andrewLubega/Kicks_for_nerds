@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class DescriptionBox extends StatelessWidget {
   const DescriptionBox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

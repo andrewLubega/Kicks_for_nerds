@@ -27,7 +27,7 @@ class MyProgressBar extends StatelessWidget {
   double percentWatched = 0.0;
 
   MyProgressBar({
-    @required this.percentWatched,
+    required this.percentWatched,
   });
 
   @override

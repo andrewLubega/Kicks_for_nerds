@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 class DmContainers extends StatelessWidget {
   const DmContainers({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

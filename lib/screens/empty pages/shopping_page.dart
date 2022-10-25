@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 
 class ShoppingPage extends StatefulWidget {
-  const ShoppingPage({Key key}) : super(key: key);
+  const ShoppingPage({Key? key}) : super(key: key);
 
   @override
   _ShoppingPageState createState() => _ShoppingPageState();

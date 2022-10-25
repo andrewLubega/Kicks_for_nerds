@@ -8,7 +8,7 @@ import 'package:kicks_for_nerds/components/buttons_comp/under_button_txt.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage({Key key}) : super(key: key);
+  const ForgotPasswordPage({Key? key}) : super(key: key);
 
   @override
   _ForgotPasswordPageState createState() => _ForgotPasswordPageState();

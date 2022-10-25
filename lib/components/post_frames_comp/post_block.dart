@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class PostBlock extends StatefulWidget {
   const PostBlock({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

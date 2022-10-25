@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
 
 class UpperContentSec extends StatelessWidget {
   const UpperContentSec({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

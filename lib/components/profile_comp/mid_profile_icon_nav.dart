@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
 class MidProfileIconNav extends StatefulWidget {
-  const MidProfileIconNav({Key key}) : super(key: key);
+  const MidProfileIconNav({Key? key}) : super(key: key);
 
   @override
   State<MidProfileIconNav> createState() => _MidProfileIconNavState();

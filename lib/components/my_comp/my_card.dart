@@ -12,10 +12,10 @@ class MyCard extends StatefulWidget {
   });
 
   final marginSize;
-  final double height;
-  final Color baseColour;
-  final Widget cardChild;
-  final double width;
+  final double? height;
+  final Color? baseColour;
+  final Widget? cardChild;
+  final double? width;
   final grad;
 
   @override

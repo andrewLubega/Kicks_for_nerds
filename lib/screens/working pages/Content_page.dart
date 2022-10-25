@@ -8,14 +8,14 @@ import 'package:kicks_for_nerds/components/content_components.dart/upper_content
 import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 class PostContentPage extends StatefulWidget {
-  const PostContentPage({Key key}) : super(key: key);
+  const PostContentPage({Key? key}) : super(key: key);
 
   @override
   State<PostContentPage> createState() => _PostContentPageState();
 }
 
 class _PostContentPageState extends State<PostContentPage> {
-  OverlayEntry entry;
+  OverlayEntry? entry;
 
   @override
   Widget build(BuildContext context) {

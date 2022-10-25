@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/post_frames_comp/post_card.dart';
 
 class BottomHomeSec extends StatefulWidget {
   const BottomHomeSec({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

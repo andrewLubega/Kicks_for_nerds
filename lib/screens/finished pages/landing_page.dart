@@ -28,7 +28,7 @@ class _LandingPageState extends State<LandingPage> {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             MyCard(
               marginSize: kTopContentMargin,

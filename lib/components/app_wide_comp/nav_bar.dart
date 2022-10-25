@@ -8,7 +8,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

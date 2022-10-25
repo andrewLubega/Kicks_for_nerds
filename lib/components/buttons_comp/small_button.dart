@@ -9,9 +9,9 @@ import 'package:kicks_for_nerds/components/text_comp/txt_fonts.dart';
 
 class SmallButton extends StatefulWidget {
   const SmallButton({
-    Key key,
-    @required this.title,
-    this.routePage,
+    Key? key,
+    required this.title,
+    required this.routePage,
     this.buttonHeight,
     this.buttonWidth,
   }) : super(key: key);
@@ -26,7 +26,7 @@ class SmallButton extends StatefulWidget {
 }
 
 class _SmallButtonState extends State<SmallButton> {
-  font fontType;
+  late font fontType;
 
   bool hasBeenPressed = false;
 
@@ -67,11 +67,13 @@ class _SmallButtonState extends State<SmallButton> {
               fontW8t: kBoldTxt,
               fontsize: kFontSize18,
               text: widget.title,
+              clr: hasBeenPressed ? kLightModeFont : kDarkModefont,
             ),
             regularTxtFont: MyRegularTxtFont(
               fontsize: kFontSize18,
               fontW8t: kRegularTxt,
               text: widget.title,
+              clr: kDarkModefont,
             ),
           ),
           height: vNormalButtonHeight.toDouble(),

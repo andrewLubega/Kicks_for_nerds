@@ -7,11 +7,11 @@ import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 class ProfileSearchCard extends StatefulWidget {
   const ProfileSearchCard({
-    Key key,
-    @required this.username,
-    @required this.handle,
-    @required this.routePage,
-    @required this.onPressed,
+    Key? key,
+    required this.username,
+    required this.handle,
+    required this.routePage,
+    required this.onPressed,
   }) : super(key: key);
 
   final String routePage;
@@ -24,7 +24,7 @@ class ProfileSearchCard extends StatefulWidget {
 }
 
 class _ProfileSearchCardState extends State<ProfileSearchCard> {
-  font fontType;
+  font? fontType;
 
   bool hasBeenPressed = false;
   @override

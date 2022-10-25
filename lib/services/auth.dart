@@ -6,10 +6,10 @@ import 'package:kicks_for_nerds/services/database.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Stream<User> get authStateChanges => _auth.authStateChanges();
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
   //create MyAppUser from a Firebase User
-  // ignore: missing_return
-  MyAppUser _userFromFirebaseUser(User user) {
+
+  MyAppUser? _userFromFirebaseUser(User? user) {
     return user != null ? MyAppUser(uid: user.uid, email: user.email) : null;
   }
 
@@ -19,9 +19,9 @@ class AuthService {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
-      await DataBase(uid: user.uid)
-          .updateFlutterArticlesUser(user, fullName, handle);
+      User? user = result.user;
+      await DataBase(uid: user!.uid)
+          .updateFlutterArticlesUser(user, fullName, handle, password);
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
@@ -34,7 +34,7 @@ class AuthService {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
+      User? user = result.user;
       return user;
     } catch (e) {
       print(e.toString());
@@ -55,10 +55,10 @@ class AuthService {
 
   //TODO here
   Future<String> currentUser() async {
-    final User user = await FirebaseAuth.instance.currentUser;
-    return user.uid.toString();
+    final User? user = await FirebaseAuth.instance.currentUser;
+    return user!.uid.toString();
   }
 
-  Stream<MyAppUser> get user =>
+  Stream<MyAppUser?> get user =>
       _auth.authStateChanges().map(_userFromFirebaseUser);
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
 
 class LoadingPage extends StatefulWidget {
-  const LoadingPage({Key key}) : super(key: key);
+  const LoadingPage({Key? key}) : super(key: key);
 
   @override
   // createstate() {

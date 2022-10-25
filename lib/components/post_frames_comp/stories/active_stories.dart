@@ -7,7 +7,7 @@ import 'package:kicks_for_nerds/components/post_frames_comp/stories/progress_bar
 import 'package:kicks_for_nerds/components/post_frames_comp/stories/story_bars.dart';
 
 class ActiveStoryPage extends StatefulWidget {
-  const ActiveStoryPage({Key key}) : super(key: key);
+  const ActiveStoryPage({Key? key}) : super(key: key);
 
   @override
   State<ActiveStoryPage> createState() => _ActiveStoryPageState();
@@ -31,7 +31,7 @@ class _ActiveStoryPageState extends State<ActiveStoryPage> {
   List<double> percentWatched = [];
 
   @override
-  Void initState() {
+  Void? initState() {
     super.initState();
 
     myStories.forEach(

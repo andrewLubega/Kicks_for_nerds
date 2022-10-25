@@ -4,7 +4,7 @@ import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
 import 'package:kicks_for_nerds/components/profile_comp/Following_Followers.dart';
 
 class UpperProfileSec extends StatefulWidget {
-  const UpperProfileSec({Key key}) : super(key: key);
+  const UpperProfileSec({Key? key}) : super(key: key);
 
   @override
   State<UpperProfileSec> createState() => _UpperProfileSecState();

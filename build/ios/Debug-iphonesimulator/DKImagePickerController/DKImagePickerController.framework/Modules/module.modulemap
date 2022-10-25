@@ -6,6 +6,6 @@ framework module DKImagePickerController {
 }
 
 module DKImagePickerController.Swift {
-    header "DKImagePickerController-Swift.h"
-    requires objc
+  header "DKImagePickerController-Swift.h"
+  requires objc
 }

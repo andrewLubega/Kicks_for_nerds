@@ -12,7 +12,7 @@ import 'package:kicks_for_nerds/components/text_comp/toggle_bold.dart';
 import 'package:kicks_for_nerds/components/text_comp/txt_fonts.dart';
 
 class Dmspage extends StatefulWidget {
-  const Dmspage({Key key}) : super(key: key);
+  const Dmspage({Key? key}) : super(key: key);
 
   @override
   _DmspageState createState() => _DmspageState();

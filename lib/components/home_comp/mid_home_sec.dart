@@ -5,14 +5,14 @@ import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MidHomeSec extends StatefulWidget {
-  const MidHomeSec({Key key}) : super(key: key);
+  const MidHomeSec({Key? key}) : super(key: key);
 
   @override
   State<MidHomeSec> createState() => _MidHomeSecState();
 }
 
 class _MidHomeSecState extends State<MidHomeSec> {
-  PageController _pageController;
+  late PageController _pageController;
   int num = 0;
 
   @override

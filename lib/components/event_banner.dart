@@ -5,7 +5,7 @@ import 'my_comp/my_card.dart';
 
 class EventBanner extends StatelessWidget {
   const EventBanner({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

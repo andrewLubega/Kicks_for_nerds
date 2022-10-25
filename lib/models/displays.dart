@@ -3,6 +3,6 @@ import 'package:flutter/material.dart';
 class StoryDisplay {
   final String imageUrl;
 
-  StoryDisplay({@required this.imageUrl, String userId});
+  StoryDisplay({required this.imageUrl, required String userId});
 }
 

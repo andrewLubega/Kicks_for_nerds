@@ -3,7 +3,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({
-    Key key,
+    Key? key,
     this.onChangedProperty,
   }) : super(key: key);
 

@@ -4,10 +4,10 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 // Bold font classes
 class MyBoldTxtFont extends StatelessWidget {
   MyBoldTxtFont({
-    @required this.text,
+    required this.text,
     this.fontW8t,
-    @required this.fontsize,
-    this.clr = kLightModeFont,
+    required this.fontsize,
+    this.clr,
   });
 
   final String text;
@@ -32,10 +32,10 @@ class MyBoldTxtFont extends StatelessWidget {
 // Light font classes
 class MyRegularTxtFont extends StatelessWidget {
   MyRegularTxtFont({
-    @required this.text,
-    @required this.fontW8t,
-    @required this.fontsize,
-    this.clr = kLightModeFont,
+    required this.text,
+    required this.fontW8t,
+    required this.fontsize,
+    this.clr,
   });
 
   final String text;
