@@ -30,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-          BottomProfileSec(),
+          BottomProfileSec() ,
         ],
       ),
       bottomNavigationBar: NavBar(),

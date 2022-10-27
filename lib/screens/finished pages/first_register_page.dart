@@ -18,8 +18,8 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
-  String fullName = '';
-  String handle = '';
+  String legalName = '';
+  String userName = '';
   String error = '';
   // String username = '';
   String phone = '';
@@ -83,7 +83,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 hiddenPass: false,
                 onChangedProperty: (val) {
                   setState(
-                    () => fullName = val.trim(),
+                    () => legalName = val.trim(),
                   );
                 },
                 txt: kfNameTxt,
@@ -92,7 +92,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 hiddenPass: false,
                 onChangedProperty: (val) {
                   setState(
-                    () => handle = val.trim(),
+                    () => userName = val.trim(),
                   );
                 },
                 txt: khandleTxt,
@@ -113,11 +113,14 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 child: BiggerButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      print(password);
+
                       print(email);
+                      print(password);
+                      print(legalName);
+                      print(userName);
 
                       dynamic result = await AuthService().registerFirebaseUser(
-                          email, password, fullName, handle);
+                          email, password, legalName, userName);
                       if (result == null) {
                         setState(() => error = 'error, could not sign in user');
                       } else {

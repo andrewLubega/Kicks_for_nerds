@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
@@ -10,12 +12,16 @@ import 'dart:core';
 class DataBase {
   final connection = FirebaseDatabase.instance.ref();
 
-  DataBase({uid});
+  // DataBase({uid});
 
   // String uid = '';
 
+// TODO rename to createFlutterArticleUser
   Future<void> updateFlutterArticlesUser(
-      User user, name, userName, newPassword) async {
+    final User user,
+    final String legalName,
+    final String userName,
+  ) async {
     final usersReference = connection.child('users').child(user.uid);
     await usersReference.set(
       {
@@ -23,8 +29,7 @@ class DataBase {
         'email': user.email,
         //TODO removed user. from userName and name
         'userName': userName,
-        'name': name,
-        'password': user.updatePassword(newPassword),
+        'name': legalName,
 
         // 'username': username,
         //add as many attributes as you want
@@ -41,9 +46,9 @@ class DataBase {
       (data) {
         myAppUser = MyAppUser(
           uid: (data.value as Map<String, String>)['uid'],
-          email: (data.value as Map<String, String>)['uid'],
-          userName: (data.value as Map<String, String>)['uid'],
-          name: (data.value as Map<String, String>)['uid'],
+          email: (data.value as Map<String, String>)['email'],
+          userName: (data.value as Map<String, String>)['userName'],
+          name: (data.value as Map<String, String>)['name'],
         );
       },
     );
@@ -153,15 +158,15 @@ class DataBase {
     });
   }
 
-  Future<List?> getPost() async {
-    List<Post> postList = [];
+  Future<List<Post>?> getPost() async {
+    final List postList = [];
     String user = await AuthService().currentUser();
 
     final DatabaseReference postReference =
         connection.child('users').child(user).child('posts');
 
-    final event = await postReference.once(DatabaseEventType.value);
-    final Map postMap = event.snapshot.value as Map;
+    final postEventRef = await postReference.once(DatabaseEventType.value);
+    final Map postMap = postEventRef.snapshot.value as Map;
 
     postMap.forEach(
       (key, post) {
@@ -192,15 +197,38 @@ class DataBase {
     // return postList;
   }
 
-  // Future<int> getPostLength() async {
-  //   String user = await AuthService().currentUser();
-  //   //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
-  //   final lengthReference =
-  //       connection.child('users').child(user).child('posts');
-  //   int postLength =
-  //       await lengthReference.once().then((value) => value.value.length);
-  //   return postLength;
-  // }
+  Future<int> getPostLength() async {
+    // String user = await AuthService().currentUser();
+    //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
+    // final lengthReference =
+    //     connection.child('users').child(user).child('posts');
+    // int postLength =
+    //     await lengthReference.once().then((value) => value.b );
+    // return postLength.bitLength;
+
+    List<Post> postList = [];
+    String user = await AuthService().currentUser();
+
+    final DatabaseReference postReference =
+        connection.child('users').child(user).child('posts');
+
+    final event = await postReference.once(DatabaseEventType.value);
+    final Map postMap = event.snapshot.value as Map;
+
+    postMap.forEach(
+      (key, post) {
+        print("added");
+        postList.add(
+          Post.fromjson(post),
+        );
+      },
+    );
+
+    print(postList.length.toInt().toString());
+    print("post length ^");
+
+    return postList.length;
+  }
 
   Future<void> setBio(String bio) async {
     String user = await AuthService().currentUser();
@@ -217,9 +245,11 @@ class DataBase {
     String user = await AuthService().currentUser();
     //TODO changed userNames to userName
     final userNameRef = connection.child('users').child(user);
-    userNameRef.update({
-      'userName': "@$userName",
-    });
+    userNameRef.update(
+      {
+        'userName': "@$userName",
+      },
+    );
   }
 
   Future<void> setUserName(String name) async {

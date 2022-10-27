@@ -38,7 +38,7 @@ Future<void> main() async {
 //   _MyAppState createState() => _MyAppState();
 // }
 
-// class _MyAppState extends State<MyApp> {
+// class _MyAppState extends State<MyApp>  {
 //   bool _intialized = false;
 //   bool _error = false;
 

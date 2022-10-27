@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:kicks_for_nerds/models/MyAppUser.dart';
@@ -15,13 +17,15 @@ class AuthService {
 
   //create Firebase User
   Future registerFirebaseUser(
-      String email, String password, String fullName, String handle) async {
+      String email, String password, String legalName, String userName) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      //TODO rename user to _authUser in all occurences
       User? user = result.user;
-      await DataBase(uid: user!.uid)
-          .updateFlutterArticlesUser(user, fullName, handle, password);
+
+      await DataBase().updateFlutterArticlesUser(user!, legalName, userName);
+
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
