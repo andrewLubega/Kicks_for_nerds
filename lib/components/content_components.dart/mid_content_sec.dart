@@ -15,7 +15,8 @@ class MidContentSec extends StatefulWidget {
 }
 
 class _MidContentSecState extends State<MidContentSec> {
-  @override  Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Column(
@@ -25,8 +26,8 @@ class _MidContentSecState extends State<MidContentSec> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  // "${widget.product.productName}",
-                  "Shoe Name",
+                  "${widget.product!.productName}",
+                  // "Shoe Name",
                   style: TextStyle(
                     fontFamily: 'comfortaa',
                     fontSize: kFontSize18,
@@ -37,9 +38,8 @@ class _MidContentSecState extends State<MidContentSec> {
             ),
             Divider(),
             DescriptionBox(
-
-                // product: widget.product,
-                ),
+              widget.product,
+            ),
           ],
         ),
       ],

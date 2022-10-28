@@ -36,7 +36,7 @@ class _MidHomeSecState extends State<MidHomeSec> {
             child: PageView.builder(
               pageSnapping: true,
               controller: _pageController,
-              itemCount: lPostBlockList.length,
+              itemCount: 3,
               itemBuilder: (context, int index) {
                 return MyCard(
                   marginSize: EdgeInsets.all(10),

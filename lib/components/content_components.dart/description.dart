@@ -4,9 +4,9 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import '../../models/product.dart';
 
 class DescriptionBox extends StatelessWidget {
-  // Product? product;
+  Product? product;
 
-  // DescriptionBox(this.product);
+  DescriptionBox(this.product);
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +24,23 @@ class DescriptionBox extends StatelessWidget {
           children: [
             DescTxt(
               txt: "Release Date",
-              // info: product.releaseDate,
+              info: product!.releaseDate,
             ),
             DescTxt(
               txt: "Description",
-              // info: product.description,
+              info: product!.description,
             ),
             DescTxt(
               txt: "Nick Name",
-              // info: product.productName,
+              info: product!.productName,
             ),
             DescTxt(
               txt: "Colorway",
-              // info: product.colorWay,
+              info: product!.colorWay,
             ),
             DescTxt(
               txt: "Size",
-              // info: product.shoeSize,
+              info: product!.shoeSize,
             ),
           ],
         ),
@@ -51,10 +51,11 @@ class DescriptionBox extends StatelessWidget {
 
 class DescTxt extends StatefulWidget {
   final String txt;
-  // final String info;
+  final String info;
 
   DescTxt({
     required this.txt,
+    required this.info,
   });
 
   @override
@@ -79,17 +80,17 @@ class _DescTxtState extends State<DescTxt> {
               fontSize: kFontSize14,
             ),
           ),
-          // Text(
-          //   "${widget.info}:",
-          //   softWrap: true,
-          //   textAlign: TextAlign.left,
-          //   style: TextStyle(
-          //     color: kDarkModefont,
-          //     fontFamily: kRoboto,
-          //     fontWeight: kBoldTxt,
-          //     fontSize: kFontSize14,
-          //   ),
-          // ),
+          Text(
+            "${widget.info}:",
+            softWrap: true,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: kDarkModefont,
+              fontFamily: kRoboto,
+              fontWeight: kRegularTxt,
+              fontSize: kFontSize14,
+            ),
+          ),
         ],
       ),
     );

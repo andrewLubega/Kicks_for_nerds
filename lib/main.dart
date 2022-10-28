@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/stories/active_stories.dart';
+import 'package:kicks_for_nerds/models/product.dart';
 
 import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/message_page.dart';
@@ -146,6 +147,8 @@ class KicksForNerds extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Product? product;
+
     return MaterialApp(
         title: 'Flutter Demo',
         // theme: ThemeData.dark(),
@@ -171,7 +174,8 @@ class KicksForNerds extends StatelessWidget {
           '/tag': (context) => TaggedPage(),
           '/store': (context) => StorePage(),
           '/cam': (context) => CamPage(),
-          '/content': (context) => PostContentPage(null),
+
+          '/content': (context) => PostContentPage(product),
           // '/shop': (context) => ShoppingPage(),
           // '/user': (context) => UserNamePage(),
           // '/handle': (context) => HandlePage(),

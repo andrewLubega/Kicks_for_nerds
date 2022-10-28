@@ -29,14 +29,21 @@ class _PostContentPageState extends State<PostContentPage> {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                UpperContentSec(),
+                UpperContentSec(product: widget.product),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+                  padding: const EdgeInsets.fromLTRB(
+                    24,
+                    12,
+                    24,
+                    24,
+                  ),
                   child: Column(
                     children: [
-                      MidContentSec(null),
+                      MidContentSec(widget.product),
                       Padding(
-                        padding: const EdgeInsets.only(top: 12),
+                        padding: const EdgeInsets.only(
+                          top: 12,
+                        ),
                         child: MyCard(
                           width: double.infinity,
                           height: 200,

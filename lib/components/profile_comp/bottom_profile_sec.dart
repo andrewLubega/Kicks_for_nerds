@@ -70,9 +70,11 @@ class _BottomProfileSecState extends State<BottomProfileSec> {
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  // Product product = snapshot.data[index];
+                  Product product = snapshot.data[index];
 
-                  return PostBlock();
+                  return PostBlock(
+                    product: product,
+                  );
                 },
                 childCount: snapshot.data.length,
               ),
