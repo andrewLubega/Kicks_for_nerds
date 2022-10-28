@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
 
-class Post {
+class Product {
   final String imageUrl;
 
   final String releaseDate;
@@ -16,7 +16,7 @@ class Post {
 
   final String shoeSize;
 
-  Post(
+  Product(
       {required this.imageUrl,
       required this.releaseDate,
       required this.productName,
@@ -25,15 +25,15 @@ class Post {
       required this.shoeSize,
       required String userId});
 
-  factory Post.fromjson(json) {
-    return Post(
+  factory Product.fromjson(json) {
+    return Product(
       imageUrl: json['imageUrl'],
-      releaseDate: json['releaseDate'],
-      productName: json['productName'],
+      releaseDate: json['release_date'],
+      productName: json['product_name'],
       description: json['description'],
-      colorWay: json['colorWay'],
+      colorWay: json['colorway'],
       shoeSize: json['shoeSize'],
-      userId: json['userId'],
+      userId: json['userUid'],
     );
   }
 }

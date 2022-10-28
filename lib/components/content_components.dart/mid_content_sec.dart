@@ -3,13 +3,19 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/content_components.dart/description.dart';
 import 'package:kicks_for_nerds/components/content_components.dart/upper_content_sec.dart';
 
-class MidContentSec extends StatelessWidget {
-  const MidContentSec({
-    Key? key,
-  }) : super(key: key);
+import '../../models/product.dart';
+
+class MidContentSec extends StatefulWidget {
+  Product? product;
+
+  MidContentSec(this.product);
 
   @override
-  Widget build(BuildContext context) {
+  State<MidContentSec> createState() => _MidContentSecState();
+}
+
+class _MidContentSecState extends State<MidContentSec> {
+  @override  Widget build(BuildContext context) {
     return Row(
       children: [
         Column(
@@ -19,6 +25,7 @@ class MidContentSec extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
+                  // "${widget.product.productName}",
                   "Shoe Name",
                   style: TextStyle(
                     fontFamily: 'comfortaa',
@@ -29,7 +36,10 @@ class MidContentSec extends StatelessWidget {
               ],
             ),
             Divider(),
-            DescriptionBox(),
+            DescriptionBox(
+
+                // product: widget.product,
+                ),
           ],
         ),
       ],

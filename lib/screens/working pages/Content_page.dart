@@ -7,8 +7,12 @@ import 'package:kicks_for_nerds/components/content_components.dart/mid_content_s
 import 'package:kicks_for_nerds/components/content_components.dart/upper_content_sec.dart';
 import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
+import '../../models/product.dart';
+
 class PostContentPage extends StatefulWidget {
-  const PostContentPage({Key? key}) : super(key: key);
+  Product? product;
+
+  PostContentPage(this.product);
 
   @override
   State<PostContentPage> createState() => _PostContentPageState();
@@ -30,7 +34,7 @@ class _PostContentPageState extends State<PostContentPage> {
                   padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
                   child: Column(
                     children: [
-                      MidContentSec(),
+                      MidContentSec(null),
                       Padding(
                         padding: const EdgeInsets.only(top: 12),
                         child: MyCard(

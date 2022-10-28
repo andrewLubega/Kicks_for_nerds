@@ -21,7 +21,7 @@ import 'package:kicks_for_nerds/screens/working%20pages/content_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Home_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Search_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/dms_page.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/posts_upload.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/product_upload.dart';
 
 import 'screens/users/current user/profile_page.dart';
 import 'screens/working pages/upload_options_page.dart';
@@ -171,7 +171,7 @@ class KicksForNerds extends StatelessWidget {
           '/tag': (context) => TaggedPage(),
           '/store': (context) => StorePage(),
           '/cam': (context) => CamPage(),
-          '/content': (context) => PostContentPage(),
+          '/content': (context) => PostContentPage(null),
           // '/shop': (context) => ShoppingPage(),
           // '/user': (context) => UserNamePage(),
           // '/handle': (context) => HandlePage(),

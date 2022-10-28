@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:kicks_for_nerds/models/myAppUser.dart';
-import 'package:kicks_for_nerds/models/posts.dart';
+import 'package:kicks_for_nerds/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'auth.dart';
@@ -79,43 +79,49 @@ class DataBase {
   }
 
   // firebase story retrieval function
-  Future<List?> getStory({required AsyncSnapshot snapshot}) async {
+  Future<List<Story>> getStory({required AsyncSnapshot snapshot}) async {
     String user = await AuthService().currentUser();
     final storyReference =
         connection.child('users').child(user).child('stories');
-    final List storyList = [];
-    final Map<dynamic, dynamic> storyMap = snapshot.data.snapshot.value;
+    final List<Story> storyList = [];
+    final Map<dynamic, dynamic> storyMap = snapshot.data;
 
     print("GOT STORY");
     print(user);
 
-    storyMap.forEach((key, value) {
-      storyList.add(
-        Story(
-          imageUrl: value['imageUrl'],
-          userId: value['userId'],
-        ),
-      );
-    });
+    storyMap.forEach(
+      (key, value) {
+        storyList.add(
+          Story(
+            imageUrl: value['imageUrl'],
+            userId: value['userId'],
+          ),
+        );
+      },
+    );
+
+    return storyList;
   }
 
-  Future<List?> getGlobalStory({required AsyncSnapshot snapshot}) async {
+  Future<List<Story>> getGlobalStory({required AsyncSnapshot snapshot}) async {
     String user = await AuthService().currentUser();
     final storyReference = connection.child('global').child('stories');
-    final List storyList = [];
-    final Map<dynamic, dynamic> storyMap = snapshot.data.snapshot.value;
+    final List<Story> globalStoryList = [];
+    final Map<dynamic, dynamic> storyMap = snapshot.data;
 
     print("GOT STORY");
     print(user);
 
     storyMap.forEach((key, value) {
-      storyList.add(
+      globalStoryList.add(
         Story(
           imageUrl: value['imageUrl'],
           userId: value['userId'],
         ),
       );
     });
+
+    return globalStoryList;
   }
 
   Future<void> savePost({
@@ -158,8 +164,8 @@ class DataBase {
     });
   }
 
-  Future<List<Post>?> getPost() async {
-    final List postList = [];
+  Future<List<Product>> getProduct() async {
+    List<Product> productList = [];
     String user = await AuthService().currentUser();
 
     final DatabaseReference postReference =
@@ -169,20 +175,25 @@ class DataBase {
     final Map postMap = postEventRef.snapshot.value as Map;
 
     postMap.forEach(
-      (key, post) {
-        print("added");
-        postList.add(
-          Post.fromjson(post),
+      (key, product) {
+        // print(product);
+        productList.add(
+          new Product.fromjson(product),
         );
+        // print("added product");
+        // print(productList);
+        // print(product);
       },
     );
+
+    return productList;
 
     // final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
 
     // postMap.forEach(
     //   (key, value) {
     //     postList.add(
-    //       Post(
+    //       Product(
     //         userId: value['userId'],
     //         imageUrl: value['imageUrl'],
     //         description: value['description'],
@@ -197,7 +208,28 @@ class DataBase {
     // return postList;
   }
 
-  Future<int> getPostLength() async {
+  Future<List<Product>> getGlobalProducts() async {
+    final List<Product> globalProductList = [];
+    String user = await AuthService().currentUser();
+
+    final DatabaseReference postReference =
+        connection.child('global').child('posts');
+    final postEventRef = await postReference.once(DatabaseEventType.value);
+    final Map postMap = postEventRef.snapshot.value as Map;
+
+    postMap.forEach(
+      (key, product) {
+        // print("added");
+        globalProductList.add(
+          Product.fromjson(product),
+        );
+      },
+    );
+
+    return globalProductList;
+  }
+
+  Future<int> getProductLength() async {
     // String user = await AuthService().currentUser();
     //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
     // final lengthReference =
@@ -206,7 +238,7 @@ class DataBase {
     //     await lengthReference.once().then((value) => value.b );
     // return postLength.bitLength;
 
-    List<Post> postList = [];
+    List<Product> postList = [];
     String user = await AuthService().currentUser();
 
     final DatabaseReference postReference =
@@ -216,10 +248,10 @@ class DataBase {
     final Map postMap = event.snapshot.value as Map;
 
     postMap.forEach(
-      (key, post) {
-        print("added");
+      (key, product) {
+        // print("added");
         postList.add(
-          Post.fromjson(post),
+          Product.fromjson(product),
         );
       },
     );
@@ -230,7 +262,31 @@ class DataBase {
     return postList.length;
   }
 
-  Future<void> setBio(String bio) async {
+  Future<void> removeProduct({productId}) async {
+    String user = await AuthService().currentUser();
+
+    final productRef =
+        connection.child('users').child(user).child('posts').child(productId);
+    await productRef.remove();
+
+    final productGlobalRef =
+        connection.child('global').child('posts').child(productId);
+    await productGlobalRef.remove();
+  }
+
+  Future<void> removeStory({storyId}) async {
+    String user = await AuthService().currentUser();
+
+    final storyRef =
+        connection.child('users').child(user).child('stories').child(storyId);
+    await storyRef.remove();
+
+    final storyGlobalRef =
+        connection.child('global').child('stories').child(storyId);
+    await storyGlobalRef.remove();
+  }
+
+  Future<void> updateBio(String bio) async {
     String user = await AuthService().currentUser();
     //TODO changed bio
     final bioRef = connection.child('users').child(user);
@@ -241,30 +297,30 @@ class DataBase {
     );
   }
 
-  Future<void> setuserName(String userName) async {
+  Future<void> updateUserName(String userName) async {
     String user = await AuthService().currentUser();
     //TODO changed userNames to userName
     final userNameRef = connection.child('users').child(user);
     userNameRef.update(
       {
-        'userName': "@$userName",
+        'userName': "@${userName}",
       },
     );
   }
 
-  Future<void> setUserName(String name) async {
+  Future<void> updateLegalName(String legalName) async {
     String user = await AuthService().currentUser();
     final nameRef = connection.child('users').child(user);
     nameRef.update(
       {
-        'name': "$name",
+        'name': "${legalName}",
       },
     );
 
     Future<void> setProfilePic({String? imageUrl}) async {
       String user = await AuthService().currentUser();
 
-      print("SAVINGGG Profile");
+      print("Set Profile");
       print(user);
 
       final profileRef = connection.child('users').child(user);
@@ -307,7 +363,7 @@ class DataBase {
     });
   }
 
-  Future<void> updatePostDisplay({imageUrl}) async {
+  Future<void> updateProductDisplay({imageUrl}) async {
     print("UPDATING DISPLAY");
 
     String postId = Uuid().v1();

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
+import '../../models/product.dart';
+
 class DescriptionBox extends StatelessWidget {
-  const DescriptionBox({
-    Key? key,
-  }) : super(key: key);
+  // Product? product;
+
+  // DescriptionBox(this.product);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +22,26 @@ class DescriptionBox extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DescTxt("Release Date"),
-            DescTxt("Description"),
-            DescTxt("NickName"),
-            DescTxt("Colorway"),
-            DescTxt("Size"),
+            DescTxt(
+              txt: "Release Date",
+              // info: product.releaseDate,
+            ),
+            DescTxt(
+              txt: "Description",
+              // info: product.description,
+            ),
+            DescTxt(
+              txt: "Nick Name",
+              // info: product.productName,
+            ),
+            DescTxt(
+              txt: "Colorway",
+              // info: product.colorWay,
+            ),
+            DescTxt(
+              txt: "Size",
+              // info: product.shoeSize,
+            ),
           ],
         ),
       ),
@@ -34,7 +51,11 @@ class DescriptionBox extends StatelessWidget {
 
 class DescTxt extends StatefulWidget {
   final String txt;
-  DescTxt(this.txt);
+  // final String info;
+
+  DescTxt({
+    required this.txt,
+  });
 
   @override
   _DescTxtState createState() => _DescTxtState();
@@ -45,16 +66,31 @@ class _DescTxtState extends State<DescTxt> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(4.0),
-      child: Text(
-        "${widget.txt}:",
-        softWrap: true,
-        textAlign: TextAlign.left,
-        style: TextStyle(
-          color: kDarkModefont,
-          fontFamily: kRoboto,
-          fontWeight: kBoldTxt,
-          fontSize: kFontSize14,
-        ),
+      child: Row(
+        children: [
+          Text(
+            "${widget.txt}:",
+            softWrap: true,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: kDarkModefont,
+              fontFamily: kRoboto,
+              fontWeight: kBoldTxt,
+              fontSize: kFontSize14,
+            ),
+          ),
+          // Text(
+          //   "${widget.info}:",
+          //   softWrap: true,
+          //   textAlign: TextAlign.left,
+          //   style: TextStyle(
+          //     color: kDarkModefont,
+          //     fontFamily: kRoboto,
+          //     fontWeight: kBoldTxt,
+          //     fontSize: kFontSize14,
+          //   ),
+          // ),
+        ],
       ),
     );
   }

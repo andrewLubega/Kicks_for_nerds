@@ -5,7 +5,7 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/lists.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/post_block.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/post_card.dart';
-import 'package:kicks_for_nerds/models/posts.dart';
+import 'package:kicks_for_nerds/models/product.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 import 'package:provider/provider.dart';
@@ -21,60 +21,72 @@ class _BottomProfileSecState extends State<BottomProfileSec> {
   @override
   Widget build(BuildContext context) {
     // TODO added null check on object streamer
-    return FutureBuilder<List<Post>?>(
-      future: DataBase().getPost(),
+    return FutureBuilder<List<Product>>(
+      future: DataBase().getProduct(),
       builder: (context, AsyncSnapshot snapshot) {
-        return SliverPadding(
-          padding: EdgeInsets.fromLTRB(
-            24,
-            12,
-            24,
-            12,
-          ),
-          sliver: SliverGrid(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return PostBlock();
-              },
-              childCount: 13,
-            ),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              childAspectRatio: 1,
-            ),
-          ),
-        );
+        // List productList = snapshot.data;
 
-        // if (snapshot.connectionState == ConnectionState.waiting) {
-        //   return LoadingPage();
-        // } else if (snapshot.hasData) {
-        //   return SliverPadding(
-        //     padding: EdgeInsets.fromLTRB(
-        //       24,
-        //       12,
-        //       24,
-        //       12,
-        //     ),
-        //     sliver: SliverGrid(
-        //       delegate: SliverChildBuilderDelegate(
-        //         (BuildContext context, int index) {
-        //           return PostBlock();
-        //         },
-        //         childCount: snapshot.data,
-        //       ),
-        //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //         crossAxisCount: 3,
-        //         mainAxisSpacing: 12,
-        //         crossAxisSpacing: 12,
-        //         childAspectRatio: 1,
-        //       ),
-        //     ),
-        //   );
-        // }
+        // print(snapshot.data);
 
-        // return Container();
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return SliverToBoxAdapter(
+            child: LoadingPage(),
+          );
+
+          // return SliverPadding(
+          //   padding: EdgeInsets.fromLTRB(
+          //     24,
+          //     12,
+          //     24,
+          //     12,
+          //   ),
+          //   sliver: SliverGrid(
+          //     delegate: SliverChildBuilderDelegate(
+          //       (BuildContext context, int index) {
+          //         // Product product = snapshot.data[index];
+
+          //         return LoadingPage();
+          //       },
+          //       childCount: 1,
+          //     ),
+          //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //       crossAxisCount: 3,
+          //       mainAxisSpacing: 12,
+          //       crossAxisSpacing: 12,
+          //       childAspectRatio: 1,
+          //     ),
+          //   ),
+          // );
+        } else if (snapshot.hasData) {
+          // List productList = snapshot.data;
+
+          return SliverPadding(
+            padding: EdgeInsets.fromLTRB(
+              24,
+              12,
+              24,
+              12,
+            ),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  // Product product = snapshot.data[index];
+
+                  return PostBlock();
+                },
+                childCount: snapshot.data.length,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                childAspectRatio: 1,
+              ),
+            ),
+          );
+        }
+
+        return Container();
       },
     );
     // return GridView.builder(
