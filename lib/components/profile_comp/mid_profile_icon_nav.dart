@@ -27,7 +27,7 @@ class _MidProfileIconNavState extends State<MidProfileIconNav> {
                 future: DataBase().getProductLength(),
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return LoadingPage();
+                    return Container();
                   } else if (snapshot.hasData) {
                     return Text(
                       snapshot.data.toString(),

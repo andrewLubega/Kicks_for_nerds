@@ -22,6 +22,8 @@ class AuthService {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       //TODO rename user to _authUser in all occurences
+      await result.user!.updateDisplayName(legalName);
+
       User? user = result.user;
 
       await DataBase().updateFlutterArticlesUser(user!, legalName, userName);

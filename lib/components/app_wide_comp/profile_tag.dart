@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
@@ -34,7 +36,7 @@ class _ProfileTagState extends State<ProfileTag> {
                 7,
               ),
               child: Text(
-                "@UserName",
+                FirebaseAuth.instance.currentUser!.email.toString(),
                 style: TextStyle(
                   color: kDarkModefont,
                   fontSize: 10,

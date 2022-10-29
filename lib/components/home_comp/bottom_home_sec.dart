@@ -34,7 +34,9 @@ class _BottomHomeSecState extends State<BottomHomeSec> {
                 (BuildContext context, int index) {
                   Product product = snapshot.data[index];
 
-                  return PostBlock(product: product,);
+                  return PostBlock(
+                    product: product,
+                  );
                 },
                 childCount: snapshot.data.length,
               ),

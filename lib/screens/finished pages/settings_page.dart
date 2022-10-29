@@ -65,7 +65,8 @@ class _SettingsPageState extends State<SettingsPage> {
   Future<void> uploadStatusImage() async {
     if (true) {
       print('getting here');
-      final postImageRef = FirebaseStorage.instance.ref().child("Post Images");
+      final postImageRef =
+          FirebaseStorage.instance.ref().child("Profile Images");
 
       var timeKey = new DateTime.now();
       print('getting here 2');
@@ -111,7 +112,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         setState(() {
                           Navigator.pushNamed(
                             context,
-                            '/handle',
+                            '/Name',
                           );
                         });
                       },
@@ -155,12 +156,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     child: BiggerButton(
                       title: 'Profile Pic',
-                      onPressed: () async {
-                        getImageGallery();
-                        // await uploadStatusImage();
-                        // await DataBase().saveProfilePic(
-                        //   imageUrl: url,
-                        // );
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/pic_pfp',
+                        );
                       },
                     ),
                   ),

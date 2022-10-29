@@ -23,6 +23,7 @@ import 'package:kicks_for_nerds/screens/working%20pages/Home_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Search_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/dms_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/product_upload.dart';
+import 'package:kicks_for_nerds/screens/working%20pages/profile_pic_upload_page.dart';
 
 import 'screens/users/current user/profile_page.dart';
 import 'screens/working pages/upload_options_page.dart';
@@ -177,8 +178,10 @@ class KicksForNerds extends StatelessWidget {
 
           '/content': (context) => PostContentPage(product),
           // '/shop': (context) => ShoppingPage(),
-          // '/user': (context) => UserNamePage(),
-          // '/handle': (context) => HandlePage(),
+          // '/userName': (context) => UserNamePage(),
+          // '/name': (context) => NamePage(),
+
+          '/pic_pfp': (context) => ProfilePicUploadPage(),
         },
         home: AuthWrapper());
   }

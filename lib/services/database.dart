@@ -30,7 +30,8 @@ class DataBase {
         //TODO removed user. from userName and name
         'userName': userName,
         'name': legalName,
-
+        'profile_pic':
+            "https://mediastudies.ugis.berkeley.edu/wp-content/themes/sydney-pro-child/images/user-default.png",
         // 'username': username,
         //add as many attributes as you want
       },
@@ -141,27 +142,31 @@ class DataBase {
 
     final gloablPostRef =
         connection.child('global').child('posts').child(postId);
-    gloablPostRef.set({
-      'userUid': user,
-      'release_date': releaseDate,
-      'description': description,
-      'product_name': productName,
-      'colorway': colorway,
-      'shoeSize': shoeSize,
-      'imageUrl': imageUrl,
-    });
+    gloablPostRef.set(
+      {
+        'userUid': user,
+        'release_date': releaseDate,
+        'description': description,
+        'product_name': productName,
+        'colorway': colorway,
+        'shoeSize': shoeSize,
+        'imageUrl': imageUrl,
+      },
+    );
 
     final postReference =
         connection.child('users').child(user).child('posts').child(postId);
-    postReference.set({
-      'userUid': user,
-      'release_date': releaseDate,
-      'description': description,
-      'product_name': productName,
-      'colorway': colorway,
-      'shoeSize': shoeSize,
-      'imageUrl': imageUrl,
-    });
+    postReference.set(
+      {
+        'userUid': user,
+        'release_date': releaseDate,
+        'description': description,
+        'product_name': productName,
+        'colorway': colorway,
+        'shoeSize': shoeSize,
+        'imageUrl': imageUrl,
+      },
+    );
   }
 
   Future<List<Product>> getProduct() async {
@@ -317,33 +322,56 @@ class DataBase {
       },
     );
 
-    Future<void> setProfilePic({String? imageUrl}) async {
-      String user = await AuthService().currentUser();
+    // Future<void> setProfilePic({String? imageUrl}) async {
+    //   String user = await AuthService().currentUser();
 
-      print("Set Profile");
-      print(user);
+    //   print("Set Profile");
+    //   print(user);
 
-      final profileRef = connection.child('users').child(user);
-      profileRef.update({
-        'profile_pic': imageUrl,
-      });
-    }
+    //   final profileRef =
+    //       connection.child('users').child(user).child("profile_pic");
+    //   profileRef.update({
+    //     'profile_pic': imageUrl,
+    //   });
+    // }
   }
 
   Future<void> saveProfilePic({imageUrl}) async {
     String user = await AuthService().currentUser();
 
     print("SAVINGGG PROFILE");
-    print(user);
+    print(imageUrl);
 
     // String postId = Uuid().v1();
 
     final profileRef = connection.child('users').child(user);
-    profileRef.set(
+
+    await profileRef.update(
       {
         'profile_pic': imageUrl,
       },
     );
+  }
+
+  Future<String> getProfilePic() async {
+    String user = await AuthService().currentUser();
+
+    var url;
+
+    print("SAVINGGG PROFILE");
+
+    // String postId = Uuid().v1();
+
+    final profileRef = connection.child('users').child(user);
+
+    final profileEventRef = await profileRef.once(DatabaseEventType.value);
+
+    var data = profileEventRef.snapshot.value as Map;
+
+    url = data['profile_pic'];
+    print(url);
+
+    return url;
   }
 
   Future<void> updateStoryDisplay({imageUrl}) async {

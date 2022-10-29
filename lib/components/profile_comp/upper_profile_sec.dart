@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
 import 'package:kicks_for_nerds/components/profile_comp/Following_Followers.dart';
+import 'package:kicks_for_nerds/services/database.dart';
 
 class UpperProfileSec extends StatefulWidget {
   const UpperProfileSec({Key? key}) : super(key: key);
@@ -21,7 +24,8 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
               width: double.infinity,
               height: 203,
               decoration: BoxDecoration(
-                color: kBaseWidgetColor,
+                // TODO implement banner functionality later
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(
                   24,
                 ),
@@ -74,11 +78,80 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                         ),
                       ),
                     ),
+                    FutureBuilder(
+                      future: DataBase().getProfilePic(),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Container(
+                            height: kContainerCircRad,
+                            width: kContainerCircRad,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                  "https://mediastudies.ugis.berkeley.edu/wp-content/themes/sydney-pro-child/images/user-default.png",
+                                ),
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                100,
+                              ),
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.white,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                          );
+                        } else if (snapshot.hasData) {
+                          return Container(
+                            height: kContainerCircRad,
+                            width: kContainerCircRad,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                  snapshot.data,
+                                ),
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                100,
+                              ),
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.white,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                          );
+                        }
+
+                        return Container(
+                          height: kContainerCircRad,
+                          width: kContainerCircRad,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: NetworkImage(
+                                snapshot.data,
+                              ),
+                            ),
+                            borderRadius: BorderRadius.circular(
+                              100,
+                            ),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.white,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                     Container(
                       height: kContainerCircRad,
                       width: kContainerCircRad,
                       decoration: BoxDecoration(
-                        color: Colors.amber,
                         borderRadius: BorderRadius.circular(
                           100,
                         ),
@@ -124,7 +197,7 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
             child: Column(
               children: [
                 Text(
-                  "name",
+                  FirebaseAuth.instance.currentUser!.displayName.toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: kLightModeFont,
