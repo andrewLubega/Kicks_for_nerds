@@ -1,19 +1,13 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/assets/variables.dart';
-import 'package:kicks_for_nerds/components/app_wide_comp/nav_bar.dart';
 import 'package:kicks_for_nerds/components/buttons_comp/bigger_button.dart';
-import 'package:kicks_for_nerds/components/buttons_comp/stroke_button.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
 
-import 'package:image_picker/image_picker.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:kicks_for_nerds/components/my_comp/my_card.dart';
 
 import 'package:kicks_for_nerds/services/database.dart';

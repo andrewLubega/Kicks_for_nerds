@@ -1,9 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/app_wide_comp/profile_tag.dart';
-import 'package:kicks_for_nerds/components/profile_comp/Following_Followers.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
 class UpperProfileSec extends StatefulWidget {

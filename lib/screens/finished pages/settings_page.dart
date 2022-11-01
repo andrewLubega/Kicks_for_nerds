@@ -7,10 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/components/buttons_comp/bigger_button.dart';
 import 'package:kicks_for_nerds/components/custom_back_button.dart';
-import 'package:kicks_for_nerds/components/buttons_comp/profile_buttons.dart';
-import 'package:kicks_for_nerds/services/auth.dart';
-import 'package:kicks_for_nerds/services/database.dart';
-import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   @override

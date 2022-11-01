@@ -89,10 +89,10 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, dataSnapshot) {
-        if (dataSnapshot.hasData) {
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
           return HomePage();
-        } else if (dataSnapshot.connectionState == ConnectionState.waiting) {
+        } else if (snapshot.connectionState == ConnectionState.waiting) {
           return LoadingPage();
         }
         return LandingPage();

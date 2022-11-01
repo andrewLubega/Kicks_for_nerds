@@ -1,14 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:kicks_for_nerds/assets/constants.dart';
-import 'package:kicks_for_nerds/assets/lists.dart';
 import 'package:kicks_for_nerds/components/post_frames_comp/post_block.dart';
-import 'package:kicks_for_nerds/components/post_frames_comp/post_card.dart';
 import 'package:kicks_for_nerds/models/product.dart';
-import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
 import 'package:kicks_for_nerds/services/database.dart';
-import 'package:provider/provider.dart';
 
 class BottomProfileSec extends StatefulWidget {
   const BottomProfileSec({Key? key}) : super(key: key);
