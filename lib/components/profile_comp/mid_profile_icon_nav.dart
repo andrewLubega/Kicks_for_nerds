@@ -30,7 +30,7 @@ class _MidProfileIconNavState extends State<MidProfileIconNav> {
                     return Container();
                   } else if (snapshot.hasData) {
                     return Text(
-                      snapshot.data.toString(),
+                      "${snapshot.data.toString()} ",
                       style: TextStyle(
                         fontFamily: 'roboto',
                         fontSize: kFontSize14,
@@ -39,7 +39,7 @@ class _MidProfileIconNavState extends State<MidProfileIconNav> {
                     );
                   }
                   return Text(
-                    "0",
+                    "0 Photos",
                     style: TextStyle(
                       fontFamily: 'roboto',
                       fontSize: kFontSize14,
@@ -48,32 +48,24 @@ class _MidProfileIconNavState extends State<MidProfileIconNav> {
                   );
                 },
               ),
-              // Text(
-              //   DataBase().getPostLength().toString(),
-              //   style: TextStyle(
-              //     fontFamily: 'roboto',
-              //     fontSize: kFontSize14,
-              //     fontWeight: kBoldTxt,
+              // Padding(
+              //   padding: const EdgeInsets.only(
+              //     left: 75,
+              //   ),
+              //   child: Image.asset(
+              //     'images/tagged_icon.png',
+              //     height: kIconImageHeight,
               //   ),
               // ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 75,
-                ),
-                child: Image.asset(
-                  'images/tagged_icon.png',
-                  height: kIconImageHeight,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 75,
-                ),
-                child: Image.asset(
-                  'images/bag_icon.png',
-                  height: kIconImageHeight,
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(
+              //     left: 75,
+              //   ),
+              //   child: Image.asset(
+              //     'images/bag_icon.png',
+              //     height: kIconImageHeight,
+              //   ),
+              // ),
             ],
           ),
           Row(

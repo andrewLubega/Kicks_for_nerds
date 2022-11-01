@@ -40,16 +40,16 @@ class _PostContentPageState extends State<PostContentPage> {
                   child: Column(
                     children: [
                       MidContentSec(widget.product),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 12,
-                        ),
-                        child: MyCard(
-                          width: double.infinity,
-                          height: 200,
-                          baseColour: kBaseWidgetColor,
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(
+                      //     top: 12,
+                      //   ),
+                      //   child: MyCard(
+                      //     width: double.infinity,
+                      //     height: 200,
+                      //     baseColour: kBaseWidgetColor,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

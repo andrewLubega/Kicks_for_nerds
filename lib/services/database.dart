@@ -12,7 +12,7 @@ import 'dart:core';
 class DataBase {
   final connection = FirebaseDatabase.instance.ref();
 
-  // DataBase({uid});
+  DataBase({uid});
 
   // String uid = '';
 
@@ -27,18 +27,16 @@ class DataBase {
       {
         'uid': user.uid,
         'email': user.email,
-        //TODO removed user. from userName and name
         'userName': userName,
         'name': legalName,
+        'bio': "Write about yourself.",
+        'banner': " ",
         'profile_pic':
             "https://mediastudies.ugis.berkeley.edu/wp-content/themes/sydney-pro-child/images/user-default.png",
-        // 'username': username,
-        //add as many attributes as you want
       },
     );
   }
 
-  // ignore: missing_return
   Future<MyAppUser?> getUserData(User user) async {
     MyAppUser? myAppUser;
 
@@ -181,36 +179,13 @@ class DataBase {
 
     postMap.forEach(
       (key, product) {
-        // print(product);
         productList.add(
           new Product.fromjson(product),
         );
-        // print("added product");
-        // print(productList);
-        // print(product);
       },
     );
 
     return productList;
-
-    // final Map<dynamic, dynamic> postMap = snapshot.data.snapshot.value;
-
-    // postMap.forEach(
-    //   (key, value) {
-    //     postList.add(
-    //       Product(
-    //         userId: value['userId'],
-    //         imageUrl: value['imageUrl'],
-    //         description: value['description'],
-    //         releaseDate: value['release_date'],
-    //         shoeSize: value['shoeSize'],
-    //         colorWay: value['colorway'],
-    //         productName: value['productName'],
-    //       ),
-    //     );
-    //   },
-    // );
-    // return postList;
   }
 
   Future<List<Product>> getGlobalProducts() async {
@@ -235,14 +210,6 @@ class DataBase {
   }
 
   Future<int> getProductLength() async {
-    // String user = await AuthService().currentUser();
-    //TODO Made a change to the lengthReference connection "child('users').child(user).child('posts')"
-    // final lengthReference =
-    //     connection.child('users').child(user).child('posts');
-    // int postLength =
-    //     await lengthReference.once().then((value) => value.b );
-    // return postLength.bitLength;
-
     List<Product> postList = [];
     String user = await AuthService().currentUser();
 
@@ -321,19 +288,6 @@ class DataBase {
         'name': "${legalName}",
       },
     );
-
-    // Future<void> setProfilePic({String? imageUrl}) async {
-    //   String user = await AuthService().currentUser();
-
-    //   print("Set Profile");
-    //   print(user);
-
-    //   final profileRef =
-    //       connection.child('users').child(user).child("profile_pic");
-    //   profileRef.update({
-    //     'profile_pic': imageUrl,
-    //   });
-    // }
   }
 
   Future<void> saveProfilePic({imageUrl}) async {
@@ -341,8 +295,6 @@ class DataBase {
 
     print("SAVINGGG PROFILE");
     print(imageUrl);
-
-    // String postId = Uuid().v1();
 
     final profileRef = connection.child('users').child(user);
 
@@ -353,14 +305,78 @@ class DataBase {
     );
   }
 
+  Future<void> saveProfileBanner({imageUrl}) async {
+    String user = await AuthService().currentUser();
+
+    print("SAVINGGG PROFILE");
+    print(imageUrl);
+
+    final profileRef = connection.child('users').child(user);
+
+    await profileRef.update(
+      {
+        'banner': imageUrl,
+      },
+    );
+  }
+
+  Future<String> getbio() async {
+    String user = await AuthService().currentUser();
+    //TODO changed bio
+
+    var bio;
+
+    final bioRef = connection.child('users').child(user);
+
+    final userEventRef = await bioRef.once(DatabaseEventType.value);
+
+    var data = userEventRef.snapshot.value as Map;
+
+    bio = data['bio'];
+
+    return bio;
+  }
+
+  Future<String> getUsername() async {
+    String user = await AuthService().currentUser();
+    //TODO changed bio
+
+    var userName;
+
+    final userNameRef = connection.child('users').child(user);
+
+    final userEventRef = await userNameRef.once(DatabaseEventType.value);
+
+    var data = userEventRef.snapshot.value as Map;
+
+    userName = data['userName'];
+
+    return userName;
+  }
+
+  Future<String> getLegalName() async {
+    String user = await AuthService().currentUser();
+    //TODO changed bio
+
+    var legalName;
+
+    final userNameRef = connection.child('users').child(user);
+
+    final userEventRef = await userNameRef.once(DatabaseEventType.value);
+
+    var data = userEventRef.snapshot.value as Map;
+
+    legalName = data['name'];
+
+    return legalName;
+  }
+
   Future<String> getProfilePic() async {
     String user = await AuthService().currentUser();
 
     var url;
 
     print("SAVINGGG PROFILE");
-
-    // String postId = Uuid().v1();
 
     final profileRef = connection.child('users').child(user);
 
@@ -369,6 +385,25 @@ class DataBase {
     var data = profileEventRef.snapshot.value as Map;
 
     url = data['profile_pic'];
+    print(url);
+
+    return url;
+  }
+
+  Future<String> getProfileBanner() async {
+    String user = await AuthService().currentUser();
+
+    var url;
+
+    print("SAVINGGG PROFILE");
+
+    final profileRef = connection.child('users').child(user);
+
+    final profileEventRef = await profileRef.once(DatabaseEventType.value);
+
+    var data = profileEventRef.snapshot.value as Map;
+
+    url = data['banner'];
     print(url);
 
     return url;

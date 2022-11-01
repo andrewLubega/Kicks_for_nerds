@@ -97,7 +97,6 @@ class _PostsUploadPageState extends State<PostsUploadPage> {
 
   //   String date = formatDate.format(dbTimeKey);
   //   String time = formtTime.format(dbTimeKey);
-
   //   DatabaseReference ref = FirebaseDatabase.instance.reference();
 
   //   var data = {

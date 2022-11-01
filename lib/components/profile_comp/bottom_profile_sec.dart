@@ -24,42 +24,11 @@ class _BottomProfileSecState extends State<BottomProfileSec> {
     return FutureBuilder<List<Product>>(
       future: DataBase().getProduct(),
       builder: (context, AsyncSnapshot snapshot) {
-        // List productList = snapshot.data;
-
-        // print(snapshot.data);
-
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SliverToBoxAdapter(
-            child: LoadingPage(),
+            child: Container(),
           );
-
-          // return SliverPadding(
-          //   padding: EdgeInsets.fromLTRB(
-          //     24,
-          //     12,
-          //     24,
-          //     12,
-          //   ),
-          //   sliver: SliverGrid(
-          //     delegate: SliverChildBuilderDelegate(
-          //       (BuildContext context, int index) {
-          //         // Product product = snapshot.data[index];
-
-          //         return LoadingPage();
-          //       },
-          //       childCount: 1,
-          //     ),
-          //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 3,
-          //       mainAxisSpacing: 12,
-          //       crossAxisSpacing: 12,
-          //       childAspectRatio: 1,
-          //     ),
-          //   ),
-          // );
         } else if (snapshot.hasData) {
-          // List productList = snapshot.data;
-
           return SliverPadding(
             padding: EdgeInsets.fromLTRB(
               24,
@@ -87,70 +56,8 @@ class _BottomProfileSecState extends State<BottomProfileSec> {
             ),
           );
         }
-
         return Container();
       },
     );
-    // return GridView.builder(
-    //   physics: NeverScrollableScrollPhysics(),
-    //   scrollDirection: Axis.vertical,
-    //   shrinkWrap: true,
-    //   itemCount: 3,
-    //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 12,
-    //     mainAxisSpacing: 12,
-    //   ),
-    //   itemBuilder: (context, index) {
-    //     const PostBlock();
-    //   },
-    // );
-
-    // return CustomScrollView(()
-    //   shrinkWrap: true,
-    //   slivers: [
-    //     GridView.count(
-    //       shrinkWrap: true,
-    //       padding: EdgeInsets.zero,
-    //       scrollDirection: Axis.vertical,
-    //       addAutomaticKeepAlives: true,
-    //       addRepaintBoundaries: true,
-    //       physics: BouncingScrollPhysics(
-    //         parent: NeverScrollableScrollPhysics(),
-    //       ),
-    //       crossAxisCount: 9,
-    //       crossAxisSpacing: 12,
-    //       mainAxisSpacing: 12,
-    //       children: List.generate(
-    //         3,
-    //         (index) => PostBlock(),
-    //       ),
-    //     ),
-    //   ],
-    // );
-    // return Padding(
-    //   padding: const EdgeInsets.fromLTRB(
-    //     24,
-    //     12,
-    //     24,
-    //     24,
-    //   ),
-    //   child: GridView.count(
-    //     shrinkWrap: true,
-    //     padding: EdgeInsets.zero,
-    //     scrollDirection: Axis.vertical,
-    //     addAutomaticKeepAlives: true,
-    //     addRepaintBoundaries: true,
-    //     physics: BouncingScrollPhysics(
-    //       parent: NeverScrollableScrollPhysics(),
-    //     ),
-    //     crossAxisCount: 9,
-    //     crossAxisSpacing: 12,
-    //     mainAxisSpacing: 12,
-    //     children: List.generate(
-    //       3,
-    //       (index) => PostBlock(),
-    //     ),
-    //   ),
-    // );
   }
 }

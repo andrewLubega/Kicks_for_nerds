@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:kicks_for_nerds/models/MyAppUser.dart';
@@ -51,12 +49,6 @@ class AuthService {
   Future<void> signOutFirebaseUser() async {
     await _auth.signOut();
 
-    // try {
-    //   await _auth.signOut();
-    // } catch (e) {
-    //   print(e.toString());
-    //   return null;
-    // }
   }
 
   //TODO here

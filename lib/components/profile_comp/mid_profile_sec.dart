@@ -13,12 +13,13 @@ class MidProfileSec extends StatefulWidget {
 class _MidProfileSecState extends State<MidProfileSec> {
   @override
   Widget build(BuildContext context) {
-    return Padding( 
+    return Padding(
       padding: const EdgeInsets.only(
         top: 8,
       ),
       child: Container(
-        height: 97,
+        // TODO change height back to 97 later
+        height: 47.5,
         width: double.infinity,
         // color: Colors.grey,
         child: Column(
@@ -33,21 +34,22 @@ class _MidProfileSecState extends State<MidProfileSec> {
             //     SmallButton(title: "Message"),
             //   ],
             // ),
-            Container(
-              width: double.infinity,
-              height: 70,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, int index) => StoryFrame(
-                  storyImage: 'images/ttc.png',
-                ),
-                separatorBuilder: (context, int index) => SizedBox(
-                  height: 40,
-                  width: 24,
-                ),
-                itemCount: 20,
-              ),
-            ),
+            //TODO uncomment later.
+            // Container(
+            //   width: double.infinity,
+            //   height: 70,
+            //   child: ListView.separated(
+            //     scrollDirection: Axis.horizontal,
+            //     itemBuilder: (context, int index) => StoryFrame(
+            //       storyImage: 'images/ttc.png',
+            //     ),
+            //     separatorBuilder: (context, int index) => SizedBox(
+            //       height: 40,
+            //       width: 24,
+            //     ),
+            //     itemCount: 20,
+            //   ),
+            // ),
             MidProfileIconNav(),
           ],
         ),

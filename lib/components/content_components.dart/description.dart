@@ -80,8 +80,11 @@ class _DescTxtState extends State<DescTxt> {
               fontSize: kFontSize14,
             ),
           ),
+          SizedBox(
+            width: 5,
+          ),
           Text(
-            "${widget.info}:",
+            "${widget.info}",
             softWrap: true,
             textAlign: TextAlign.left,
             style: TextStyle(

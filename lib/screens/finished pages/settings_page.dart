@@ -107,12 +107,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       top: 12.0,
                     ),
                     child: BiggerButton(
-                      title: 'Handle',
+                      title: 'Name',
                       onPressed: () {
                         setState(() {
                           Navigator.pushNamed(
                             context,
-                            '/Name',
+                            '/name',
                           );
                         });
                       },
@@ -170,8 +170,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     child: BiggerButton(
                       title: 'Banner',
-                      onPressed: () async {
-                        getImageGallery();
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/banner',
+                        );
                       },
                     ),
                   ),

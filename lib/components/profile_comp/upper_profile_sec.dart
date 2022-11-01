@@ -20,16 +20,52 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
       children: [
         Stack(
           children: [
-            Container(
-              width: double.infinity,
-              height: 203,
-              decoration: BoxDecoration(
-                // TODO implement banner functionality later
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(
-                  24,
-                ),
-              ),
+            FutureBuilder(
+              future: DataBase().getProfileBanner(),
+              builder: (context, AsyncSnapshot snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Container(
+                    width: double.infinity,
+                    height: 203,
+                    decoration: BoxDecoration(
+                      // TODO implement banner functionality later
+                      color: kBaseWidgetColor,
+                      borderRadius: BorderRadius.circular(
+                        24,
+                      ),
+                    ),
+                  );
+                } else if (snapshot.hasData) {
+                  return Container(
+                    width: double.infinity,
+                    height: 203,
+                    decoration: BoxDecoration(
+                      // TODO implement banner functionality later
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: NetworkImage(
+                          snapshot.data,
+                        ),
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        24,
+                      ),
+                    ),
+                  );
+                }
+
+                return Container(
+                  width: double.infinity,
+                  height: 203,
+                  decoration: BoxDecoration(
+                    // TODO implement banner functionality later
+                    color: kBaseWidgetColor,
+                    borderRadius: BorderRadius.circular(
+                      24,
+                    ),
+                  ),
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(
@@ -162,27 +198,28 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        48,
-                        50,
-                        48,
-                        0,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FollowCount(
-                            titleCount: 0,
-                            title: "Followers",
-                          ),
-                          FollowCount(
-                            titleCount: 0,
-                            title: "Following",
-                          ),
-                        ],
-                      ),
-                    ),
+                    //TODO uncomment followers and following button count
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(
+                    //     48,
+                    //     50,
+                    //     48,
+                    //     0,
+                    //   ),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       FollowCount(
+                    //         titleCount: 0,
+                    //         title: "Followers",
+                    //       ),
+                    //       FollowCount(
+                    //         titleCount: 0,
+                    //         title: "Following",
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -196,29 +233,86 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
             ),
             child: Column(
               children: [
-                Text(
-                  FirebaseAuth.instance.currentUser!.displayName.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: kLightModeFont,
-                    fontFamily: kRoboto,
-                    fontSize: kFontSize18,
-                    fontWeight: kBoldTxt,
-                  ),
+                FutureBuilder(
+                  future: DataBase().getLegalName(),
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Text(
+                        "Name",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: kLightModeFont,
+                          fontFamily: kRoboto,
+                          fontSize: kFontSize18,
+                          fontWeight: kBoldTxt,
+                        ),
+                      );
+                    } else if (snapshot.hasData) {
+                      return Text(
+                        snapshot.data,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: kLightModeFont,
+                          fontFamily: kRoboto,
+                          fontSize: kFontSize18,
+                          fontWeight: kBoldTxt,
+                        ),
+                      );
+                    }
+
+                    return Text(
+                      "Name",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: kLightModeFont,
+                        fontFamily: kRoboto,
+                        fontSize: kFontSize18,
+                        fontWeight: kBoldTxt,
+                      ),
+                    );
+                  },
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 12,
                   ),
-                  child: Text(
-                    "bio",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: kLightModeFont,
-                      fontFamily: kRoboto,
-                      fontSize: kFontSize12,
-                      fontWeight: kLightTxt,
-                    ),
+                  child: FutureBuilder(
+                    future: DataBase().getbio(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Text(
+                          "bio",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: kLightModeFont,
+                            fontFamily: kRoboto,
+                            fontSize: kFontSize12,
+                            fontWeight: kLightTxt,
+                          ),
+                        );
+                      } else if (snapshot.hasData) {
+                        return Text(
+                          snapshot.data,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: kLightModeFont,
+                            fontFamily: kRoboto,
+                            fontSize: kFontSize12,
+                            fontWeight: kLightTxt,
+                          ),
+                        );
+                      }
+                      return Text(
+                        "bio",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: kLightModeFont,
+                          fontFamily: kRoboto,
+                          fontSize: kFontSize12,
+                          fontWeight: kLightTxt,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

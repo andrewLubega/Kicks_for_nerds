@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kicks_for_nerds/assets/constants.dart';
 
+import '../../services/database.dart';
+
 class NavBar extends StatefulWidget {
   const NavBar({
     Key? key,
@@ -88,18 +90,18 @@ class _NavBarState extends State<NavBar> {
                   height: kNavIconImageHeight,
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/srch',
-                  );
-                },
-                child: Image.asset(
-                  'images/search_icon.png',
-                  height: kNavIconImageHeight,
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.pushNamed(
+              //       context,
+              //       '/srch',
+              //     );
+              //   },
+              //   child: Image.asset(
+              //     'images/search_icon.png',
+              //     height: kNavIconImageHeight,
+              //   ),
+              // ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(
@@ -114,28 +116,105 @@ class _NavBarState extends State<NavBar> {
                   height: kNavIconImageHeight,
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/dms',
-                  );
-                },
-                child: Image.asset(
-                  'images/dm_icon.png',
-                  height: kNavIconImageHeight,
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/profile',
-                  );
-                },
-                child: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: Colors.white,
+              // GestureDetector(
+              //   onTap: () {
+              //     Navigator.pushNamed(
+              //       context,
+              //       '/dms',
+              //     );
+              //   },
+              //   child: Image.asset(
+              //     'images/dm_icon.png',
+              //     height: kNavIconImageHeight,
+              //   ),
+              // ),
+
+              Container(
+                height: 20,
+                width: 20,
+                child: ClipOval(
+                  child: FutureBuilder(
+                    future: DataBase().getProfilePic(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/profile',
+                            );
+                          },
+                          child: Image(
+                            image: NetworkImage(
+                              "https://mediastudies.ugis.berkeley.edu/wp-content/themes/sydney-pro-child/images/user-default.png",
+                              scale: .5,
+                            ),
+                          ),
+                        );
+
+                        // decoration: BoxDecoration(
+                        //   image: DecorationImage(
+                        //     scale: .2,
+                        //     fit: BoxFit.fill,
+                        //     image: NetworkImage(
+                        //       "https://mediastudies.ugis.berkeley.edu/wp-content/themes/sydney-pro-child/images/user-default.png",
+                        //     ),
+                        //   ),
+                        //   borderRadius: BorderRadius.circular(
+                        //     10,
+                        //   ),
+                        //   border: Border.all(
+                        //     width: 2,
+                        //     color: Colors.white,
+                        //     style: BorderStyle.solid,
+                        //   ),
+                        // ),
+
+                      } else if (snapshot.hasData) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/profile',
+                            );
+                          },
+                          child: Container(
+                            height: kContainerCircRad,
+                            width: kContainerCircRad,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                  snapshot.data,
+                                ),
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ),
+                              border: Border.all(
+                                width: 2,
+                                color: Colors.white,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            '/profile',
+                          );
+                        },
+                        child: CircleAvatar(
+                          radius: 10,
+                          backgroundColor: Colors.white,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
