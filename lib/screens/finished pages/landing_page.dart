@@ -30,11 +30,14 @@ class _LandingPageState extends State<LandingPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            MyCard(
-              marginSize: kTopContentMargin,
+            SizedBox(
               height: 118,
-              baseColour: Colors.white,
             ),
+            // MyCard(
+            //   marginSize: kTopContentMargin,
+            //   height: 118,
+            //   baseColour: Colors.white,
+            // ),
             // banner
             MyCard(
               cardChild: Padding(

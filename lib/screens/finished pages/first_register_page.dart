@@ -92,7 +92,7 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 hiddenPass: false,
                 onChangedProperty: (val) {
                   setState(
-                    () => userName = val.trim(),
+                    () => userName = "@${val.trim()}",
                   );
                 },
                 txt: khandleTxt,
@@ -113,7 +113,6 @@ class _FirstRegisterPageState extends State<FirstRegisterPage> {
                 child: BiggerButton(
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-
                       print(email);
                       print(password);
                       print(legalName);

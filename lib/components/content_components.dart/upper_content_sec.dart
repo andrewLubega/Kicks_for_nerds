@@ -41,7 +41,38 @@ class _UpperContentSecState extends State<UpperContentSec> {
             0,
           ),
           child: GestureDetector(
-            child: ProfileTag(),
+            // child: ProfileTag(),
+            child: Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(
+                      0x75000000,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      24,
+                    ),
+                  ),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        20,
+                        7,
+                        20,
+                        7,
+                      ),
+                      child: Text(
+                        widget.product!.userName,
+                        style: TextStyle(
+                          color: kDarkModefont,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             onTap: () {
               Navigator.pushNamed(context, '/profile');
             },

@@ -16,6 +16,8 @@ class Product {
 
   final String shoeSize;
 
+  final String userName;
+
   Product(
       {required this.imageUrl,
       required this.releaseDate,
@@ -23,6 +25,7 @@ class Product {
       required this.description,
       required this.colorWay,
       required this.shoeSize,
+      required this.userName,
       required String userId});
 
   factory Product.fromjson(json) {
@@ -34,6 +37,7 @@ class Product {
       colorWay: json['colorway'],
       shoeSize: json['shoeSize'],
       userId: json['userUid'],
+      userName: json['userName'],
     );
   }
 }

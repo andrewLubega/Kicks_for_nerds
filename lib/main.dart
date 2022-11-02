@@ -9,23 +9,24 @@ import 'package:kicks_for_nerds/screens/empty%20pages/cam_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/message_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/store_page.dart';
 import 'package:kicks_for_nerds/screens/empty%20pages/tagged_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/LegalName_update.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/banner_upload_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/bio_update_page.dart';
 
 import 'package:kicks_for_nerds/screens/finished%20pages/landing_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/login_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/first_register_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/loading_page.dart';
+import 'package:kicks_for_nerds/screens/finished%20pages/product_upload.dart';
 
 import 'package:kicks_for_nerds/screens/finished%20pages/second_register_page.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/forgot_password.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/settings_page.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/LegalName_update.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/banner_upload_page.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/bio_update_page.dart';
+
 import 'package:kicks_for_nerds/screens/working%20pages/content_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Home_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/Search_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/dms_page.dart';
-import 'package:kicks_for_nerds/screens/working%20pages/product_upload.dart';
 import 'package:kicks_for_nerds/screens/finished%20pages/profile_pic_upload_page.dart';
 import 'package:kicks_for_nerds/screens/working%20pages/username_update_page.dart';
 

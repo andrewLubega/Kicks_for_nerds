@@ -105,10 +105,10 @@ class _LoginPageState extends State<LoginPage> {
                   buttonHeight: vNormalButtonHeight,
                 ),
               ),
-              UnderButtonTxt(
-                txt: 'Forgot password?',
-                routeName: '/forgot',
-              ),
+              // UnderButtonTxt(
+              //   txt: 'Forgot password?',
+              //   routeName: '/forgot',
+              // ),
               SizedBox(
                 height: 134,
               ),

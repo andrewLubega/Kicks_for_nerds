@@ -106,7 +106,7 @@ class _NavBarState extends State<NavBar> {
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    '/upload',
+                    '/posts',
                   );
                   print('success');
                   // getImageGallery();

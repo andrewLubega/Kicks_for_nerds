@@ -56,9 +56,6 @@ class DataBase {
   Future<void> saveStory({required String imageUrl}) async {
     String user = await AuthService().currentUser();
 
-    print("SAVINGGG STORY");
-    print(user);
-
     String storyId = Uuid().v1();
 
     final globalStoryRef =
@@ -83,9 +80,6 @@ class DataBase {
     final List<Story> storyList = [];
     final Map<dynamic, dynamic> storyMap = snapshot.data;
 
-    print("GOT STORY");
-    print(user);
-
     storyMap.forEach(
       (key, value) {
         storyList.add(
@@ -106,9 +100,6 @@ class DataBase {
     final List<Story> globalStoryList = [];
     final Map<dynamic, dynamic> storyMap = snapshot.data;
 
-    print("GOT STORY");
-    print(user);
-
     storyMap.forEach((key, value) {
       globalStoryList.add(
         Story(
@@ -122,6 +113,7 @@ class DataBase {
   }
 
   Future<void> savePost({
+    // price,
     releaseDate,
     productName,
     description,
@@ -131,14 +123,21 @@ class DataBase {
   }) async {
     String user = await AuthService().currentUser();
 
-    print("SAVINGGG POST");
-    print(user);
-
     String postId = Uuid().v1();
 
-    final gloablPostRef =
+    var userName;
+
+    final userNameRef = connection.child('users').child(user);
+
+    final userEventRef = await userNameRef.once(DatabaseEventType.value);
+
+    var data = userEventRef.snapshot.value as Map;
+
+    userName = data['userName'];
+
+    final globalPostRef =
         connection.child('global').child('posts').child(postId);
-    gloablPostRef.set(
+    globalPostRef.set(
       {
         'userUid': user,
         'release_date': releaseDate,
@@ -147,6 +146,8 @@ class DataBase {
         'colorway': colorway,
         'shoeSize': shoeSize,
         'imageUrl': imageUrl,
+        'userName': userName,
+        // 'price': price,
       },
     );
 
@@ -161,6 +162,8 @@ class DataBase {
         'colorway': colorway,
         'shoeSize': shoeSize,
         'imageUrl': imageUrl,
+        'userName': userName,
+        // 'price': price,
       },
     );
   }
@@ -197,7 +200,6 @@ class DataBase {
 
     postMap.forEach(
       (key, product) {
-        // print("added");
         globalProductList.add(
           Product.fromjson(product),
         );
@@ -219,15 +221,11 @@ class DataBase {
 
     postMap.forEach(
       (key, product) {
-        // print("added");
         postList.add(
           Product.fromjson(product),
         );
       },
     );
-
-    print(postList.length.toInt().toString());
-    print("post length ^");
 
     return postList.length;
   }
@@ -271,6 +269,42 @@ class DataBase {
     String user = await AuthService().currentUser();
     //TODO changed userNames to userName
     final userNameRef = connection.child('users').child(user);
+
+    // final userNameRef_2 = connection.child('users').child(user).child('posts');
+
+    // final userNameRef_Global = connection.child('global').child('posts');
+
+    // final userNameRef_2_Event =
+    //     await userNameRef_2.once(DatabaseEventType.value);
+
+    // final userNameRef_GlobalEvent =
+    //     await userNameRef_Global.once(DatabaseEventType.value);
+
+    // final Map userNameRefMap = userNameRef_2_Event.snapshot.value as Map;
+
+    // final Map userNameRef_GlobalMap =
+    //     userNameRef_GlobalEvent.snapshot.value as Map;
+
+    // userNameRefMap.forEach(
+    //   (key, value) {
+    //     value.update(
+    //       {
+    //         'userName': "@${userName}",
+    //       },
+    //     );
+    //   },
+    // );
+
+    // userNameRef_GlobalMap.forEach(
+    //   (key, value) {
+    //     value.update(
+    //       {
+    //         'userName': "@${userName}",
+    //       },
+    //     );
+    //   },
+    // );
+
     userNameRef.update(
       {
         'userName': "@${userName}",
@@ -291,9 +325,6 @@ class DataBase {
   Future<void> saveProfilePic({imageUrl}) async {
     String user = await AuthService().currentUser();
 
-    print("SAVINGGG PROFILE");
-    print(imageUrl);
-
     final profileRef = connection.child('users').child(user);
 
     await profileRef.update(
@@ -305,9 +336,6 @@ class DataBase {
 
   Future<void> saveProfileBanner({imageUrl}) async {
     String user = await AuthService().currentUser();
-
-    print("SAVINGGG PROFILE");
-    print(imageUrl);
 
     final profileRef = connection.child('users').child(user);
 
@@ -374,8 +402,6 @@ class DataBase {
 
     var url;
 
-    print("SAVINGGG PROFILE");
-
     final profileRef = connection.child('users').child(user);
 
     final profileEventRef = await profileRef.once(DatabaseEventType.value);
@@ -383,7 +409,6 @@ class DataBase {
     var data = profileEventRef.snapshot.value as Map;
 
     url = data['profile_pic'];
-    print(url);
 
     return url;
   }
@@ -393,8 +418,6 @@ class DataBase {
 
     var url;
 
-    print("SAVINGGG PROFILE");
-
     final profileRef = connection.child('users').child(user);
 
     final profileEventRef = await profileRef.once(DatabaseEventType.value);
@@ -402,14 +425,11 @@ class DataBase {
     var data = profileEventRef.snapshot.value as Map;
 
     url = data['banner'];
-    print(url);
 
     return url;
   }
 
   Future<void> updateStoryDisplay({imageUrl}) async {
-    print("UPDATING DISPLAY");
-
     String storyId = Uuid().v1();
 
     final globalDisplayRef =
@@ -425,8 +445,6 @@ class DataBase {
   }
 
   Future<void> updateProductDisplay({imageUrl}) async {
-    print("UPDATING DISPLAY");
-
     String postId = Uuid().v1();
 
     final globalDisplayRef =

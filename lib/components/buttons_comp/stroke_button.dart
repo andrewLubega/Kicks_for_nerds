@@ -33,8 +33,7 @@ class StrokeButtonField extends StatelessWidget {
             hintStyle: TextStyle(
               fontFamily: 'Roboto',
               fontSize: kFontSize12,
-            ), 
-           
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
             ),

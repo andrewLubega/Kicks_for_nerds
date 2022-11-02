@@ -32,11 +32,11 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                       ),
                     ),
                   );
-                } else if (snapshot.hasData) {
+                } else if (snapshot.hasData && snapshot.data != " ") {
                   return Container(
                     width: double.infinity,
                     height: 203,
-                    decoration: BoxDecoration(
+                    decoration: BoxDecoration( 
                       // TODO implement banner functionality later
                       image: DecorationImage(
                         fit: BoxFit.fill,
@@ -288,14 +288,22 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                           ),
                         );
                       } else if (snapshot.hasData) {
-                        return Text(
-                          snapshot.data,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: kLightModeFont,
-                            fontFamily: kRoboto,
-                            fontSize: kFontSize12,
-                            fontWeight: kLightTxt,
+                        return Padding(
+                          padding: const EdgeInsets.fromLTRB(
+                            75,
+                            0,
+                            75,
+                            0,
+                          ),
+                          child: Text(
+                            snapshot.data,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: kLightModeFont,
+                              fontFamily: kRoboto,
+                              fontSize: kFontSize12,
+                              fontWeight: kLightTxt,
+                            ),
                           ),
                         );
                       }

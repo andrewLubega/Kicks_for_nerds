@@ -5,10 +5,6 @@ import 'package:kicks_for_nerds/assets/constants.dart';
 import 'package:kicks_for_nerds/services/database.dart';
 
 class ProfileTag extends StatefulWidget {
-  const ProfileTag({
-    Key? key,
-  }) : super(key: key);
-
   @override
   _ProfileTagState createState() => _ProfileTagState();
 }
