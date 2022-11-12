@@ -36,7 +36,7 @@ class _UpperProfileSecState extends State<UpperProfileSec> {
                   return Container(
                     width: double.infinity,
                     height: 203,
-                    decoration: BoxDecoration( 
+                    decoration: BoxDecoration(
                       // TODO implement banner functionality later
                       image: DecorationImage(
                         fit: BoxFit.fill,

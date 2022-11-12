@@ -85,7 +85,7 @@ class _DescTxtState extends State<DescTxt> {
           ),
           Text(
             "${widget.info}",
-            softWrap: true,
+            softWrap: false,
             textAlign: TextAlign.left,
             style: TextStyle(
               color: kDarkModefont,
@@ -93,6 +93,7 @@ class _DescTxtState extends State<DescTxt> {
               fontWeight: kRegularTxt,
               fontSize: kFontSize14,
             ),
+            maxLines: 5,
           ),
         ],
       ),
